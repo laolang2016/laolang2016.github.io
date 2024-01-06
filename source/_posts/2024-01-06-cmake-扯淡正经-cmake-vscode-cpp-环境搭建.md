@@ -15,11 +15,130 @@ categories:
 cmake 扯淡正经 - cmake + vscode c++ 环境搭建
 <!--more-->
 
-# 说明
+# 总览
+## 说明
 只考虑 `Linux` 环境, 准确的说, 是 `Ubuntu`
 
-# 代码地址
-[https://gitcode.com/m0_53402432/cmake-guide/tree/main/cpp-hello](https://gitcode.com/m0_53402432/cmake-guide/tree/main/cpp-hello)
+## 代码地址
+[https://gitcode.com/m0_53402432/cmake-guide/tree/cpp-hello-v1.0](https://gitcode.com/m0_53402432/cmake-guide/tree/cpp-hello-v1.0)
+
+## v1.0 实现功能
+1. vscode 状态栏一键运行、重新构建、格式化、生成`doxygen`文档、运行测试
+2. 上述功能均有脚本支持
+3. 使用 `vcpkg` 管理依赖
+4. 使用 `ninja` + `clang++` 编译
+
+## vscode 插件列表
+> 在 `.vscode/extensions.json` 中添加如下内容
+```json
+{
+    "recommendations": [
+        "xaver.clang-format",
+        "josetr.cmake-language-support-vscode",
+        "spencerwmiles.vscode-task-buttons",
+        "spmeesseman.vscode-taskexplorer",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "vadimcn.vscode-lldb",
+        "cschlosser.doxdocgen"
+    ]
+}
+```
+
+打开扩展市场,筛选推荐即可看到所有需要的插件列表
+
+![](/images/2024-01-06-cmake-扯淡正经-cmake-vscode-cpp-环境搭建/008.png)
+
+## 目录结构说明
+```shell
+├── build |-> 构建目录
+│   ├── gnu-debug |->  gnu make + gnu g++ debug 构建
+│   ├── gnu-release |->gnu make + gnu g++ release 构建
+│   ├── ninja-debug |-> ninja + clang++ debug 构建
+│   └── ninja-release |-> ninja + clang++ release 构建
+├── CMakeLists.txt |-> cmake 脚本
+├── CMakePresets.json |-> cmake presets 配置文件
+├── coverage.sh |-> 一键执行清理、编译、运行所有测试、生成测试覆盖率报告
+├── cpp_hello_configuration.h.in |-> 项目配置文件,此处主要用来生成版本号
+├── doc |-> doxygen 配置目录
+│   ├── delete_me.css |-> 暂未使用
+│   ├── delete_me.html |-> 暂未使用
+│   ├── Doxyfile |-> doxygen 配置文件
+│   ├── doxygen |-> doxygen 文档
+│   │   ├── desc.md |-> doxygen markdown 使用示例
+│   │   ├── env_ubuntu.md |-> 另一个doxygen markdown 使用示例
+│   │   ├── env_window.h |-> doxygen 文档
+│   │   └── mainpage.h |-> doxygen 首页
+│   ├── doxygen-awesome-css |-> 一个 doxygen 主题
+│   │   ├── doxygen-awesome.css |-> 主题样式
+│   │   ├── doxygen-awesome-fragment-copy-button.js |-> 添加复制代码按钮功能
+│   │   ├── doxygen-awesome-interactive-toc.js |-> 暂未使用
+│   │   └── doxygen-awesome-sidebar-only.css |-> 暂未使用 
+│   ├── header.html |-> 自定义 doxygen header, 主要用来添加 doxygen-awesome-css js 脚本
+│   └── images |-> 存放 doxygen 文档中的图片
+│       └── avatar.jpg |-> 一个示例图片
+├── doc.sh |-> 一键生成 doxygen 文档
+├── format.sh |-> 一键格式化代码
+├── include |-> 头文件目录
+│   └── cpp-hello
+│       ├── configuration
+│       │   ├── configuration.h
+│       │   └── version.h
+│       ├── person
+│       │   └── person.h
+│       └── util
+│           ├── common_util.h
+│           └── log_util.h
+├── resources |-> 资源文件目录
+│   └── cpp-hello |-> 一个 shell 脚本, 用来启动程序
+├── run.sh |-> 一键清理、编译、运行程序
+├── src |-> 源代码目录
+│   ├── CMakeLists.txt |->  cmake 脚本
+│   ├── configuration
+│   │   ├── CMakeLists.txt |-> cmake 脚本
+│   │   └── version.cpp
+│   ├── main |-> 主程序所在目录
+│   │   ├── CMakeLists.txt |->  cmake 脚本
+│   │   └── main.cpp |-> 主程序
+│   ├── person
+│   │   ├── CMakeLists.txt |->  cmake 脚本
+│   │   └── person.cpp
+│   └── util
+│       ├── CMakeLists.txt |->  cmake 脚本
+│       ├── common_util.cpp
+│       └── log_util.cpp
+├── test |-> 测试目录
+│   ├── CMakeLists.txt |->  cmake 脚本
+│   ├── test_common.cpp
+│   ├── testmain.cpp
+│   └── test_person.cpp
+└── third |-> 三方库目录
+    └── doctest |-> doctest
+        └── doctest.h
+```
+
+## 需要安装的软件
+```shell
+g++
+make
+pkg-config
+vcpkg
+cmake
+clang
+llvm
+doxygen
+graphviz
+```
+
+## 如何运行
+在保证所有软件和 vscode 插件都已安装之后,直接命令行执行`./run.sh`脚本,或者 vscode 打开 cpp-hello 目录,点击状态栏的按钮验证相应的功能.
+
+从到右依次是: 任务数量、格式化代码、清理所有、清理release、重新构建release、运行、运行测试(不是运行所有测试,我单独写了个测试，用来测试临时代码,可自行修改)、生成测试覆盖率报告、生产doxygen文档
+
+![](/images/2024-01-06-cmake-扯淡正经-cmake-vscode-cpp-环境搭建/009.png)
+
+
+---
+
 # 一个最简单的 cmake 项目
 ## 目录结构
 ```shell
@@ -721,6 +840,800 @@ wxWidgets: [https://wxwidgets.org/](https://wxwidgets.org/)
 2. 必须部署到服务器 npm serve 或者 nginx 均可
 3. 仓库中代码有主页示例, 相关页面示例, 文件链接示例, markdown 文件示例, 插入图片示例, 基本上比较完整了
 4. 有什么其他功能想要的, 可以直接参考 wxWidgets 的在线文档, 把源码下载下来, 仔细查看`docs/doxygen` 目录中的文件即可
+
+
+# 添加版本号文件
+
+## commit id
+
+[https://gitcode.com/m0_53402432/cmake-guide/commits/detail/409e84ecbf6b91cf6f9054ec56c8b1db47f25d6d?ref=main](https://gitcode.com/m0_53402432/cmake-guide/commits/detail/409e84ecbf6b91cf6f9054ec56c8b1db47f25d6d?ref=main)
+
+## 主要配置
+
+### cmake
+
+```
+# 项目名称和语言
+project(cpp-hello LANGUAGES CXX VERSION 0.0.1)
+
+# 配置类库
+set(lib_configuration_name configuration)
+
+# 项目配置文件
+configure_file(cpp_hello_configuration.h.in ${PROJECT_SOURCE_DIR}/include/cpp-hello/configuration/configuration.h)
+```
+
+### 添加版本号配置文件
+
+> 根目录添加 `cpp_hello_configuration.h.in`
+> cmake 会根据此文件自动生成对应的头文件
+
+```
+#ifndef _CPP_HELLO_CONFIGURATION_CONFIGURATION_H_
+#define _CPP_HELLO_CONFIGURATION_CONFIGURATION_H_
+
+#define CPP_HELLO_VERSION_MAJOR @cpp-hello_VERSION_MAJOR@
+#define CPP_HELLO_VERSION_MINOR @cpp-hello_VERSION_MINOR@
+#define CPP_HELLO_VERSION_PATCH @cpp-hello_VERSION_PATCH@
+
+#endif
+```
+
+### 如何获取版本号
+
+> 主要是将宏定义转为数字
+> 参考: [将C语言宏定义转换成字符串！](https://blog.csdn.net/happen23/article/details/50602667)
+
+**include/cpp-hello/configuration/version.h**
+```c++
+#ifndef _CPP_HELLO_CONFIGURATION_VERION_H_
+#define _CPP_HELLO_CONFIGURATION_VERION_H_
+
+#define __CPP_HELLO_VERSION_MAJOR_COPY (CPP_HELLO_VERSION_MAJOR)
+#define __CPP_HELLO_VERSION_MINOR_COPY (CPP_HELLO_VERSION_MINOR)
+#define __CPP_HELLO_VERSION_PATCH_COPY (CPP_HELLO_VERSION_PATCH)
+
+#define __CPP_HELLO_VERSION_STR(R) #R
+#define __CPP_HELLO_VERSION_STR2(R) __CPP_HELLO_VERSION_STR(R)
+
+int get_cpp_hello_version_major();
+int get_cpp_hello_version_minor();
+int get_cpp_hello_version_patch();
+
+#endif
+```
+
+**src/configuration/version.cpp**
+
+```c++
+
+
+#include "cpp-hello/configuration/version.h"
+
+#include <stdlib.h>
+
+#include "cpp-hello/configuration/configuration.h"
+
+int get_cpp_hello_version_major() {
+    return atoi(__CPP_HELLO_VERSION_STR2(CPP_HELLO_VERSION_MAJOR));
+}
+int get_cpp_hello_version_minor() {
+    return atoi(__CPP_HELLO_VERSION_STR2(CPP_HELLO_VERSION_MINOR));
+}
+int get_cpp_hello_version_patch() {
+    return atoi(__CPP_HELLO_VERSION_STR2(CPP_HELLO_VERSION_PATCH));
+}
+```
+
+## 测试
+```c++
+#include <iostream>
+#include <memory>
+
+#include "cpp-hello/configuration/version.h"
+#include "cpp-hello/person/person.h"
+#include "cpp-hello/util/log_util.h"
+#include "fmt/core.h"
+
+int main() {
+    LogUtil::init();
+    std::unique_ptr<Person> person = std::make_unique<Person>(23, "laolang");
+    dzlog_info("%s", fmt::format(person->sayHello()).c_str());
+    dzlog_info("%s", fmt::format(person->name()).c_str());
+    dzlog_info("cpp hello version major is : %d", get_cpp_hello_version_major());
+    dzlog_info("cpp hello version minor is : %d", get_cpp_hello_version_minor());
+    dzlog_info("cpp hello version patch is : %d", get_cpp_hello_version_patch());
+    return 0;
+}
+```
+
+```shell
+2024-01-06 23:12:21.144 39562 INFO [person.cpp:14] - hello world
+2024-01-06 23:12:21.144 39562 INFO [main.cpp:12] - Hello World
+2024-01-06 23:12:21.144 39562 INFO [main.cpp:13] - laolang
+2024-01-06 23:12:21.144 39562 INFO [main.cpp:14] - cpp hello version major is : 0
+2024-01-06 23:12:21.144 39562 INFO [main.cpp:15] - cpp hello version minor is : 0
+2024-01-06 23:12:21.144 39562 INFO [main.cpp:16] - cpp hello version patch is : 1
+```
+
+# presets 的使用
+
+## commit id
+
+[https://gitcode.com/m0_53402432/cmake-guide/commits/detail/1a740ca0a5b2fbc91b7b69e1215a23fac2acb7e1?ref=main](https://gitcode.com/m0_53402432/cmake-guide/commits/detail/1a740ca0a5b2fbc91b7b69e1215a23fac2acb7e1?ref=main)
+
+## 关于 preset 的参考资料
+[Cmake封神之作：cmake-presets](https://blog.csdn.net/hashkitty/article/details/124747421)
+
+[https://runebook.dev/zh/docs/cmake/manual/cmake-presets.7](https://runebook.dev/zh/docs/cmake/manual/cmake-presets.7)
+
+## 实际使用
+
+在项目中添加 `CMakePresets.json` , 内容如下
+```json
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 26,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "gnu-base",
+      "displayName": "gnu base",
+      "generator": "Unix Makefiles",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "/usr/bin/g++"
+      }
+    },
+    {
+      "name": "gnu-release",
+      "displayName": "gnu release",
+      "description": "使用 gcc 与 make 构建 release 版本",
+      "inherits": "gnu-base",
+      "binaryDir": "${sourceDir}/build/gnu-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "gnu-release-coverage",
+      "displayName": "gnu release",
+      "description": "使用 gcc 与 make 构建 release 版本",
+      "inherits": "gnu-base",
+      "binaryDir": "${sourceDir}/build/gnu-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "ENABLE_COVERAGE": "ON"
+      }
+    },
+    {
+      "name": "gnu-debug",
+      "displayName": "gnu debug",
+      "description": "使用 gcc 与 make 构建 debug 版本",
+      "inherits": "gnu-base",
+      "binaryDir": "${sourceDir}/build/gnu-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "gnu-release",
+      "configurePreset": "gnu-release"
+    },
+    {
+      "name": "gnu-release-coverage",
+      "configurePreset": "gnu-release-coverage"
+    },
+    {
+      "name": "gnu-debug",
+      "configurePreset": "gnu-debug"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "gnu-release",
+      "configurePreset": "gnu-release",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error", "stopOnFailure": true }
+    },
+    {
+      "name": "gnu-release-common",
+      "configurePreset": "gnu-release",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error", "stopOnFailure": true },
+      "filter": {
+        "include": {
+          "name": "test_common"
+        }
+      }
+    },
+    {
+      "name": "gnu-release-coverage",
+      "configurePreset": "gnu-release-coverage",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error", "stopOnFailure": true }
+    }
+  ]
+}
+```
+
+此时编译与构建过程如下
+
+```shell
+laolang@laolang-pc:~/csdn/gitcode/cmake-guide/cpp-hello$ cmake --preset=gnu-release
+Preset CMake variables:
+
+  CMAKE_BUILD_TYPE="Release"
+  CMAKE_CXX_COMPILER="/usr/bin/g++"
+
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- ENABLE_COVERAGE:OFF
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/laolang/csdn/gitcode/cmake-guide/cpp-hello/build/gnu-release
+laolang@laolang-pc:~/csdn/gitcode/cmake-guide/cpp-hello$ cmake --build --preset=gnu-release
+[  7%] Building CXX object src/configuration/CMakeFiles/configuration.dir/version.cpp.o
+[ 15%] Linking CXX shared library ../../dist/lib/libconfiguration.so
+[ 15%] Built target configuration
+[ 23%] Building CXX object src/util/CMakeFiles/util.dir/common_util.cpp.o
+[ 30%] Building CXX object src/util/CMakeFiles/util.dir/log_util.cpp.o
+[ 38%] Linking CXX shared library ../../dist/lib/libutil.so
+[ 38%] Built target util
+[ 46%] Building CXX object src/person/CMakeFiles/person.dir/person.cpp.o
+[ 53%] Linking CXX shared library ../../dist/lib/libperson.so
+[ 53%] Built target person
+[ 61%] Building CXX object src/main/CMakeFiles/cpp-hello.dir/main.cpp.o
+[ 69%] Linking CXX executable ../../dist/bin/cpp-hello
+[ 69%] Built target cpp-hello
+[ 76%] Building CXX object test/CMakeFiles/cpp-hello_test.dir/test_common.cpp.o
+[ 84%] Building CXX object test/CMakeFiles/cpp-hello_test.dir/test_person.cpp.o
+[ 92%] Building CXX object test/CMakeFiles/cpp-hello_test.dir/testmain.cpp.o
+[100%] Linking CXX executable ../dist/test/cpp-hello_test
+[100%] Built target cpp-hello_test
+laolang@laolang-pc:~/csdn/gitcode/cmake-guide/cpp-hello$ 
+```
+
+## 修改 run.sh
+```shell
+#!/bin/bash
+
+rm -rf build/gnu-release
+cmake --preset=gnu-release
+cmake --build --preset=gnu-release
+cd build/gnu-release/dist/bin && ./cpp-hello
+```
+
+## 修改 coverage.sh
+```shell
+BUILD_DIR=build/gnu-release
+rm -rf ${BUILD_DIR}
+cmake --preset=gnu-release-coverage
+cmake --build --preset=gnu-release-coverage
+ctest --preset=gnu-release-coverage
+lcov -d . -o ${BUILD_DIR}/app.info -b . -c --exclude '*/test/*' --exclude '*/src/main/*' --exclude '*/third/*' --exclude '/usr/include/*'
+genhtml ${BUILD_DIR}/app.info -o ${BUILD_DIR}/lcov -t 'cpp-hello 测试覆盖率报告'
+```
+
+# 使用 ninja 与 clang++
+
+## commid id
+
+[https://gitcode.com/m0_53402432/cmake-guide/commits/detail/c60666db8e5f4206db0943a420e47b7a506c651d?ref=main](https://gitcode.com/m0_53402432/cmake-guide/commits/detail/c60666db8e5f4206db0943a420e47b7a506c651d?ref=main)
+
+## ninja 与 clang 的安装
+
+[ubuntu 安装ninja](https://blog.csdn.net/u013171226/article/details/120971325)
+
+[Ubuntu 安装 Clang 编译器](https://blog.csdn.net/qq_18671415/article/details/101211003)
+
+## 更新 CMakePresets.json
+```json
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 26,
+    "patch": 0
+  },
+  "configurePresets": [
+    ...
+    {
+      "name": "ninja-base",
+      "displayName": "ninja base",
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_CXX_COMPILER": "/usr/bin/clang++"
+      }
+    },
+    {
+      "name": "ninja-release",
+      "displayName": "ninja release",
+      "description": "使用 ninja 与 clang++ 构建 release 版本",
+      "inherits": "ninja-base",
+      "binaryDir": "${sourceDir}/build/ninja-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "ninja-rdebug",
+      "displayName": "ninja debug",
+      "description": "使用 ninja 与 clang++ 构建 debug 版本",
+      "inherits": "ninja-base",
+      "binaryDir": "${sourceDir}/build/ninja-debug",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    ...
+    {
+      "name": "ninja-release",
+      "configurePreset": "ninja-release"
+    },
+    {
+      "name": "ninja-debug",
+      "configurePreset": "ninja-debug"
+    }
+  ],
+  "testPresets": [
+    ...
+    {
+      "name": "ninja-release",
+      "configurePreset": "ninja-release",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error", "stopOnFailure": true }
+    },
+    {
+      "name": "ninja-release-common",
+      "configurePreset": "ninja-release",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error", "stopOnFailure": true },
+      "filter": {
+        "include": {
+          "name": "test_common"
+        }
+      }
+    }
+  ]
+}
+```
+
+## 更新 run.sh
+
+```shell
+#!/bin/bash
+
+rm -rf build/ninja-release
+cmake --preset=ninja-release
+cmake --build --preset=ninja-release
+cd build/ninja-release/dist/bin && ./cpp-hello
+```
+
+## 效果
+```shell
+laolang@laolang-pc:~/csdn/gitcode/cmake-guide/cpp-hello$ ./run.sh 
+Preset CMake variables:
+
+  CMAKE_BUILD_TYPE="Release"
+  CMAKE_CXX_COMPILER="/usr/bin/clang++"
+
+-- The CXX compiler identification is Clang 14.0.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- ENABLE_COVERAGE:OFF
+-- Configuring done (0.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/laolang/csdn/gitcode/cmake-guide/cpp-hello/build/ninja-release
+[1/16] Building CXX object src/configuration/CMakeFiles/configuration.dir/version.cpp.o
+[2/16] Linking CXX shared library dist/lib/libconfiguration.so.1.0
+[3/16] Creating library symlink dist/lib/libconfiguration.so.1 dist/lib/libconfiguration.so
+[4/16] Building CXX object src/util/CMakeFiles/util.dir/common_util.cpp.o
+[5/16] Building CXX object src/util/CMakeFiles/util.dir/log_util.cpp.o
+[6/16] Linking CXX shared library dist/lib/libutil.so.1.0
+[7/16] Creating library symlink dist/lib/libutil.so.1 dist/lib/libutil.so
+[8/16] Building CXX object test/CMakeFiles/cpp-hello_test.dir/test_person.cpp.o
+[9/16] Building CXX object src/person/CMakeFiles/person.dir/person.cpp.o
+[10/16] Building CXX object src/main/CMakeFiles/cpp-hello.dir/main.cpp.o
+[11/16] Linking CXX shared library dist/lib/libperson.so.1.0
+[12/16] Creating library symlink dist/lib/libperson.so.1 dist/lib/libperson.so
+[13/16] Building CXX object test/CMakeFiles/cpp-hello_test.dir/test_common.cpp.o
+[14/16] Linking CXX executable dist/bin/cpp-hello
+[15/16] Building CXX object test/CMakeFiles/cpp-hello_test.dir/testmain.cpp.o
+[16/16] Linking CXX executable dist/test/cpp-hello_test
+2024-01-07 02:03:06.145 51683 INFO [person.cpp:14] - hello world
+2024-01-07 02:03:06.145 51683 INFO [main.cpp:12] - Hello World
+2024-01-07 02:03:06.145 51683 INFO [main.cpp:13] - laolang
+2024-01-07 02:03:06.145 51683 INFO [main.cpp:14] - cpp hello version major is : 0
+2024-01-07 02:03:06.145 51683 INFO [main.cpp:15] - cpp hello version minor is : 0
+2024-01-07 02:03:06.145 51683 INFO [main.cpp:16] - cpp hello version patch is : 1
+laolang@laolang-pc:~/csdn/gitcode/cmake-guide/cpp-hello$ 
+```
+
+## 更新 vscode 配置
+
+### 说明
+
+> **release 模式使用 `ninja` + `clang++`**
+> **debug 模式使用 `gnu make` + `g++`, 主要原因是 debug 时侧边栏可以很方便的查看对象中的内容**
+> 同时需要修改 `settings.json` 中 `compile_commands.json` 的位置, 否则 `vscode` 会一直报错
+
+### tasks.json
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        // debug 构建
+        {
+            "label": "build-debug",
+            "type": "shell",
+            "command": "cmake --preset=gnu-debug && cmake --build --preset=gnu-debug"
+        },
+        // release 构建
+        {
+            "label": "build-release",
+            "type": "shell",
+            "command": "cmake --preset=ninja-release && cmake --build --preset=ninja-release"
+        },
+        // 清理 debug
+        {
+            "label": "clean-debug",
+            "type": "shell",
+            "command": "rm -rf build/gnu-debug"
+        },
+        // 清理 release
+        {
+            "label": "clean-release",
+            "type": "shell",
+            "command": "rm -rf build/ninja-release"
+        },
+        // 清理 所有
+        {
+            "label": "clean-all",
+            "type": "shell",
+            "command": "rm -rf build"
+        },
+        // 重新 debug 构建
+        {
+            "label": "rebuild-debug",
+            "type": "shell",
+            "dependsOn": [
+                "clean-debug",
+                "build-debug"
+            ]
+        },
+        // 重新 release 构建
+        {
+            "label": "rebuild-release",
+            "type": "shell",
+            "dependsOn": [
+                "clean-release",
+                "build-release"
+            ]
+        },
+        // 运行 debug
+        {
+            "label": "run-debug",
+            "type": "shell",
+            "command": "cd build/gnu-debug/dist/bin && ./cpp-hello",
+            "dependsOn": [
+                "build-debug"
+            ]
+        },
+        // 运行 release
+        {
+            "label": "run-release",
+            "type": "shell",
+            "command": "cd build/ninja-release/dist/bin && ./cpp-hello",
+            "dependsOn": [
+                "build-release"
+            ]
+        },
+        // format
+        {
+            "label": "format",
+            "type": "shell",
+            "command": "./format.sh"
+        },
+        {
+            "label": "coverage",
+            "type": "shell",
+            "command": "./coverage.sh",
+        },
+        // 运行 test common
+        {
+            "label": "run-test-common",
+            "type": "shell",
+            "command": "cd build/ninja-release/dist/test && ./cpp-hello_test",
+            "dependsOn": [
+                "build-release"
+            ]
+        },
+        {
+            "label": "doc",
+            "type": "shell",
+            "command": "./doc.sh",
+        }
+    ]
+}
+```
+
+### launch.json
+```json
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "app",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/gnu-debug/dist/bin/cpp-hello",
+            "args": [],
+            "cwd": "${workspaceFolder}/build/gnu-debug/dist/bin",
+            "preLaunchTask": "build-debug"
+        },
+        {
+            "name": "test",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/gnu-debug/dist/test/cpp-hello_test",
+            "args": [],
+            "cwd": "${workspaceFolder}/build/gnu-debug/dist/test",
+            "preLaunchTask": "build-debug"
+        }
+    ]
+}
+```
+
+### settings.json
+> 主要修改了 `compile_commands.json` 的位置
+```
+//compile_commands.json目录位置
+"--compile-commands-dir=build/ninja-release",
+```
+
+# 使用 vcpkg 管理依赖包
+
+## commit id
+
+[https://gitcode.com/m0_53402432/cmake-guide/commits/detail/d9413f8c5fcda9cb0d2f520a62da9313e575a42e?ref=main](https://gitcode.com/m0_53402432/cmake-guide/commits/detail/d9413f8c5fcda9cb0d2f520a62da9313e575a42e?ref=main)
+
+## vcpkg 快速上手
+
+### 安装
+
+**参考:**
+
+[在Ubuntu 22.04 LTS 上安装微软VCPKG库管理软件](https://blog.csdn.net/qq_46000760/article/details/125005001)
+[bullet安装之——Ubuntu中安装vcpkg](https://blog.csdn.net/m0_43436602/article/details/104563093)
+
+> **注意:是否全局安装根据自己的需要选择,本文没有全局安装**
+
+安装命令
+
+```shell
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+./bootstrap-vcpkg.sh
+```
+
+### cmake + vcpkg + fmt demo
+**参考**
+
+[vscode + cmake + vcpkg搭建c++开发环境](https://zhuanlan.zhihu.com/p/430835667)
+
+**安装 fmt**
+
+```shell
+vcpkg install fmt
+```
+
+**关于使用方法**
+比如安装的是`fmt`库,可以查看`vcpkg安装目录/packages/fmt_x64-linux/share/fmt/usage` 文件
+
+```
+laolang@laolang-pc:~/program/vcpkg/packages/fmt_x64-linux/share/fmt$ cat usage 
+The package fmt provides CMake targets:
+
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt)
+
+    # Or use the header-only version
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt-header-only)
+laolang@laolang-pc:~/program/vcpkg/packages/fmt_x64-linux/share/fmt$ 
+```
+
+关于 cmake toolchain 参考:
+
+[cmake 交叉编译配置设置 CMAKE_TOOLCHAIN_FILE：跨平台编译的秘密武器](https://zhuanlan.zhihu.com/p/661281743)
+
+[https://runebook.dev/zh/docs/cmake/manual/cmake-toolchains.7](https://runebook.dev/zh/docs/cmake/manual/cmake-toolchains.7)
+
+**main.cpp**
+
+```c++
+#include <iostream>
+#include <fmt/core.h>
+int main(){
+    std::cout << fmt::format("hello world") << std::endl;
+    std::cout << "Hello World!" << std::endl;
+    return 0;
+}
+```
+
+**CMakeLists.txt**
+```
+# 该项目所需 cmake 的最小版本, 如果 cmake 版本小于设置的版本,  cmake 将停止处理并报错
+cmake_minimum_required(VERSION 3.26)
+
+# 指定 c++ 版本
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# 设置 toolchain
+set(VCPKG_ROOT "/home/laolang/program/vcpkg")
+set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+
+# 设置项目名称和语言
+project(cpp-hello CXX)
+
+# 使用指定的源文件向项目添加可执行文件
+add_executable(${PROJECT_NAME} main.cpp)
+
+# 查找 fmt 库
+find_package(fmt CONFIG REQUIRED)
+# 链接 fmt 库
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
+```
+
+**一键运行**
+> cmake -S . -B build && cmake --build build && ./build/cpp-hello
+```shell
+laolang@laolang-pc:~/tmp/cpp-hello$ cmake -S . -B build && cmake --build build && ./build/cpp-hello
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/laolang/tmp/cpp-hello/build
+[100%] Built target cpp-hello
+hello world
+Hello World!
+laolang@laolang-pc:~/tmp/cpp-hello$ 
+```
+
+## 更换日志库为 spdlog
+
+关于 spdlog 的使用可参考
+
+[c++日志库实战——spdlog，是不是感觉log4cxx有点笨重，不妨试一试spdlog](https://blog.csdn.net/xmcy001122/article/details/105864473)
+[【C++】spdlog光速入门，C++logger最简单最快的库](https://www.cnblogs.com/jinyunshaobing/p/16797330.html)
+
+### 头文件
+```c++
+#ifndef _GRAVER_UTIL_LOG_UTIL_H_
+#define _GRAVER_UTIL_LOG_UTIL_H_
+
+#include <stdlib.h>
+
+#include <string>
+#include <vector>
+
+#include "spdlog/sinks/basic_file_sink.h"
+#include "spdlog/sinks/daily_file_sink.h"
+#include "spdlog/sinks/rotating_file_sink.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/sinks/stdout_sinks.h"
+#include "spdlog/spdlog.h"
+
+class LogUtil {
+public:
+    static void init(spdlog::level::level_enum level = spdlog::level::debug, std::string log_file = "app.log");
+    static spdlog::level::level_enum     getGlobalLevel();
+    static std::vector<spdlog::sink_ptr> createSinks(const std::string &log_file_name);
+    static void createLogger(const std::string &logger_name, spdlog::level::level_enum level = spdlog::level::debug);
+    static std::shared_ptr<spdlog::logger> getLogger(const std::string        &logger_name,
+                                                     spdlog::level::level_enum level = spdlog::level::debug);
+
+private:
+    static spdlog::level::level_enum global_level;
+    static std::string               log_file;
+};
+
+#endif
+
+```
+
+### 源文件
+```c++
+#include "cpp-hello/util/log_util.h"
+
+spdlog::level::level_enum LogUtil::global_level = spdlog::level::info;
+std::string               LogUtil::log_file     = "app.log";
+
+spdlog::level::level_enum LogUtil::getGlobalLevel() {
+    return global_level;
+}
+
+std::vector<spdlog::sink_ptr> LogUtil::createSinks(const std::string &log_file_name) {
+    std::vector<spdlog::sink_ptr> sinks;
+
+    auto sink1 = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+    sink1->set_level(LogUtil::getGlobalLevel());
+    sinks.push_back(sink1);
+
+    auto sink2 = std::make_shared<spdlog::sinks::rotating_file_sink_mt>(log_file_name, 1024 * 1024 * 10, 100, false);
+    sink2->set_level(spdlog::level::debug);
+    sinks.push_back(sink2);
+    return sinks;
+}
+
+void LogUtil::createLogger(const std::string &logger_name, spdlog::level::level_enum level) {
+    std::string log_file_name = LogUtil::log_file;
+    auto        sinks         = LogUtil::createSinks(log_file_name);
+
+    auto logger = std::make_shared<spdlog::logger>(logger_name, begin(sinks), end(sinks));
+    logger->set_level(level);
+#if 0  // 不带文件名与行号
+    logger->set_pattern("%Y-%m-%d %H:%M:%S [%l] [thread %t] [%n] - %v");
+
+    /* 使用方法
+    LogUtil::init(spdlog::level::info, "../logs/app.log");
+    std::shared_ptr<spdlog::logger> log = LogUtil::getLogger("app");
+    log->info("cpp hello");
+    */
+#endif
+
+#if 1  // 带文件名与行号
+    // logger->set_pattern("%Y-%m-%d %H:%M:%S [%l] [thread %t] [%n] - %s:%# - %! - %v"); // 文件名
+    logger->set_pattern("%Y-%m-%d %H:%M:%S [%l] [thread %t] [%n] - %g:%# - %! - %v");  // 文件全路径
+
+    /* 使用示例
+    LogUtil::init(spdlog::level::info, "../logs/app.log");
+    std::shared_ptr<spdlog::logger> log = LogUtil::getLogger("app");
+    SPDLOG_LOGGER_INFO(log, "cpp hello");
+    */
+#endif
+
+    spdlog::register_logger(logger);
+}
+
+std::shared_ptr<spdlog::logger> LogUtil::getLogger(const std::string &logger_name, spdlog::level::level_enum level) {
+    auto logger = spdlog::get(logger_name);
+    if (!logger) {  // looger指向为空
+        createLogger(logger_name, level);
+        logger = spdlog::get(logger_name);
+    }
+    return logger;
+}
+
+void LogUtil::init(spdlog::level::level_enum level, std::string log_file) {
+    LogUtil::global_level = level;
+    LogUtil::log_file     = log_file;
+
+    spdlog::flush_every(std::chrono::seconds(1));
+    spdlog::flush_on(spdlog::level::debug);
+}
+```
+
+
+
 
 
 
