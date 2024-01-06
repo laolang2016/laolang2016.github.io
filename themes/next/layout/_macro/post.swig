@@ -158,6 +158,12 @@
             <div class="post-description">{{ post.description }}</div>
           {%- endif %}
 
+          {% if post.top %}
+            <i class="fa fa-thumb-tack"></i>
+            <font color="RED">置顶</font>
+            <span class="post-meta-divider">|</span>
+           {% endif %}
+
         </div>
       </header>
     {%- endif %}
@@ -239,7 +245,7 @@
           {%- endif %}
           <div class="post-tags">
             {%- for tag in post.tags.toArray() %}
-              <a href="{{ url_for(tag.path) }}" rel="tag">{{ tag_indicate }} {{ tag.name }}</a>
+              <a href="{{ url_for(tag.path) }}" rel="tag"><i class="fa fa-tag"></i> {{ tag.name }}</a>
             {%- endfor %}
           </div>
         {%- endif %}

@@ -57,5 +57,5 @@
   <link rel="stylesheet" href="{{ pace_css_uri }}">
   <script src="{{ pace_js_uri }}"></script>
 {%- endif %}
-
+<link rel="stylesheet" href="/js/prism/prism.css">
 {{ next_config() }}

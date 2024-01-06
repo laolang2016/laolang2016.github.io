@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: laolang2016 的博客
+title: 内卷正经
 subtitle: ''
-description: ''
+description: 潼关路上始终是黑暗的
 keywords:
-author: laolang2016
-language: en
+author: 通关路边的一只野鬼
+language: zh-CN
 timezone: ''
 
 # URL
@@ -31,7 +31,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
@@ -40,18 +40,20 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 syntax_highlighter: highlight.js
 highlight:
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  preprocess: true
+  enable: true
+  preprocess: false
   line_number: true
   tab_replace: ''
 
@@ -104,3 +106,15 @@ deploy:
   type: git
   repo: https://github.com/laolang2016/laolang2016.github.io
   branch: master
+
+# 设置博客单词统计
+symbols_count_time:
+  # 文章字数统计
+  symbols: true
+  # 文章阅读时间统计
+  time: true
+  # 站点总字数统计
+  total_symbols: false
+  # 站点总阅读时间统计
+  total_time: false
+  exclude_codeblock: false
