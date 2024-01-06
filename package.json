@@ -1,0 +1,12 @@
+{
+  "name": "laolang2016.github.io",
+  "version": "1.0.0",
+  "description": "laolang2016 的博客",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "laolang2016",
+  "license": "MIT"
+}
