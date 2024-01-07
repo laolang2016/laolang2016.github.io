@@ -20,9 +20,11 @@ cmake 扯淡正经 - cmake + vscode c++ 环境搭建
 只考虑 `Linux` 环境, 准确的说, 是 `Ubuntu`
 
 ## 代码地址
-[https://gitcode.com/m0_53402432/cmake-guide/tree/cpp-hello-v1.0](https://gitcode.com/m0_53402432/cmake-guide/tree/cpp-hello-v1.0)
+[https://gitcode.com/m0_53402432/cmake-guide/tree/cpp-hello-v1.2](https://gitcode.com/m0_53402432/cmake-guide/tree/cpp-hello-v1.2)
 
-## v1.0 实现功能
+打开 `cpp-hello` 目录即可
+
+## v1.x 实现功能
 1. vscode 状态栏一键运行、重新构建、格式化、生成`doxygen`文档、运行测试
 2. 上述功能均有脚本支持
 3. 使用 `vcpkg` 管理依赖
@@ -130,6 +132,22 @@ graphviz
 ```
 
 ## 如何运行
+> **注意:修改`CMakePresets.json`中的相关路径**
+```json
+{
+    "name": "preset-base",
+    "displayName": "gnu base",
+    "description": "通用设置",
+    "cacheVariables": {
+    "VCPKG_TARGET_TRIPLET": "x64-linux",
+    "CMAKE_TOOLCHAIN_FILE": "/home/laolang/program/vcpkg/scripts/buildsystems/vcpkg.cmake",
+    "fmt_DIR": "/home/laolang/program/vcpkg/packages/fmt_x64-linux-dynamic/share/fmt",
+    "spdlog_DIR": "/home/laolang/program/vcpkg/packages/spdlog_x64-linux-dynamic/share/spdlog"
+    }
+}
+```
+
+
 在保证所有软件和 vscode 插件都已安装之后,直接命令行执行`./run.sh`脚本,或者 vscode 打开 cpp-hello 目录,点击状态栏的按钮验证相应的功能.
 
 从到右依次是: 任务数量、格式化代码、清理所有、清理release、重新构建release、运行、运行测试(不是运行所有测试,我单独写了个测试，用来测试临时代码,可自行修改)、生成测试覆盖率报告、生产doxygen文档
@@ -1518,6 +1536,114 @@ Hello World!
 laolang@laolang-pc:~/tmp/cpp-hello$ 
 ```
 
+### 关于 vcpkg 安装动态库
+上面的安装的是静态库,可以使用如下命令安装动态库
+```shell
+vcpkg install fmt:x64-linux-dynamic
+```
+
+CMakeLists.txt 修改为如下内容
+```
+# 该项目所需 cmake 的最小版本, 如果 cmake 版本小于设置的版本,  cmake 将停止处理并报错
+cmake_minimum_required(VERSION 3.26)
+
+# 指定 c++ 版本
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+# 将 install_rpath 的设置应用在 build_rpath 上
+# 避免在开发期间出现动态库找不到的问题
+set(CMAKE_BUILD_WITH_INSTALL_RPATH True)
+
+# vcpkg 目录
+set(VCPKG_ROOT "/home/laolang/program/vcpkg")
+set(CMAKE_TOOLCHAIN_FILE "${VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+# fmt 动态库目录
+set(fmt_DIR /home/laolang/program/vcpkg/packages/fmt_x64-linux-dynamic/share/fmt)
+
+# 设置项目名称和语言
+project(cpp-hello CXX)
+
+# fmt 库
+find_package(fmt CONFIG REQUIRED)
+get_target_property(fmt_LOCATION fmt::fmt LOCATION)
+get_filename_component(fmt_DIRECTORY ${fmt_LOCATION} DIRECTORY)
+string(REPLACE "debug/" "" fmt_DIRECTORY ${fmt_DIRECTORY})
+message(STATUS "fmt_DIRECTORY:${fmt_DIRECTORY}")
+
+
+# 使用指定的源文件向项目添加可执行文件
+add_executable(${PROJECT_NAME} main.cpp)
+
+# 链接动态库
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt)
+# 设置 rpath
+set_target_properties(${PROJECT_NAME} PROPERTIES INSTALL_RPATH "\${ORIGIN}/")
+
+# 构建后动作
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    # 复制动态库文件
+    COMMAND cp -rp ${fmt_DIRECTORY}/lib* ${PROJECT_BINARY_DIR}
+)
+```
+
+run.sh 脚本
+```shell
+#!/bin/bash
+rm -rf build
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+./build/cpp-hello
+```
+
+运行效果
+```shell
+laolang@laolang-pc:~/tmp/cpp-hello$ tree
+.
+├── CMakeLists.txt
+├── main.cpp
+└── run.sh
+
+0 directories, 3 files
+laolang@laolang-pc:~/tmp/cpp-hello$ ./run.sh 
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- fmt_DIRECTORY:/home/laolang/program/vcpkg/packages/fmt_x64-linux-dynamic/lib
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/laolang/tmp/cpp-hello/build
+[ 50%] Building CXX object CMakeFiles/cpp-hello.dir/main.cpp.o
+[100%] Linking CXX executable cpp-hello
+[100%] Built target cpp-hello
+hello world
+Hello World!
+laolang@laolang-pc:~/tmp/cpp-hello$ cd build/
+laolang@laolang-pc:~/tmp/cpp-hello/build$ l
+总计 236K
+-rw-rw-r-- 1 laolang laolang  15K 2024-01-07 19:41:59 CMakeCache.txt
+drwxrwxr-x 6 laolang laolang 4.0K 2024-01-07 19:42:00 CMakeFiles/
+-rw-rw-r-- 1 laolang laolang 1.6K 2024-01-07 19:41:59 cmake_install.cmake
+-rwxrwxr-x 1 laolang laolang  17K 2024-01-07 19:42:00 cpp-hello*
+lrwxrwxrwx 1 laolang laolang   12 2024-01-07 17:52:57 libfmt.so -> libfmt.so.10
+lrwxrwxrwx 1 laolang laolang   16 2024-01-07 17:52:57 libfmt.so.10 -> libfmt.so.10.2.1
+-rw-r--r-- 1 laolang laolang 183K 2024-01-07 17:52:57 libfmt.so.10.2.1
+-rw-rw-r-- 1 laolang laolang 5.2K 2024-01-07 19:41:59 Makefile
+laolang@laolang-pc:~/tmp/cpp-hello/build$ ldd cpp-hello 
+	linux-vdso.so.1 (0x00007ffcbcae7000)
+	libfmt.so.10 => /home/laolang/tmp/cpp-hello/build/./libfmt.so.10 (0x00007fc2147f9000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007fc214400000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007fc2147c3000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007fc214000000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fc2146dc000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007fc214828000)
+laolang@laolang-pc:~/tmp/cpp-hello/build$ 
+```
+
+
 ## 更换日志库为 spdlog
 
 关于 spdlog 的使用可参考
@@ -1631,9 +1757,6 @@ void LogUtil::init(spdlog::level::level_enum level, std::string log_file) {
     spdlog::flush_on(spdlog::level::debug);
 }
 ```
-
-
-
 
 
 
