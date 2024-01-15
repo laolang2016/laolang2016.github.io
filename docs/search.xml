@@ -8,8 +8,240 @@
 
 <h1 id="cmake-扯淡正经"><a href="#cmake-扯淡正经" class="headerlink" title="cmake 扯淡正经"></a>cmake 扯淡正经</h1><p><a href="/2024/01/06/cmake-%E6%89%AF%E6%B7%A1%E6%AD%A3%E7%BB%8F-cmake-vscode-cpp-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">cmake + vscode cpp 环境搭建</a></p>
 <h1 id="序猿的基操"><a href="#序猿的基操" class="headerlink" title="序猿的基操"></a>序猿的基操</h1><p><a href="/2024/01/06/git-%E5%9F%BA%E6%93%8D">git 基操</a></p>
-<h1 id="J-V-CV实录"><a href="#J-V-CV实录" class="headerlink" title="J**V CV实录"></a>J**V CV实录</h1><h2 id="ruoyi"><a href="#ruoyi" class="headerlink" title="ruoyi"></a>ruoyi</h2><p><a href="/2024/01/07/ruoyi-vue-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">ruoyi vue 环境搭建</a><br><a href="/2024/01/08/spring-boot-%E9%A1%B9%E7%9B%AE%E9%80%9A%E7%94%A8%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1">spring boot 项目通用配置与项目结构设计 </a></p>
+<h1 id="J-V-CV实录"><a href="#J-V-CV实录" class="headerlink" title="J**V CV实录"></a>J**V CV实录</h1><h2 id="ruoyi"><a href="#ruoyi" class="headerlink" title="ruoyi"></a>ruoyi</h2><p><a href="/2024/01/07/ruoyi-vue-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA">ruoyi vue 环境搭建</a><br><a href="/2024/01/08/spring-boot-%E9%A1%B9%E7%9B%AE%E9%80%9A%E7%94%A8%E9%85%8D%E7%BD%AE%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1">spring boot 项目通用配置与项目结构设计 </a><br><a href="/2024/01/11/spring-boot-jwt-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">spring boot jwt 基本使用</a><br><a href="/2024/01/10/spring-security-%E6%95%B4%E5%90%88-jwt">spring security 整合 jwt</a></p>
+<h1 id="C-C"><a href="#C-C" class="headerlink" title="C&#x2F;C++"></a>C&#x2F;C++</h1><h2 id="qt"><a href="#qt" class="headerlink" title="qt"></a>qt</h2><p><a href="/2024/01/10/qt-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB">qt 参考资料汇总</a><br><a href="/2024/01/10/qt6-%E5%AE%89%E8%A3%85">qt6 安装</a><br><a href="/2024/01/11/qt6-cmake-helloworld">qt6 cmake helloworld</a></p>
+<h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><p><a href="/2024/01/14/redis-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB">redis 参考资料汇总</a><br><a href="/2024/01/14/redis-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86">redis 源码学习 内存管理</a><br><a href="/2024/01/14/redis-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-sds">redis 源码学习 sds</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>尚硅谷 密码学 笔记</title>
+    <url>/2024/01/16/%E5%B0%9A%E7%A1%85%E8%B0%B7-%E5%AF%86%E7%A0%81%E5%AD%A6-%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>redis 源码学习 sds</title>
+    <url>/2024/01/14/redis-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-sds/</url>
+    <content><![CDATA[<p>redis 源码学习 sds</p>
+<span id="more"></span>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/u014303647/article/details/88740109">Redis（一）之 struct sdshdr <em>sh &#x3D; (void</em>) (s-(sizeof(struct sdshdr)))讲解</a><br><a href="https://blog.csdn.net/qq_33361976/article/details/109014012">redis 系列，要懂redis，首先得看懂sds（全网最细节的sds讲解）</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>redis 源码学习 内存管理</title>
+    <url>/2024/01/14/redis-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>redis 源码学习 内存管理</p>
+<span id="more"></span>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>C语言程序设计现代方法 第 2 版 修订版 第 17 章 指针的高级应用</li>
+<li>C和指针 第 11 章 动态内存分配</li>
+<li><a href="https://zhuanlan.zhihu.com/p/388425428">redis6.2源码解析-内存管理</a></li>
+<li><a href="https://juejin.cn/post/7068233325227278372">redis源码阅读——内存分配完全解析</a></li>
+</ul>
+<h1 id="标准-C-的内存管理"><a href="#标准-C-的内存管理" class="headerlink" title="标准 C 的内存管理"></a>标准 C 的内存管理</h1>]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>redis 参考资料汇总</title>
+    <url>/2024/01/14/redis-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<p>redis 参考资料汇总</p>
+<span id="more"></span>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://item.jd.com/11486101.html">Redis设计与实现</a><br><a href="https://item.jd.com/12716266.html">Redis使用手册</a><br><a href="https://github.com/huangz1990/redis-3.0-annotated">Redis 3.0 源码注释</a><br><a href="https://github.com/redis/redis">redis github</a><br><a href="C%E8%AF%AD%E8%A8%80%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%8F%AF%E9%87%8D%E7%94%A8%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%8A%80%E6%9C%AF">C语言接口与实现：创建可重用软件的技术 书中源码</a><br><a href="https://www.zhihu.com/column/c_1397158423952285696">redis6.2源码解析</a></p>
+<h1 id="我的仓库"><a href="#我的仓库" class="headerlink" title="我的仓库"></a>我的仓库</h1><p><a href="https://gitcode.com/m0_53402432/redis-study">redis-study</a></p>
+]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spring boot jwt 基本使用</title>
+    <url>/2024/01/11/spring-boot-jwt-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>spring boot jwt 基本使用</p>
+<span id="more"></span>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://blog.csdn.net/weixin_46195957/article/details/115326648">JWT最详细教程以及整合SpringBoot的使用（简洁易上手）</a><br><a href="https://www.cnblogs.com/hlkawa/p/13675792.html">各类JWT库(java)的对比</a><br>jwt 官网: <a href="https://jwt.io/">https://jwt.io/</a></p>
+<h1 id="简单使用-spring-boot-jwt"><a href="#简单使用-spring-boot-jwt" class="headerlink" title="简单使用 spring boot + jwt"></a>简单使用 spring boot + jwt</h1>]]></content>
+      <categories>
+        <category>J**A CV 实录</category>
+        <category>ruoyi</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring boot</tag>
+        <tag>ruoyi</tag>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>qt6 cmake helloworld</title>
+    <url>/2024/01/11/qt6-cmake-helloworld/</url>
+    <content><![CDATA[<p>qt6 cmake helloworld</p>
+<span id="more"></span>
+
+
+<h1 id="一个-HelloWorld-项目"><a href="#一个-HelloWorld-项目" class="headerlink" title="一个 HelloWorld 项目"></a>一个 HelloWorld 项目</h1><h2 id="新建项目并运行"><a href="#新建项目并运行" class="headerlink" title="新建项目并运行"></a>新建项目并运行</h2><p>略</p>
+<h1 id="修改项目为多目录结构"><a href="#修改项目为多目录结构" class="headerlink" title="修改项目为多目录结构"></a>修改项目为多目录结构</h1><h2 id="commit-id"><a href="#commit-id" class="headerlink" title="commit id"></a>commit id</h2><p><a href="https://gitcode.com/m0_53402432/qt-guide/commits/detail/8364fb1ff6a6e8c94d4e0451d8ee4ef9d63e14f6?ref=main">https://gitcode.com/m0_53402432&#x2F;qt-guide&#x2F;commits&#x2F;detail&#x2F;8364fb1ff6a6e8c94d4e0451d8ee4ef9d63e14f6?ref&#x3D;main</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p>官网 6.5 参考: <a href="https://doc.qt.io/qt-6.5/cmake-get-started.html">https://doc.qt.io/qt-6.5/cmake-get-started.html</a><br>中文6.4 参考: <a href="http://qt6.digitser.top/6.4/zh-CN/cmake-get-started.html#building-a-c-gui-application">http://qt6.digitser.top/6.4/zh-CN/cmake-get-started.html#building-a-c-gui-application</a></p>
+<h1 id="如何打包"><a href="#如何打包" class="headerlink" title="如何打包"></a>如何打包</h1><h2 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h2><p><a href="Linux%E4%B8%8B%E6%89%93%E5%8C%85qt%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%8F%91%E5%B8%83%E5%88%B0%E4%B8%80%E5%8F%B0%E7%BA%AF%E5%87%80%E7%9A%84linux%E5%8F%91%E8%A1%8C%E7%89%88%E7%B3%BB%E7%BB%9F%E4%B8%8A">Linux下打包qt程序，可以发布到一台纯净的linux发行版系统上</a><br><a href="Linux%E5%B9%B3%E5%8F%B0%E5%85%B3%E4%BA%8E%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8A%A8%E6%80%81%E5%BA%93%E5%8A%A0%E8%BD%BD%E8%B7%AF%E5%BE%84(rpath)%E7%9A%84%E6%9F%A5%E7%9C%8B%E4%B8%8E%E4%BF%AE%E6%94%B9">Linux平台关于可执行程序的动态库加载路径(rpath)的查看与修改</a></p>
+<h2 id="step-01-编译并复制可执行程序"><a href="#step-01-编译并复制可执行程序" class="headerlink" title="step 01 编译并复制可执行程序"></a>step 01 编译并复制可执行程序</h2><p>例如把可执行程序复制到如下目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">laolang@laolang-pc:hello-qt$ l &amp;&amp; pwd</span><br><span class="line">总计 36K</span><br><span class="line">-rwxrwxr-x 1 laolang laolang 34K 2024-01-11 02:18:43 hello-qt*</span><br><span class="line">/home/laolang/tmp/hello-qt</span><br><span class="line">laolang@laolang-pc:hello-qt$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="step-02-复制依赖库"><a href="#step-02-复制依赖库" class="headerlink" title="step 02 复制依赖库"></a>step 02 复制依赖库</h2><p>新建 pack.sh ,内容如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span>  </span><br><span class="line">exe=&quot;hello-qt&quot; #你需要发布的程序名称</span><br><span class="line">des=&quot;/home/laolang/tmp/hello-qt&quot; #程序所在路径</span><br><span class="line">deplist=$(ldd $exe | awk  &#x27;&#123;if (match($3,&quot;/&quot;))&#123; printf(&quot;%s &quot;),$3 &#125; &#125;&#x27;)</span><br><span class="line">cp $deplist $des</span><br></pre></td></tr></table></figure>
+
+<p>执行之后目录内容如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">laolang@laolang-pc:hello-qt$ ls</span><br><span class="line">hello-qt  pack.sh</span><br><span class="line">laolang@laolang-pc:hello-qt$ sh pack.sh </span><br><span class="line">laolang@laolang-pc:hello-qt$ ls</span><br><span class="line">hello-qt              libc.so.6       libfontconfig.so.1  libglib-2.0.so.0     libicudata.so.56  libmd.so.0      libpng16.so.16   libQt6Widgets.so.6  libX11.so.6        libz.so.1</span><br><span class="line">libbrotlicommon.so.1  libdbus-1.so.3  libfreetype.so.6    libGL.so.1           libicui18n.so.56  libm.so.6       libpthread.so.0  librt.so.1          libXau.so.6        libzstd.so.1</span><br><span class="line">libbrotlidec.so.1     libdl.so.2      libgcc_s.so.1       libGLX.so.0          libicuuc.so.56    libOpenGL.so.0  libQt6Core.so.6  libstdc++.so.6      libxcb.so.1        pack.sh</span><br><span class="line">libbsd.so.0           libEGL.so.1     libgcrypt.so.20     libgpg-error.so.0    liblz4.so.1       libpcre.so.3    libQt6DBus.so.6  libsystemd.so.0     libXdmcp.so.6</span><br><span class="line">libcap.so.2           libexpat.so.1   libGLdispatch.so.0  libgthread-2.0.so.0  liblzma.so.5      libperson.so    libQt6Gui.so.6   libuuid.so.1        libxkbcommon.so.0</span><br><span class="line">laolang@laolang-pc:hello-qt$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="step-03-复制-platforms-目录"><a href="#step-03-复制-platforms-目录" class="headerlink" title="step 03 复制 platforms 目录"></a>step 03 复制 platforms 目录</h2><blockquote>
+<p>根据自己的 qt 安装目录调整<br><strong>注意: 要在程序部署目录操作,不要删错,也可以提前备份 qt 安装目录下的 platforms 目录</strong></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir plugins</span><br><span class="line">cp -r ~/program/qt6/6.5.3/gcc_64/plugins/platforms plugins/</span><br><span class="line">rm -rf plugins/platforms/*.debug</span><br></pre></td></tr></table></figure>
+
+<h2 id="step-04-复制-libqxcb-so-依赖"><a href="#step-04-复制-libqxcb-so-依赖" class="headerlink" title="step 04 复制 libqxcb.so 依赖"></a>step 04 复制 libqxcb.so 依赖</h2><p>进入 qt 安装目录下的 platforms 目录,新建 ldd_qxcb.sh , 内容如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">mkdir lib</span><br><span class="line">exe=&quot;libqxcb.so&quot; </span><br><span class="line">des=&quot;$(pwd)/lib&quot; </span><br><span class="line">deplist=$(ldd $exe | awk  &#x27;&#123;if (match($3,&quot;/&quot;))&#123; printf(&quot;%s &quot;),$3 &#125; &#125;&#x27;)</span><br><span class="line">cp $deplist $des</span><br></pre></td></tr></table></figure>
+
+<p>然后在 qt 安装目录的 platforms 下执行改脚本,在 platforms 目录下会有一个 lib 目录, 将此目录复制到程序发布目录</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp -r ~/program/qt6/6.5.3/gcc_64/plugins/platforms/lib .</span><br></pre></td></tr></table></figure>
+
+<h2 id="step-05-编写启动脚本"><a href="#step-05-编写启动脚本" class="headerlink" title="step 05 编写启动脚本"></a>step 05 编写启动脚本</h2><p>启动脚本内容如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取当前脚本的绝对路径</span></span><br><span class="line">script_path=$(readlink -f &quot;$0&quot;)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取当前脚本所在目录</span></span><br><span class="line">script_dir=$(dirname &quot;$script_path&quot;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置 plugins 目录</span></span><br><span class="line">qt_platforms_dir=$script_dir/plugins/platforms</span><br><span class="line">export QT_QPA_PLATFORM_PLUGIN_PATH=$qt_platforms_dir</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置 依赖库路径</span></span><br><span class="line">lib_dir=$script_dir</span><br><span class="line">export LD_LIBRARY_PATH=$lib_dir</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看依赖库是否有缺失</span></span><br><span class="line">ldd hello-qt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看所有需要的插件是否有缺失</span></span><br><span class="line">export QT_DEBUG_PLUGINS=1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动程序</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">script_dir/hello-qt</span></span><br></pre></td></tr></table></figure>
+
+<p>不出意外的话,即可成功启动</p>
+<h2 id="step-06-新建一个-desktop-文件"><a href="#step-06-新建一个-desktop-文件" class="headerlink" title="step 06 新建一个 .desktop 文件"></a>step 06 新建一个 .desktop 文件</h2><blockquote>
+<p>目录为<br>~.local&#x2F;share&#x2F;applications&#x2F;hello-qt.desktop</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Encoding=UTF-8</span><br><span class="line">Name=hello-qt</span><br><span class="line">Comment=hello-qt</span><br><span class="line">Exec=/home/laolang/tmp/hello-qt/hello-qt.sh</span><br><span class="line">Icon=/home/laolang/tmp/hello-qt/logo.png</span><br><span class="line">Terminal=false</span><br><span class="line">StartupNotify=true</span><br><span class="line">Type=Application</span><br><span class="line">Categories=Application;Development;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="step07-优化程序部署目录"><a href="#step07-优化程序部署目录" class="headerlink" title="step07 优化程序部署目录"></a>step07 优化程序部署目录</h2><p>从上面的结果可以看到,指定了 <code>LD_LIBRARY_PATH</code> 之后,程序可以正常启动,但是某些qt库有依赖 <code>platforms</code>下的库,而 <code>platforms</code>下的库的依赖库位置为 <code>../../lib</code>,此时我们可以做如下调整</p>
+<ol>
+<li>部署目录下除可执行程序与启动脚本之外的所有文件复制到部署目录下的 <code>lib</code> 目录</li>
+<li>移动可执行程序到部署下目录的 <code>bin</code> 目录中</li>
+<li>移动启动脚本到部署下目录的 <code>sbin</code> 目录中</li>
+<li>修改启动脚本内容如下<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取当前脚本的绝对路径</span></span><br><span class="line">script_path=$(readlink -f &quot;$0&quot;)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取当前脚本所在目录</span></span><br><span class="line">script_dir=$(dirname &quot;$script_path&quot;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置 plugins 目录</span></span><br><span class="line">qt_platforms_dir=$script_dir/../lib/plugins/platforms</span><br><span class="line">export QT_QPA_PLATFORM_PLUGIN_PATH=$qt_platforms_dir</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置 依赖库路径</span></span><br><span class="line">lib_dir=$script_dir/../lib</span><br><span class="line">export LD_LIBRARY_PATH=$lib_dir</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看依赖库是否有缺失</span></span><br><span class="line">ldd hello-qt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看所有需要的插件是否有缺失</span></span><br><span class="line">export QT_DEBUG_PLUGINS=1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动程序</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">script_dir/../bin/hello-qt</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>测试该脚本是否能正常启动程序</p>
+<ol start="5">
+<li>修改 desktop 文件内容如下</li>
+</ol>
+<blockquote>
+<p>注意</p>
+<ol>
+<li>icon 文件路径</li>
+<li>启动脚本名称</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=hello-qt</span><br><span class="line">Comment=hello qt</span><br><span class="line">Exec=/home/laolang/tmp/hello-qt/sbin/hello-qt</span><br><span class="line">Icon=/home/laolang/tmp/hello-qt/logo.png</span><br><span class="line">Terminal=false</span><br><span class="line">StartupNotify=true</span><br><span class="line">Type=Application</span><br><span class="line">Categories=Development;</span><br></pre></td></tr></table></figure>
+
+<p>测试能否正常启动程序</p>
+<h2 id="step-08-移动自己的动态库位置"><a href="#step-08-移动自己的动态库位置" class="headerlink" title="step 08 移动自己的动态库位置"></a>step 08 移动自己的动态库位置</h2><p>上面的操作将自己的动态库与 qt 动态库混在了一起,分开放置是一种更明智的选择</p>
+<ol>
+<li>重命名源部署目录下的 <code>lib</code> 为 <code>qt_lib</code></li>
+<li>移动自己的动态库到部署目录的 <code>lib</code> 中</li>
+<li>修改启动脚本内容如下<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取当前脚本的绝对路径</span></span><br><span class="line">script_path=$(readlink -f &quot;$0&quot;)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取当前脚本所在目录</span></span><br><span class="line">script_dir=$(dirname &quot;$script_path&quot;)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置 plugins 目录</span></span><br><span class="line">qt_platforms_dir=$script_dir/../qt_lib/plugins/platforms</span><br><span class="line">export QT_QPA_PLATFORM_PLUGIN_PATH=$qt_platforms_dir</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置 依赖库路径</span></span><br><span class="line">lib_dir=$script_dir/../lib:$script_dir/../qt_lib</span><br><span class="line">export LD_LIBRARY_PATH=$lib_dir</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看依赖库是否有缺失</span></span><br><span class="line">ldd hello-qt</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看所有需要的插件是否有缺失</span></span><br><span class="line">export QT_DEBUG_PLUGINS=1</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动程序</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">script_dir/../bin/hello-qt</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>测试程序能否正常启动</p>
+<p>此时部署目录结构如下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">├── bin                 ---- 可执行程序目录</span><br><span class="line">│   └── hello-qt</span><br><span class="line">├── lib                 ---- 放置自己的动态库</span><br><span class="line">│   └── libperson.so</span><br><span class="line">├── log                 ---- 日志目录</span><br><span class="line">├── logo.png            ---- 程序图标</span><br><span class="line">├── qt_lib              ---- 防止 qt 动态库</span><br><span class="line">└── sbin                ---- 启动相关目录</span><br><span class="line">    └── hello-qt        ---- 启动脚本</span><br></pre></td></tr></table></figure>
+
+<p>将部署目录打包即可, 打包前后的大小对比</p>
+<blockquote>
+<p>压缩命令: <code>tar -I &#39;xz -9&#39; -cf hello-qt.tar.xz hello-qt</code><br>解压命令: <code>tar -xJf hello.xz</code></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">laolang@laolang-pc:t$ du hello-qt -h</span><br><span class="line">4.0K	hello-qt/log</span><br><span class="line">40K	hello-qt/bin</span><br><span class="line">64M	hello-qt/qt_lib/lib</span><br><span class="line">1016K	hello-qt/qt_lib/plugins/platforms</span><br><span class="line">1020K	hello-qt/qt_lib/plugins</span><br><span class="line">135M	hello-qt/qt_lib</span><br><span class="line">20K	hello-qt/lib</span><br><span class="line">8.0K	hello-qt/sbin</span><br><span class="line">135M	hello-qt</span><br><span class="line">laolang@laolang-pc:t$ l</span><br><span class="line">总计 20M</span><br><span class="line">drwxrwxr-x 7 laolang laolang 4.0K 2024-01-11 03:03:23 hello-qt/</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  20M 2024-01-11 03:13:30 hello-qt.xz</span><br><span class="line">laolang@laolang-pc:t$ </span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <categories>
+        <category>C/C++</category>
+        <category>qt</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>qt 参考资料汇总</title>
+    <url>/2024/01/10/qt-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<p>qt 参考资料汇总</p>
+<span id="more"></span>
+
+<p><a href="http://qt6.digitser.top/en-US.html">qt 6.4.1 和 6.2.1 中文文档</a><br><a href="https://doc.qt.io/">官方文档</a></p>
+<p><a href="https://blog.csdn.net/liang19890820">一去丶二三里</a></p>
+<p><a href="https://blog.csdn.net/bjbz_cxy/article/details/115440768">Linux下打包qt程序，可以发布到一台纯净的linux发行版系统上</a></p>
+<p>[Qt Creator配置clang-format格式化代码插件](Qt Creator配置clang-format格式化代码插件)</p>
+]]></content>
+      <categories>
+        <category>C/C++</category>
+        <category>qt</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>qt6 安装</title>
+    <url>/2024/01/10/qt6-%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>qt6 安装</p>
+<span id="more"></span>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/yanchenyu365/article/details/124499087">Qt6安装教程——国内源</a><br><a href="https://www.cnblogs.com/jigsawecho/p/17790781.html">Linux下安装Qt6的问题及解决</a></p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>qt 安装器下载地址</p>
+<p><a href="https://download.qt.io/official_releases/online_installers/">https://download.qt.io/official_releases&#x2F;online_installers&#x2F;</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./qt-unified-linux-x64-4.6.1-online.run --mirror https://mirrors.tuna.tsinghua.edu.cn/qt</span><br></pre></td></tr></table></figure>
+
+<p>启动时可能会报错</p>
+<blockquote>
+<p>from 6.5.0, xcb-cursor0 or libxcb-cursor0 is needed to load the Qt xcb platform plugin.<br>Could not load the Qt platform plugin “xcb” in “” even though it was found. This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.<br>Available platform plugins are: minimalegl, scb, eglfs, minimal, linuxfb, vkkhrdisplay, offscreen, vnc, wayland, wayland-egl.</p>
+</blockquote>
+<p>安装 <code>libxcb-cursor0</code> 即可</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install libxcb-cursor0</span><br></pre></td></tr></table></figure>
+
+<p>新建项目时可能无法编译</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Found package configuration file: Qt6Config.cmake but it set Qt6 FOUND to FALSE so package &quot;Qt6&quot; is considered to be NOT FOUND. Reason given by package: Failed to find required Qt componen &quot;Quick&quot;.</span><br></pre></td></tr></table></figure>
+
+<p>这是因为系统中缺少OpenGL库，可以安装libgl1-mesa-dev</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install libgl1-mesa-dev</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>C/C++</category>
+        <category>qt</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spring security 整合 jwt</title>
+    <url>/2024/01/10/spring-security-%E6%95%B4%E5%90%88-jwt/</url>
+    <content><![CDATA[<p>spring security 整合 jwt</p>
+<span id="more"></span>
+
+
+
+]]></content>
+      <categories>
+        <category>J**A CV 实录</category>
+        <category>ruoyi</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring boot</tag>
+        <tag>ruoyi</tag>
+        <tag>vue</tag>
+      </tags>
   </entry>
   <entry>
     <title>spring boot 项目通用配置与项目结构设计</title>
