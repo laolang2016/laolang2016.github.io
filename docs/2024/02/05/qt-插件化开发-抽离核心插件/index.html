@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+<link rel="stylesheet" href="/js/prism/prism.css">
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="qt 插件化开发 - 抽离核心插件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="qt 插件化开发 - 抽离核心插件">
+<meta property="og:url" content="http://example.com/2024/02/05/qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:site_name" content="内卷正经">
+<meta property="og:description" content="qt 插件化开发 - 抽离核心插件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/001.png">
+<meta property="og:image" content="http://example.com/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/002.png">
+<meta property="og:image" content="http://example.com/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/003.png">
+<meta property="og:image" content="http://example.com/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/004.png">
+<meta property="og:image" content="http://example.com/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/005.png">
+<meta property="article:published_time" content="2024-02-05T15:23:51.000Z">
+<meta property="article:modified_time" content="2024-02-05T18:22:32.534Z">
+<meta property="article:author" content="通关路边的一只野鬼">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="qt">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/001.png">
+
+<link rel="canonical" href="http://example.com/2024/02/05/qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>qt 插件化开发 - 抽离核心插件 | 内卷正经</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">内卷正经</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-首页">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-标签">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-分类">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-归档页">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档页</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/laolang2016" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/05/qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="通关路边的一只野鬼">
+      <meta itemprop="description" content="潼关路上始终是黑暗的">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="内卷正经">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          qt 插件化开发 - 抽离核心插件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-02-05 23:23:51" itemprop="dateCreated datePublished" datetime="2024-02-05T23:23:51+08:00">2024-02-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-02-06 02:22:32" itemprop="dateModified" datetime="2024-02-06T02:22:32+08:00">2024-02-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/C-C/qt/" itemprop="url" rel="index"><span itemprop="name">qt</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>782</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>qt 插件化开发 - 抽离核心插件</p>
+<span id="more"></span>
+
+<h1 id="qt-creator-默认启用的插件"><a href="#qt-creator-默认启用的插件" class="headerlink" title="qt creator 默认启用的插件"></a>qt creator 默认启用的插件</h1><p><img src="/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/001.png"><br><img src="/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/002.png"><br><img src="/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/003.png"></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bing_lee/category_10458107.html">QtCreator1.0源码</a><br><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/kevinlq">Qt图形图像开发笔记</a></p>
+<h1 id="qt-creator-源码编译"><a href="#qt-creator-源码编译" class="headerlink" title="qt creator 源码编译"></a>qt creator 源码编译</h1><h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><blockquote>
+<p>由于我本地的 qtcreator 版本时 12.0.1,所以我下载的也是 12.0.1</p>
+</blockquote>
+<p>源码地址: <a target="_blank" rel="noopener" href="https://download.qt.io/official_releases/qtcreator/12.0/12.0.1/">https://download.qt.io/official_releases&#x2F;qtcreator&#x2F;12.0&#x2F;12.0.1&#x2F;</a><br>文件是: <code>qt-creator-opensource-src-12.0.1.tar.gz</code><br>然后直接使用 qt creator 打开源码工程,可能会报错</p>
+<h2 id="解决报错"><a href="#解决报错" class="headerlink" title="解决报错"></a>解决报错</h2><ol>
+<li><p>缺失 <code>libclangBasic.a</code> 文件,安装命令如下</p>
+<blockquote>
+<p>参考: <a target="_blank" rel="noopener" href="https://github.com/MaskRay/ccls/issues/565">Missing libclangBasic.a and other files on Ubuntu 18.04 with LLVM-8 #565</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libclang-xx-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>缺失 XKB::XKB<br>安装命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libxkbcommon-x11-dev</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>cmake 执行成功后等待右下角运行完毕然后直接启动<br><img src="/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/004.png"></p>
+<p>运行效果如下<br><img src="/images/2024-02-05-qt-%E6%8F%92%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91-%E6%8A%BD%E7%A6%BB%E6%A0%B8%E5%BF%83%E6%8F%92%E4%BB%B6/005.png"></p>
+<h1 id="设计插件架构"><a href="#设计插件架构" class="headerlink" title="设计插件架构"></a>设计插件架构</h1><p>根据 <a target="_blank" rel="noopener" href="https://blog.csdn.net/bing_lee/category_10458107.html">QtCreator1.0源码</a> 和 <a target="_blank" rel="noopener" href="https://www.zhihu.com/column/kevinlq">Qt图形图像开发笔记</a> 的指引,可以设计如下架构</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">laolang@laolang-pc:janna$ tree</span><br><span class="line">.</span><br><span class="line">└── src</span><br><span class="line">    ├── app -- 启动程序</span><br><span class="line">    ├── libs -- 所有程序的依赖库</span><br><span class="line">    │   ├── extensionsystem -- 插件管理</span><br><span class="line">    │   └── util -- 工具类</span><br><span class="line">    ├── plugins -- 所有的插件</span><br><span class="line">    │   ├── coreplugin -- 核心插件</span><br><span class="line">    │   └── helloworld -- 一个插件示例</span><br><span class="line">    └── tools -- 一些工具,目前还没有</span><br><span class="line"></span><br><span class="line">9 directories, 0 files</span><br><span class="line">laolang@laolang-pc:janna$</span><br></pre></td></tr></table></figure>
+
+<p>其中几个工程的依赖关系如下</p>
+<img src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXMtYXNjaWkiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U3R5bGVUeXBlPSJ0ZXh0L2NzcyIgaGVpZ2h0PSIzODZweCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSIgc3R5bGU9IndpZHRoOjIxN3B4O2hlaWdodDozODZweDtiYWNrZ3JvdW5kOiNGRkZGRkY7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyMTcgMzg2IiB3aWR0aD0iMjE3cHgiIHpvb21BbmRQYW49Im1hZ25pZnkiPjxkZWZzLz48Zz48IS0tY2xhc3MgdXRpbC0tPjxnIGlkPSJlbGVtX3V0aWwiPjxyZWN0IGZpbGw9IiNGMUYxRjEiIGhlaWdodD0iNDgiIGlkPSJ1dGlsIiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI1NSIgeD0iOTIuNSIgeT0iNyIvPjxlbGxpcHNlIGN4PSIxMDcuNSIgY3k9IjIzIiBmaWxsPSIjQUREMUIyIiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTEwOS44NDM4LDE4LjY3MTkgQzEwOC45MDYzLDE4LjIzNDQgMTA4LjMxMjUsMTguMDkzOCAxMDcuNDM3NSwxOC4wOTM4IEMxMDQuODEyNSwxOC4wOTM4IDEwMi44MTI1LDIwLjE3MTkgMTAyLjgxMjUsMjIuODkwNiBMMTAyLjgxMjUsMjQuMDE1NiBDMTAyLjgxMjUsMjYuNTkzOCAxMDQuOTIxOSwyOC40ODQ0IDEwNy44MTI1LDI4LjQ4NDQgQzEwOS4wMzEzLDI4LjQ4NDQgMTEwLjE4NzUsMjguMTg3NSAxMTAuOTM3NSwyNy42NDA2IEMxMTEuNTE1NiwyNy4yMzQ0IDExMS44NDM4LDI2Ljc4MTMgMTExLjg0MzgsMjYuMzkwNiBDMTExLjg0MzgsMjUuOTM3NSAxMTEuNDUzMSwyNS41NDY5IDExMC45ODQ0LDI1LjU0NjkgQzExMC43NjU2LDI1LjU0NjkgMTEwLjU2MjUsMjUuNjI1IDExMC4zNzUsMjUuODEyNSBDMTA5LjkyMTksMjYuMjk2OSAxMDkuOTIxOSwyNi4yOTY5IDEwOS43MzQ0LDI2LjM5MDYgQzEwOS4zMTI1LDI2LjY1NjMgMTA4LjYyNSwyNi43ODEzIDEwNy44NTk0LDI2Ljc4MTMgQzEwNS44MTI1LDI2Ljc4MTMgMTA0LjUxNTYsMjUuNjg3NSAxMDQuNTE1NiwyMy45ODQ0IEwxMDQuNTE1NiwyMi44OTA2IEMxMDQuNTE1NiwyMS4xMDk0IDEwNS43NjU2LDE5Ljc5NjkgMTA3LjUsMTkuNzk2OSBDMTA4LjA3ODEsMTkuNzk2OSAxMDguNjg3NSwxOS45NTMxIDEwOS4xNTYzLDIwLjIwMzEgQzEwOS42NDA2LDIwLjQ4NDQgMTA5LjgxMjUsMjAuNzAzMSAxMDkuOTA2MywyMS4xMDk0IEMxMDkuOTY4OCwyMS41MTU2IDExMCwyMS42NDA2IDExMC4xNDA2LDIxLjc2NTYgQzExMC4yODEzLDIxLjkwNjMgMTEwLjUxNTYsMjIuMDE1NiAxMTAuNzM0NCwyMi4wMTU2IEMxMTEsMjIuMDE1NiAxMTEuMjY1NiwyMS44NzUgMTExLjQzNzUsMjEuNjU2MyBDMTExLjU0NjksMjEuNSAxMTEuNTc4MSwyMS4zMTI1IDExMS41NzgxLDIwLjg5MDYgTDExMS41NzgxLDE5LjQ2ODggQzExMS41NzgxLDE5LjAzMTMgMTExLjU2MjUsMTguOTA2MyAxMTEuNDY4OCwxOC43NSBDMTExLjMxMjUsMTguNDg0NCAxMTEuMDMxMywxOC4zNDM4IDExMC43MzQ0LDE4LjM0MzggQzExMC40Mzc1LDE4LjM0MzggMTEwLjIzNDQsMTguNDM3NSAxMTAuMDE1NiwxOC43NSBMMTA5Ljg0MzgsMTguNjcxOSBaICIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjIzIiB4PSIxMjEuNSIgeT0iMjcuODQ2NyI+dXRpbDwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSI5My41IiB4Mj0iMTQ2LjUiIHkxPSIzOSIgeTI9IjM5Ii8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB4MT0iOTMuNSIgeDI9IjE0Ni41IiB5MT0iNDciIHkyPSI0NyIvPjwvZz48IS0tY2xhc3MgZXh0ZW5zaW9uc3lzdGVtLS0+PGcgaWQ9ImVsZW1fZXh0ZW5zaW9uc3lzdGVtIj48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjQ4IiBpZD0iZXh0ZW5zaW9uc3lzdGVtIiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSIxNTUiIHg9IjQyLjUiIHk9IjExNSIvPjxlbGxpcHNlIGN4PSI1Ny41IiBjeT0iMTMxIiBmaWxsPSIjQUREMUIyIiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTU5Ljg0MzgsMTI2LjY3MTkgQzU4LjkwNjMsMTI2LjIzNDQgNTguMzEyNSwxMjYuMDkzOCA1Ny40Mzc1LDEyNi4wOTM4IEM1NC44MTI1LDEyNi4wOTM4IDUyLjgxMjUsMTI4LjE3MTkgNTIuODEyNSwxMzAuODkwNiBMNTIuODEyNSwxMzIuMDE1NiBDNTIuODEyNSwxMzQuNTkzOCA1NC45MjE5LDEzNi40ODQ0IDU3LjgxMjUsMTM2LjQ4NDQgQzU5LjAzMTMsMTM2LjQ4NDQgNjAuMTg3NSwxMzYuMTg3NSA2MC45Mzc1LDEzNS42NDA2IEM2MS41MTU2LDEzNS4yMzQ0IDYxLjg0MzgsMTM0Ljc4MTMgNjEuODQzOCwxMzQuMzkwNiBDNjEuODQzOCwxMzMuOTM3NSA2MS40NTMxLDEzMy41NDY5IDYwLjk4NDQsMTMzLjU0NjkgQzYwLjc2NTYsMTMzLjU0NjkgNjAuNTYyNSwxMzMuNjI1IDYwLjM3NSwxMzMuODEyNSBDNTkuOTIxOSwxMzQuMjk2OSA1OS45MjE5LDEzNC4yOTY5IDU5LjczNDQsMTM0LjM5MDYgQzU5LjMxMjUsMTM0LjY1NjMgNTguNjI1LDEzNC43ODEzIDU3Ljg1OTQsMTM0Ljc4MTMgQzU1LjgxMjUsMTM0Ljc4MTMgNTQuNTE1NiwxMzMuNjg3NSA1NC41MTU2LDEzMS45ODQ0IEw1NC41MTU2LDEzMC44OTA2IEM1NC41MTU2LDEyOS4xMDk0IDU1Ljc2NTYsMTI3Ljc5NjkgNTcuNSwxMjcuNzk2OSBDNTguMDc4MSwxMjcuNzk2OSA1OC42ODc1LDEyNy45NTMxIDU5LjE1NjMsMTI4LjIwMzEgQzU5LjY0MDYsMTI4LjQ4NDQgNTkuODEyNSwxMjguNzAzMSA1OS45MDYzLDEyOS4xMDk0IEM1OS45Njg4LDEyOS41MTU2IDYwLDEyOS42NDA2IDYwLjE0MDYsMTI5Ljc2NTYgQzYwLjI4MTMsMTI5LjkwNjMgNjAuNTE1NiwxMzAuMDE1NiA2MC43MzQ0LDEzMC4wMTU2IEM2MSwxMzAuMDE1NiA2MS4yNjU2LDEyOS44NzUgNjEuNDM3NSwxMjkuNjU2MyBDNjEuNTQ2OSwxMjkuNSA2MS41NzgxLDEyOS4zMTI1IDYxLjU3ODEsMTI4Ljg5MDYgTDYxLjU3ODEsMTI3LjQ2ODggQzYxLjU3ODEsMTI3LjAzMTMgNjEuNTYyNSwxMjYuOTA2MyA2MS40Njg4LDEyNi43NSBDNjEuMzEyNSwxMjYuNDg0NCA2MS4wMzEzLDEyNi4zNDM4IDYwLjczNDQsMTI2LjM0MzggQzYwLjQzNzUsMTI2LjM0MzggNjAuMjM0NCwxMjYuNDM3NSA2MC4wMTU2LDEyNi43NSBMNTkuODQzOCwxMjYuNjcxOSBaICIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IGZpbGw9IiMwMDAwMDAiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBsZW5ndGhBZGp1c3Q9InNwYWNpbmciIHRleHRMZW5ndGg9IjEyMyIgeD0iNzEuNSIgeT0iMTM1Ljg0NjciPmV4dGVuc2lvbnN5c3RlbTwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSI0My41IiB4Mj0iMTk2LjUiIHkxPSIxNDciIHkyPSIxNDciLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSI0My41IiB4Mj0iMTk2LjUiIHkxPSIxNTUiIHkyPSIxNTUiLz48L2c+PCEtLWNsYXNzIGNvcmVwbHVnaW4tLT48ZyBpZD0iZWxlbV9jb3JlcGx1Z2luIj48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjQ4IiBpZD0iY29yZXBsdWdpbiIgcng9IjIuNSIgcnk9IjIuNSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB3aWR0aD0iMTA4IiB4PSI3IiB5PSIyMjMiLz48ZWxsaXBzZSBjeD0iMjIiIGN5PSIyMzkiIGZpbGw9IiNBREQxQjIiIHJ4PSIxMSIgcnk9IjExIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cGF0aCBkPSJNMjQuMzQzOCwyMzQuNjcxOSBDMjMuNDA2MywyMzQuMjM0NCAyMi44MTI1LDIzNC4wOTM4IDIxLjkzNzUsMjM0LjA5MzggQzE5LjMxMjUsMjM0LjA5MzggMTcuMzEyNSwyMzYuMTcxOSAxNy4zMTI1LDIzOC44OTA2IEwxNy4zMTI1LDI0MC4wMTU2IEMxNy4zMTI1LDI0Mi41OTM4IDE5LjQyMTksMjQ0LjQ4NDQgMjIuMzEyNSwyNDQuNDg0NCBDMjMuNTMxMywyNDQuNDg0NCAyNC42ODc1LDI0NC4xODc1IDI1LjQzNzUsMjQzLjY0MDYgQzI2LjAxNTYsMjQzLjIzNDQgMjYuMzQzOCwyNDIuNzgxMyAyNi4zNDM4LDI0Mi4zOTA2IEMyNi4zNDM4LDI0MS45Mzc1IDI1Ljk1MzEsMjQxLjU0NjkgMjUuNDg0NCwyNDEuNTQ2OSBDMjUuMjY1NiwyNDEuNTQ2OSAyNS4wNjI1LDI0MS42MjUgMjQuODc1LDI0MS44MTI1IEMyNC40MjE5LDI0Mi4yOTY5IDI0LjQyMTksMjQyLjI5NjkgMjQuMjM0NCwyNDIuMzkwNiBDMjMuODEyNSwyNDIuNjU2MyAyMy4xMjUsMjQyLjc4MTMgMjIuMzU5NCwyNDIuNzgxMyBDMjAuMzEyNSwyNDIuNzgxMyAxOS4wMTU2LDI0MS42ODc1IDE5LjAxNTYsMjM5Ljk4NDQgTDE5LjAxNTYsMjM4Ljg5MDYgQzE5LjAxNTYsMjM3LjEwOTQgMjAuMjY1NiwyMzUuNzk2OSAyMiwyMzUuNzk2OSBDMjIuNTc4MSwyMzUuNzk2OSAyMy4xODc1LDIzNS45NTMxIDIzLjY1NjMsMjM2LjIwMzEgQzI0LjE0MDYsMjM2LjQ4NDQgMjQuMzEyNSwyMzYuNzAzMSAyNC40MDYzLDIzNy4xMDk0IEMyNC40Njg4LDIzNy41MTU2IDI0LjUsMjM3LjY0MDYgMjQuNjQwNiwyMzcuNzY1NiBDMjQuNzgxMywyMzcuOTA2MyAyNS4wMTU2LDIzOC4wMTU2IDI1LjIzNDQsMjM4LjAxNTYgQzI1LjUsMjM4LjAxNTYgMjUuNzY1NiwyMzcuODc1IDI1LjkzNzUsMjM3LjY1NjMgQzI2LjA0NjksMjM3LjUgMjYuMDc4MSwyMzcuMzEyNSAyNi4wNzgxLDIzNi44OTA2IEwyNi4wNzgxLDIzNS40Njg4IEMyNi4wNzgxLDIzNS4wMzEzIDI2LjA2MjUsMjM0LjkwNjMgMjUuOTY4OCwyMzQuNzUgQzI1LjgxMjUsMjM0LjQ4NDQgMjUuNTMxMywyMzQuMzQzOCAyNS4yMzQ0LDIzNC4zNDM4IEMyNC45Mzc1LDIzNC4zNDM4IDI0LjczNDQsMjM0LjQzNzUgMjQuNTE1NiwyMzQuNzUgTDI0LjM0MzgsMjM0LjY3MTkgWiAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSI3NiIgeD0iMzYiIHk9IjI0My44NDY3Ij5jb3JlcGx1Z2luPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgeDE9IjgiIHgyPSIxMTQiIHkxPSIyNTUiIHkyPSIyNTUiLz48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSI4IiB4Mj0iMTE0IiB5MT0iMjYzIiB5Mj0iMjYzIi8+PC9nPjwhLS1jbGFzcyBoZWxsb3dvcmxkLS0+PGcgaWQ9ImVsZW1faGVsbG93b3JsZCI+PHJlY3QgZmlsbD0iI0YxRjFGMSIgaGVpZ2h0PSI0OCIgaWQ9ImhlbGxvd29ybGQiIHJ4PSIyLjUiIHJ5PSIyLjUiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgd2lkdGg9IjEwNiIgeD0iOCIgeT0iMzMxIi8+PGVsbGlwc2UgY3g9IjIzIiBjeT0iMzQ3IiBmaWxsPSIjQUREMUIyIiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTI1LjM0MzgsMzQyLjY3MTkgQzI0LjQwNjMsMzQyLjIzNDQgMjMuODEyNSwzNDIuMDkzOCAyMi45Mzc1LDM0Mi4wOTM4IEMyMC4zMTI1LDM0Mi4wOTM4IDE4LjMxMjUsMzQ0LjE3MTkgMTguMzEyNSwzNDYuODkwNiBMMTguMzEyNSwzNDguMDE1NiBDMTguMzEyNSwzNTAuNTkzOCAyMC40MjE5LDM1Mi40ODQ0IDIzLjMxMjUsMzUyLjQ4NDQgQzI0LjUzMTMsMzUyLjQ4NDQgMjUuNjg3NSwzNTIuMTg3NSAyNi40Mzc1LDM1MS42NDA2IEMyNy4wMTU2LDM1MS4yMzQ0IDI3LjM0MzgsMzUwLjc4MTMgMjcuMzQzOCwzNTAuMzkwNiBDMjcuMzQzOCwzNDkuOTM3NSAyNi45NTMxLDM0OS41NDY5IDI2LjQ4NDQsMzQ5LjU0NjkgQzI2LjI2NTYsMzQ5LjU0NjkgMjYuMDYyNSwzNDkuNjI1IDI1Ljg3NSwzNDkuODEyNSBDMjUuNDIxOSwzNTAuMjk2OSAyNS40MjE5LDM1MC4yOTY5IDI1LjIzNDQsMzUwLjM5MDYgQzI0LjgxMjUsMzUwLjY1NjMgMjQuMTI1LDM1MC43ODEzIDIzLjM1OTQsMzUwLjc4MTMgQzIxLjMxMjUsMzUwLjc4MTMgMjAuMDE1NiwzNDkuNjg3NSAyMC4wMTU2LDM0Ny45ODQ0IEwyMC4wMTU2LDM0Ni44OTA2IEMyMC4wMTU2LDM0NS4xMDk0IDIxLjI2NTYsMzQzLjc5NjkgMjMsMzQzLjc5NjkgQzIzLjU3ODEsMzQzLjc5NjkgMjQuMTg3NSwzNDMuOTUzMSAyNC42NTYzLDM0NC4yMDMxIEMyNS4xNDA2LDM0NC40ODQ0IDI1LjMxMjUsMzQ0LjcwMzEgMjUuNDA2MywzNDUuMTA5NCBDMjUuNDY4OCwzNDUuNTE1NiAyNS41LDM0NS42NDA2IDI1LjY0MDYsMzQ1Ljc2NTYgQzI1Ljc4MTMsMzQ1LjkwNjMgMjYuMDE1NiwzNDYuMDE1NiAyNi4yMzQ0LDM0Ni4wMTU2IEMyNi41LDM0Ni4wMTU2IDI2Ljc2NTYsMzQ1Ljg3NSAyNi45Mzc1LDM0NS42NTYzIEMyNy4wNDY5LDM0NS41IDI3LjA3ODEsMzQ1LjMxMjUgMjcuMDc4MSwzNDQuODkwNiBMMjcuMDc4MSwzNDMuNDY4OCBDMjcuMDc4MSwzNDMuMDMxMyAyNy4wNjI1LDM0Mi45MDYzIDI2Ljk2ODgsMzQyLjc1IEMyNi44MTI1LDM0Mi40ODQ0IDI2LjUzMTMsMzQyLjM0MzggMjYuMjM0NCwzNDIuMzQzOCBDMjUuOTM3NSwzNDIuMzQzOCAyNS43MzQ0LDM0Mi40Mzc1IDI1LjUxNTYsMzQyLjc1IEwyNS4zNDM4LDM0Mi42NzE5IFogIiBmaWxsPSIjMDAwMDAwIi8+PHRleHQgZmlsbD0iIzAwMDAwMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGxlbmd0aEFkanVzdD0ic3BhY2luZyIgdGV4dExlbmd0aD0iNzQiIHg9IjM3IiB5PSIzNTEuODQ2NyI+aGVsbG93b3JsZDwvdGV4dD48bGluZSBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHgxPSI5IiB4Mj0iMTEzIiB5MT0iMzYzIiB5Mj0iMzYzIi8+PGxpbmUgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDowLjU7IiB4MT0iOSIgeDI9IjExMyIgeTE9IjM3MSIgeTI9IjM3MSIvPjwvZz48IS0tY2xhc3MgYXBwLS0+PGcgaWQ9ImVsZW1fYXBwIj48cmVjdCBmaWxsPSIjRjFGMUYxIiBoZWlnaHQ9IjQ4IiBpZD0iYXBwIiByeD0iMi41IiByeT0iMi41IiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjAuNTsiIHdpZHRoPSI2MCIgeD0iMTUwIiB5PSIyMjMiLz48ZWxsaXBzZSBjeD0iMTY1IiBjeT0iMjM5IiBmaWxsPSIjQUREMUIyIiByeD0iMTEiIHJ5PSIxMSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBhdGggZD0iTTE2Ny4zNDM4LDIzNC42NzE5IEMxNjYuNDA2MywyMzQuMjM0NCAxNjUuODEyNSwyMzQuMDkzOCAxNjQuOTM3NSwyMzQuMDkzOCBDMTYyLjMxMjUsMjM0LjA5MzggMTYwLjMxMjUsMjM2LjE3MTkgMTYwLjMxMjUsMjM4Ljg5MDYgTDE2MC4zMTI1LDI0MC4wMTU2IEMxNjAuMzEyNSwyNDIuNTkzOCAxNjIuNDIxOSwyNDQuNDg0NCAxNjUuMzEyNSwyNDQuNDg0NCBDMTY2LjUzMTMsMjQ0LjQ4NDQgMTY3LjY4NzUsMjQ0LjE4NzUgMTY4LjQzNzUsMjQzLjY0MDYgQzE2OS4wMTU2LDI0My4yMzQ0IDE2OS4zNDM4LDI0Mi43ODEzIDE2OS4zNDM4LDI0Mi4zOTA2IEMxNjkuMzQzOCwyNDEuOTM3NSAxNjguOTUzMSwyNDEuNTQ2OSAxNjguNDg0NCwyNDEuNTQ2OSBDMTY4LjI2NTYsMjQxLjU0NjkgMTY4LjA2MjUsMjQxLjYyNSAxNjcuODc1LDI0MS44MTI1IEMxNjcuNDIxOSwyNDIuMjk2OSAxNjcuNDIxOSwyNDIuMjk2OSAxNjcuMjM0NCwyNDIuMzkwNiBDMTY2LjgxMjUsMjQyLjY1NjMgMTY2LjEyNSwyNDIuNzgxMyAxNjUuMzU5NCwyNDIuNzgxMyBDMTYzLjMxMjUsMjQyLjc4MTMgMTYyLjAxNTYsMjQxLjY4NzUgMTYyLjAxNTYsMjM5Ljk4NDQgTDE2Mi4wMTU2LDIzOC44OTA2IEMxNjIuMDE1NiwyMzcuMTA5NCAxNjMuMjY1NiwyMzUuNzk2OSAxNjUsMjM1Ljc5NjkgQzE2NS41NzgxLDIzNS43OTY5IDE2Ni4xODc1LDIzNS45NTMxIDE2Ni42NTYzLDIzNi4yMDMxIEMxNjcuMTQwNiwyMzYuNDg0NCAxNjcuMzEyNSwyMzYuNzAzMSAxNjcuNDA2MywyMzcuMTA5NCBDMTY3LjQ2ODgsMjM3LjUxNTYgMTY3LjUsMjM3LjY0MDYgMTY3LjY0MDYsMjM3Ljc2NTYgQzE2Ny43ODEzLDIzNy45MDYzIDE2OC4wMTU2LDIzOC4wMTU2IDE2OC4yMzQ0LDIzOC4wMTU2IEMxNjguNSwyMzguMDE1NiAxNjguNzY1NiwyMzcuODc1IDE2OC45Mzc1LDIzNy42NTYzIEMxNjkuMDQ2OSwyMzcuNSAxNjkuMDc4MSwyMzcuMzEyNSAxNjkuMDc4MSwyMzYuODkwNiBMMTY5LjA3ODEsMjM1LjQ2ODggQzE2OS4wNzgxLDIzNS4wMzEzIDE2OS4wNjI1LDIzNC45MDYzIDE2OC45Njg4LDIzNC43NSBDMTY4LjgxMjUsMjM0LjQ4NDQgMTY4LjUzMTMsMjM0LjM0MzggMTY4LjIzNDQsMjM0LjM0MzggQzE2Ny45Mzc1LDIzNC4zNDM4IDE2Ny43MzQ0LDIzNC40Mzc1IDE2Ny41MTU2LDIzNC43NSBMMTY3LjM0MzgsMjM0LjY3MTkgWiAiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCBmaWxsPSIjMDAwMDAwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nIiB0ZXh0TGVuZ3RoPSIyOCIgeD0iMTc5IiB5PSIyNDMuODQ2NyI+YXBwPC90ZXh0PjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgeDE9IjE1MSIgeDI9IjIwOSIgeTE9IjI1NSIgeTI9IjI1NSIvPjxsaW5lIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MC41OyIgeDE9IjE1MSIgeDI9IjIwOSIgeTE9IjI2MyIgeTI9IjI2MyIvPjwvZz48IS0tcmV2ZXJzZSBsaW5rIHV0aWwgdG8gZXh0ZW5zaW9uc3lzdGVtLS0+PGcgaWQ9ImxpbmtfdXRpbF9leHRlbnNpb25zeXN0ZW0iPjxwYXRoIGNvZGVMaW5lPSIxIiBkPSJNMTIwLDczIEMxMjAsOTAuNjU4IDEyMCw5Ni45NDEgMTIwLDExNC42NzggIiBmaWxsPSJub25lIiBpZD0idXRpbC1iYWNrdG8tZXh0ZW5zaW9uc3lzdGVtIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cG9seWdvbiBmaWxsPSJub25lIiBwb2ludHM9IjEyMCw1NSwxMTQsNzMsMTI2LDczLDEyMCw1NSIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PC9nPjwhLS1yZXZlcnNlIGxpbmsgZXh0ZW5zaW9uc3lzdGVtIHRvIGNvcmVwbHVnaW4tLT48ZyBpZD0ibGlua19leHRlbnNpb25zeXN0ZW1fY29yZXBsdWdpbiI+PHBhdGggY29kZUxpbmU9IjIiIGQ9Ik05OC40NDM4LDE3OC43Mjc4IEM4OC42MTUyLDE5Ni4zODU4IDgzLjg1MzcsMjA0Ljk0MSA3My45ODA5LDIyMi42NzggIiBmaWxsPSJub25lIiBpZD0iZXh0ZW5zaW9uc3lzdGVtLWJhY2t0by1jb3JlcGx1Z2luIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48cG9seWdvbiBmaWxsPSJub25lIiBwb2ludHM9IjEwNy4xOTgsMTYzLDkzLjIwMTIsMTc1LjgwOTcsMTAzLjY4NjQsMTgxLjY0NTksMTA3LjE5OCwxNjMiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjwvZz48IS0tcmV2ZXJzZSBsaW5rIGNvcmVwbHVnaW4gdG8gaGVsbG93b3JsZC0tPjxnIGlkPSJsaW5rX2NvcmVwbHVnaW5faGVsbG93b3JsZCI+PHBhdGggY29kZUxpbmU9IjMiIGQ9Ik02MSwyODkgQzYxLDMwNi42NTg0IDYxLDMxMi45NDA4IDYxLDMzMC42Nzg0ICIgZmlsbD0ibm9uZSIgaWQ9ImNvcmVwbHVnaW4tYmFja3RvLWhlbGxvd29ybGQiIHN0eWxlPSJzdHJva2U6IzE4MTgxODtzdHJva2Utd2lkdGg6MS4wOyIvPjxwb2x5Z29uIGZpbGw9Im5vbmUiIHBvaW50cz0iNjEsMjcxLDU1LDI4OSw2NywyODksNjEsMjcxIiBzdHlsZT0ic3Ryb2tlOiMxODE4MTg7c3Ryb2tlLXdpZHRoOjEuMDsiLz48L2c+PCEtLXJldmVyc2UgbGluayBleHRlbnNpb25zeXN0ZW0gdG8gYXBwLS0+PGcgaWQ9ImxpbmtfZXh0ZW5zaW9uc3lzdGVtX2FwcCI+PHBhdGggY29kZUxpbmU9IjQiIGQ9Ik0xNDEuODg1NywxNzguNjY0NyBDMTUxLjg4MDcsMTk2LjMyMjcgMTU2Ljc1OSwyMDQuOTQxIDE2Ni43OTksMjIyLjY3OCAiIGZpbGw9Im5vbmUiIGlkPSJleHRlbnNpb25zeXN0ZW0tYmFja3RvLWFwcCIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PHBvbHlnb24gZmlsbD0ibm9uZSIgcG9pbnRzPSIxMzMuMDE5LDE2MywxMzYuNjY0MiwxODEuNjIwMiwxNDcuMTA3MywxNzUuNzA5MSwxMzMuMDE5LDE2MyIgc3R5bGU9InN0cm9rZTojMTgxODE4O3N0cm9rZS13aWR0aDoxLjA7Ii8+PC9nPjwhLS1TUkM9W0FvdDlwNTZtZ1Q3TExLWWpBNGREQXl4Q3Bva2tCMnY5cFVMMnVxQ0s5VVNOZkhSYWJBUGR2ZDRYYzEyZlpESVNkRnBvX0FBUzVFblE0bWlBMDAwMF0tLT48L2c+PC9zdmc+'>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+              <a href="/tags/qt/" rel="tag"><i class="fa fa-tag"></i> qt</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/02/03/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-cpp-%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/" rel="prev" title="设计模式 cpp - 迭代器模式">
+      <i class="fa fa-chevron-left"></i> 设计模式 cpp - 迭代器模式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/02/08/cpp-%E5%BA%93-rapidjson/" rel="next" title="cpp 库 - rapidjson">
+      cpp 库 - rapidjson <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#qt-creator-%E9%BB%98%E8%AE%A4%E5%90%AF%E7%94%A8%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">qt creator 默认启用的插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#qt-creator-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91"><span class="nav-number">3.</span> <span class="nav-text">qt creator 源码编译</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">下载源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%8A%A5%E9%94%99"><span class="nav-number">3.2.</span> <span class="nav-text">解决报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C"><span class="nav-number">3.3.</span> <span class="nav-text">运行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%8F%92%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">设计插件架构</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="通关路边的一只野鬼"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">通关路边的一只野鬼</p>
+  <div class="site-description" itemprop="description">潼关路上始终是黑暗的</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">通关路边的一只野鬼</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+-->
+<script src="/js/prism/prism.js" async></script>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

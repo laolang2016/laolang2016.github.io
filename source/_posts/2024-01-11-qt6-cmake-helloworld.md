@@ -13,6 +13,154 @@ categories:
 qt6 cmake helloworld
 <!--more-->
 
+# 一键打包效果
+> 1. 复制了依赖的 qt 动态库,包含 plugins/platforms 及其依赖库
+> 2. 复制了自定义和第三方库
+> 3. 生成了 desktop 文件
+> 4. 使用 shell 脚本启动项目
+> 5. 一个最基本的多目录构建的示例
+
+
+## commit id
+[https://gitcode.com/m0_53402432/qt-guide/commits/detail/893ce77c8a8350365f7903c29e6cc9becdc428dd?ref=main](https://gitcode.com/m0_53402432/qt-guide/commits/detail/893ce77c8a8350365f7903c29e6cc9becdc428dd?ref=main)
+
+## 目录结构
+```shell
+(.venv) laolang@laolang-pc:hello-qt(main)$ tree
+.
+├── CMakeLists.txt
+├── CMakeLists.txt.user
+├── dist
+│   ├── build.py
+│   ├── hello-qt
+│   ├── hello-qt.desktop
+│   ├── ldd_qxcb.sh
+│   └── pack.sh
+├── format.sh
+├── res
+│   ├── cpp.ico
+│   ├── cpp.png
+│   ├── icons
+│   │   └── new.png
+│   ├── logo.ico
+│   └── logo.png
+├── res.qrc
+└── src
+    ├── app
+    │   ├── CMakeLists.txt
+    │   ├── main.cpp
+    │   ├── mainwindow.cpp
+    │   └── mainwindow.h
+    ├── CMakeLists.txt
+    ├── person
+    │   ├── CMakeLists.txt
+    │   ├── person.cpp
+    │   └── person.h
+    └── util
+        ├── CMakeLists.txt
+        ├── log_util.cpp
+        └── log_util.h
+
+7 directories, 25 files
+(.venv) laolang@laolang-pc:hello-qt(main)$
+```
+
+## 使用方法
+1. 修改 `dist/build.py`,如下部分需要根据自己项目的实际情况进行修改
+```python
+# app 名称
+APP_NAME = "janna"
+# 家目录
+HOME_DIR = "/home/laolang"
+# 打包目录
+DEPLOY_PATH = "/home/laolang/tmp/janna/janna"
+# 编译目录
+BUILD_PATH = "/home/laolang/csdn/gitcode/qt-guide/janna/build-janna-Desktop_Qt_6_5_3_GCC_64bit-Release"
+# qt platforms 目录
+QT_PLATFORMS_PATH = "/home/laolang/program/qt6/6.5.3/gcc_64/plugins/platforms"
+# 自己的动态库或其他三方库
+LIBS = ("libutil", "libspdlog", "libfmt")
+# 构建目录中的可执行程序
+BUILD_BIN_PATH = f"{BUILD_PATH}/src/app/janna"
+```
+
+2. 修改 `dist/hello-qt.desktop` , 同样根据自己项目的实际情况进行修改
+
+## 使用流程
+```shell
+(.venv) laolang@laolang-pc:dist(main)$ # 注意:需要先进行 Release 构建
+(.venv) laolang@laolang-pc:dist(main)$
+(.venv) laolang@laolang-pc:dist(main)$ # 查看部署目录
+(.venv) laolang@laolang-pc:dist(main)$ cd ~/tmp/hello-qt
+(.venv) laolang@laolang-pc:hello-qt$ pwd
+/home/laolang/tmp/hello-qt
+(.venv) laolang@laolang-pc:hello-qt$ l
+总计 0
+(.venv) laolang@laolang-pc:hello-qt$ cd -
+/home/laolang/csdn/gitcode/qt-guide/hello-qt/dist
+(.venv) laolang@laolang-pc:dist(main)$ # 开始部署
+(.venv) laolang@laolang-pc:dist(main)$ pwd
+/home/laolang/csdn/gitcode/qt-guide/hello-qt/dist
+(.venv) laolang@laolang-pc:dist(main)$ l
+总计 24K
+-rw-rw-r-- 1 laolang laolang 5.5K 2024-01-23 16:24:34 build.py
+-rwxrwxr-x 1 laolang laolang  579 2024-01-11 04:38:19 hello-qt*
+-rwxr-xr-x 1 laolang laolang  250 2024-01-11 04:38:08 hello-qt.desktop*
+-rw-rw-r-- 1 laolang laolang  144 2024-01-23 16:18:57 ldd_qxcb.sh
+-rw-rw-r-- 1 laolang laolang  165 2024-01-23 16:23:49 pack.sh
+(.venv) laolang@laolang-pc:dist(main)$ python3 build.py
+开始打包...
+
+清理并初始化打包目录
+
+复制 qt 动态库
+
+复制 qt plugin
+
+复制自定义库和三方库
+
+复制快捷方式
+
+
+(.venv) laolang@laolang-pc:hello-qt$ # 部署完毕,检查部署目录
+(.venv) laolang@laolang-pc:hello-qt$ cd ~/tmp/hello-qt
+(.venv) laolang@laolang-pc:hello-qt$ l
+总计 4.0K
+drwxrwxr-x 9 laolang laolang 4.0K 2024-01-23 16:36:44 hello-qt/
+(.venv) laolang@laolang-pc:hello-qt$ tree
+.
+└── hello-qt
+    ├── bin
+    │   └── hello-qt
+    ├── data
+    ├── lib
+    │   ├── libfmt.so.10
+    │   ├── libspdlog.so.1.12
+    │   └── libutil.so
+    ├── logo.png
+    ├── logs
+    ├── plugins
+    ├── qt_lib
+    │   ├── lib
+    │   │   ├── libbrotlicommon.so.1
+                   ...
+    │   ├── libbrotlicommon.so.1
+                   ...
+    │   └── plugins
+    │       └── platforms
+    │           ├── libqeglfs.so
+                   ...
+    └── sbin
+        └── hello-qt
+
+11 directories, 122 files
+(.venv) laolang@laolang-pc:hello-qt$
+```
+
+然后执行部署目录下 `sbin/hello-qt` 以及检查快捷方式是否生效
+
+---
+
 
 # 一个 HelloWorld 项目
 ## 新建项目并运行
@@ -42,7 +190,7 @@ laolang@laolang-pc:hello-qt$ l && pwd
 总计 36K
 -rwxrwxr-x 1 laolang laolang 34K 2024-01-11 02:18:43 hello-qt*
 /home/laolang/tmp/hello-qt
-laolang@laolang-pc:hello-qt$ 
+laolang@laolang-pc:hello-qt$
 ```
 
 ## step 02 复制依赖库
@@ -59,14 +207,14 @@ cp $deplist $des
 ```shell
 laolang@laolang-pc:hello-qt$ ls
 hello-qt  pack.sh
-laolang@laolang-pc:hello-qt$ sh pack.sh 
+laolang@laolang-pc:hello-qt$ sh pack.sh
 laolang@laolang-pc:hello-qt$ ls
 hello-qt              libc.so.6       libfontconfig.so.1  libglib-2.0.so.0     libicudata.so.56  libmd.so.0      libpng16.so.16   libQt6Widgets.so.6  libX11.so.6        libz.so.1
 libbrotlicommon.so.1  libdbus-1.so.3  libfreetype.so.6    libGL.so.1           libicui18n.so.56  libm.so.6       libpthread.so.0  librt.so.1          libXau.so.6        libzstd.so.1
 libbrotlidec.so.1     libdl.so.2      libgcc_s.so.1       libGLX.so.0          libicuuc.so.56    libOpenGL.so.0  libQt6Core.so.6  libstdc++.so.6      libxcb.so.1        pack.sh
 libbsd.so.0           libEGL.so.1     libgcrypt.so.20     libgpg-error.so.0    liblz4.so.1       libpcre.so.3    libQt6DBus.so.6  libsystemd.so.0     libXdmcp.so.6
 libcap.so.2           libexpat.so.1   libGLdispatch.so.0  libgthread-2.0.so.0  liblzma.so.5      libperson.so    libQt6Gui.so.6   libuuid.so.1        libxkbcommon.so.0
-laolang@laolang-pc:hello-qt$ 
+laolang@laolang-pc:hello-qt$
 ```
 
 ## step 03 复制 platforms 目录
@@ -83,8 +231,8 @@ rm -rf plugins/platforms/*.debug
 ```shell
 #!/bin/sh
 mkdir lib
-exe="libqxcb.so" 
-des="$(pwd)/lib" 
+exe="libqxcb.so"
+des="$(pwd)/lib"
 deplist=$(ldd $exe | awk  '{if (match($3,"/")){ printf("%s "),$3 } }')
 cp $deplist $des
 ```
@@ -262,7 +410,10 @@ laolang@laolang-pc:t$ l
 总计 20M
 drwxrwxr-x 7 laolang laolang 4.0K 2024-01-11 03:03:23 hello-qt/
 -rw-rw-r-- 1 laolang laolang  20M 2024-01-11 03:13:30 hello-qt.xz
-laolang@laolang-pc:t$ 
+laolang@laolang-pc:t$
 ```
 
+## step 09 使用 python 脚本自动化打包
 
+### commit id
+[https://gitcode.com/m0_53402432/qt-guide/commits/detail/893ce77c8a8350365f7903c29e6cc9becdc428dd?ref=main](https://gitcode.com/m0_53402432/qt-guide/commits/detail/893ce77c8a8350365f7903c29e6cc9becdc428dd?ref=main)
