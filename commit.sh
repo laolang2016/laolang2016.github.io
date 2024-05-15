@@ -1,5 +1,6 @@
 #!/bin/bash
 rm -rf public
+rm -rf docs
 hexo d
 mv public docs
 git add .
