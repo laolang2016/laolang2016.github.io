@@ -31,10 +31,10 @@ tags:
 
 第二种就是在下载的 `gradle-xxx-all.zip` 中
 
-!!! tip
-    打开 `userguide.html` 即可, 那个 `userguide_single.html` 并不好用
-
-    `userguide.pdf` 是 pdf 版本
+{% note info simple %}
+打开 `userguide.html` 即可, 那个 `userguide_single.html` 并不好用
+`userguide.pdf` 是 pdf 版本
+{% endnote %}
 
 ![](/images/2024-09-12-gradle-study//002.png)
 
@@ -1060,8 +1060,9 @@ E:\github\gradle-study\spring-hello>
 
 ### libs.version.toml
 
-!!! tip
-    使用 bom 之后, 这个文件就不需要写 spring 依赖的版本号了
+{% note info simple %}
+使用 bom 之后, 这个文件就不需要写 `spring` 依赖的版本号了
+{% endnote %}
 
 ```toml
 [versions]
@@ -1544,8 +1545,10 @@ include(":jx-module:jx-module-system:jx-module-system-biz")
 
 ## 根目录 build.gradle.kts【重要】
 
-!!! tip
-    重要文件
+{% note info simple %}
+重要文件
+{% endnote %}
+
 
 ```kotlin 
 import com.laolang.gradle.Version
