@@ -31,7 +31,7 @@ tags:
 
 第二种就是在下载的 `gradle-xxx-all.zip` 中
 
-{% note info simple %}
+{% note info no-icon simple %}
 打开 `userguide.html` 即可, 那个 `userguide_single.html` 并不好用
 `userguide.pdf` 是 pdf 版本
 {% endnote %}

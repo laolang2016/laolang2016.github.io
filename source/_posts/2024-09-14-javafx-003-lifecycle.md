@@ -9,7 +9,7 @@ tags:
 - javafx
 ---
 
-# 声明周期的三个方法
+# 生命周期的三个方法
 ```java
 package com.laolang.fx;
 
