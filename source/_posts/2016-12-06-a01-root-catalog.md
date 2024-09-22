@@ -1,6 +1,6 @@
 ---
 title: 目录
-date: 2016-12-06 10:0:00
+date: 2016-12-06 10:00:00
 description: 汇总了所有博客
 sticky: 999
 ---
@@ -25,6 +25,10 @@ sticky: 999
 
 [京东首屏实战--静态页面部分](https://www.bilibili.com/video/BV1854y1i7pr)
 
+[在 SpringBoot 项目中使用 MDC 实现日志 traceId 的统一](https://www.cnblogs.com/strongmore/p/17964566)
+[日志之MDC和异步多线程间传递线程id](https://www.cnblogs.com/jingzh/p/17248886.html)
+[[SpringAop + Logback +MDC] 现网必备全链路日志追踪](https://zhuanlan.zhihu.com/p/677775374)
+
 # 996.icu
 
 ## nginx
@@ -40,7 +44,6 @@ sticky: 999
 
 [java 大项目](/2024/09/12/java-大项目/)
 [java 新特性](/2024/09/13/java-new-feature/)
-
 
 ## maven
 [maven 笔记](/2024/09/15/maven-note/)
@@ -74,6 +77,9 @@ sticky: 999
 ### spring security
 
 [security 基操](/2024/09/22/security-基操/)
+
+### shiro
+[shiro 基础](/2024/09/22/shiro-基础/)
 
 # spring
 [spring Hello World](/2024/08/29/spring-Hello-World/)
@@ -114,6 +120,14 @@ sticky: 999
 
 # git
 [git 记录](/2024/09/22/git-记录/)
+
+
+# 编译原理
+
+## 基础
+
+### 数据结构
+[数据结构 C 语言版 动态数组](/2024/09/22/数据结构-C-语言版-动态数组/)
 
 # 前端
 
