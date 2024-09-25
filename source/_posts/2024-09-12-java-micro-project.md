@@ -11,7 +11,19 @@ tags:
 
 # 京西
 
-## h5 端
+## 后端
+
+## 前端
+
+### 小程序端
+[尚硅谷微信小程序开发教程，2024最新版微信小程序项目实战！](https://www.bilibili.com/video/BV1LF4m1E7kB)
+[黑马程序员前端项目uniapp小兔鲜儿微信小程序项目视频教程，基于Vue3+Ts+Pinia+uni-app的最新组合技术栈开发的电商业务全流程](https://www.bilibili.com/video/BV1Bp4y1379L)
+
+### pc 端
+
+[【完结】小兔仙vue3.0电商实战项目](https://www.bilibili.com/video/BV1tN4y197pJ)
+
+### h5 端
 
 [Vue+VantUI严选电商项目移动端实战项目](https://www.bilibili.com/video/BV1PL4y1x7cz)
 [vant ui 官方文档](https://vant-ui.github.io/vant/#/zh-CN)

@@ -449,6 +449,10 @@ E:\code\idea\maven-study\maven-study\jx-boot>
 
 ## maven-surefire-plugin
 
+## jacoco
+
+[Maven通过Jacoco生成单元测试覆盖率数据，无法生成jacoco.exec](https://blog.csdn.net/Fung_Daniel/article/details/90700107)
+
 ## jetty-maven-plugin
 
 # 参考

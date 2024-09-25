@@ -493,3 +493,11 @@ public class ErrorController {
 		location="favicon.ico" />
 </beans>
 ```
+
+
+
+## 更好的办法
+[【Java Web开发学习】Spring MVC异常统一处理](https://www.cnblogs.com/yangchongxing/p/9271900.html)
+
+
+
