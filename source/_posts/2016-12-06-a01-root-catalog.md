@@ -29,6 +29,18 @@ sticky: 999
 [日志之MDC和异步多线程间传递线程id](https://www.cnblogs.com/jingzh/p/17248886.html)
 [[SpringAop + Logback +MDC] 现网必备全链路日志追踪](https://zhuanlan.zhihu.com/p/677775374)
 
+idea 基本配置与操作
+
+[SpringBoot实战](https://blog.csdn.net/qq_33204709/category_9828619.html)
+[springboot+Loki+Loki4j+Grafana搭建轻量级日志系统](https://blog.csdn.net/weixin_40141628/article/details/140924757)
+
+[windows下部署ELK详细教程](https://www.cnblogs.com/jiangcong/p/14683318.html)
+[Log4j2整合ELK搭建实时日志平台](https://blog.csdn.net/qq_51808107/article/details/119300264)
+[ELK系列(Elasticsearch+Logstash+Kibana)](https://blog.csdn.net/lewky_liu/category_9280139.html)
+[Windows安装Minio(超详细)](https://blog.csdn.net/weixin_44543482/article/details/135305720)
+
+[Vue之mustache模板引擎（笔记整理）](https://blog.csdn.net/yan_danfeng/article/details/114699710)
+
 # 996.icu
 
 ## nginx
@@ -97,17 +109,22 @@ sticky: 999
 
 ### spring mvc
 [spring mvc 搭建](/2024/08/29/spring-mvc-搭建/)
+[spring mvc 接收参数](/2024/09/27/spring-mvc-接受参数/)
 [spring mvc converter 与 jackson 配置](/2024/08/30/spring-mvc-converter-与-jackson-配置/)
 [spring mvc 异常处理](/2024/08/30/spring-mvc-异常处理/)
-[spring mvc 整合 mybatis](/2024/08/30/spring-mvc-整合-mybatis/)
 
 ### spring boot
 [spring boot 在 linux 下的启动](/2024/09/22/run-spring-boot-with-linux/)
 [docker 启动 spring boot](/2024/09/22/run-spring-boot-with-docker/)
 [spring boot kotlin java 混编](/2024/08/29/spring-boot-kotlin-java-混编/)
+[spring boot java groovy 混编](/2024/09/28/spring-boot-java-groovy-混编/)
 
 ### mybatis
 [mybatis 源码环境搭建](/2024/09/22/mybatis-源码环境搭建/)
+
+### 整合
+[spring mvc 整合 mybatis](/2024/08/30/spring-mvc-整合-mybatis/)
+[spring 中的 http 请求](/2024/09/28/spring-http-request/)
 
 # 数据库
 
@@ -117,6 +134,11 @@ sticky: 999
 [mysql 总览](/2024/09/22/mysql-summary/)
 [mysql 常用查询](/2024/08/22/mysql-常用查询/)
 [mysql 基础](/2024/09/22/mysql-base/)
+
+# 测试
+
+## jmeter
+[jmeter 基础](/2024/09/26/jemeter-基础/)
 
 # git
 [git 记录](/2024/09/22/git-记录/)

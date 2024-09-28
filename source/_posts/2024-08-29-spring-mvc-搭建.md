@@ -3,10 +3,12 @@ title: spring mvc 搭建
 date: 2024-08-29 23:47:18
 categories:
 - java
-- spring
+- ssm
+- spring mvc
 tags:
 - java
-- spring
+- ssm
+- spring mvc
 ---
 
 # 目录结构

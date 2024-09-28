@@ -3,10 +3,12 @@ title: spring mvc 整合 mybatis
 date: 2024-08-30 11:37:10
 categories:
 - java
-- spring
+- ssm
+- ssm 整合
 tags:
 - java
-- spring
+- ssm
+- ssm 整合
 ---
 
 # 整合 mybatis

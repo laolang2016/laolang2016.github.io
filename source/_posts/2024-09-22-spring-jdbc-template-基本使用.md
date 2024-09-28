@@ -3,9 +3,11 @@ title: spring jdbc template 基本使用
 date: 2024-09-22 06:27:58
 categories:
 - java
+- ssm
 - spring
 tags:
 - java
+- ssm
 - spring
 ---
 
