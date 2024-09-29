@@ -99,6 +99,12 @@ idea 基本配置与操作
 [xxl-job 基础](/2024/09/22/xxl-job-base/)
 
 
+## request
+
+### okhttp
+[okhttp 笔记](/2024/09/28/okhttp-笔记/)
+[RestTemplate 笔记](/2024/09/29/RestTemplate-笔记/)
+
 ## ssm
 
 ### spring
@@ -124,7 +130,7 @@ idea 基本配置与操作
 
 ### 整合
 [spring mvc 整合 mybatis](/2024/08/30/spring-mvc-整合-mybatis/)
-[spring 中的 http 请求](/2024/09/28/spring-http-request/)
+
 
 # 数据库
 
@@ -139,6 +145,7 @@ idea 基本配置与操作
 
 ## jmeter
 [jmeter 基础](/2024/09/26/jemeter-基础/)
+[spring boot 自动化测试解决方案](/2024/09/28/spring-boot-自动化测试解决方案/)
 
 # git
 [git 记录](/2024/09/22/git-记录/)
