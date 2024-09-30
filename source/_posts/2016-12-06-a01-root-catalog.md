@@ -132,6 +132,9 @@ idea 基本配置与操作
 [spring mvc 整合 mybatis](/2024/08/30/spring-mvc-整合-mybatis/)
 
 
+## cloud
+[openfeign 笔记](/2024/09/30/openfeign-笔记/)
+
 # 数据库
 
 [B树 基操](/2024/08/19/B树-基操/)

@@ -14,6 +14,7 @@ tags:
 1. 声明式 `http` 请求
 2. 测试报告支持
 3. 流程控制支持,类似 `flowable`
+4. `groovy dsl` 脚本化
 
 # 参考资料
 
@@ -60,3 +61,8 @@ tags:
 
 ## liteflow
 [https://gitee.com/dromara/liteFlow](https://gitee.com/dromara/liteFlow)
+
+## 接口与自动化测试解决方案
+
+[eolinker](http://blog.eolinker.com/)
+[MeterSphere ](https://www.fit2cloud.com/metersphere/index.html)
