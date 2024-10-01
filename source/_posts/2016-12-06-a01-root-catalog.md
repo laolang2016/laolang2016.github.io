@@ -33,10 +33,10 @@ idea 基本配置与操作
 
 [SpringBoot实战](https://blog.csdn.net/qq_33204709/category_9828619.html)
 [springboot+Loki+Loki4j+Grafana搭建轻量级日志系统](https://blog.csdn.net/weixin_40141628/article/details/140924757)
-
-[windows下部署ELK详细教程](https://www.cnblogs.com/jiangcong/p/14683318.html)
 [Log4j2整合ELK搭建实时日志平台](https://blog.csdn.net/qq_51808107/article/details/119300264)
-[ELK系列(Elasticsearch+Logstash+Kibana)](https://blog.csdn.net/lewky_liu/category_9280139.html)
+
+
+
 [Windows安装Minio(超详细)](https://blog.csdn.net/weixin_44543482/article/details/135305720)
 
 [Vue之mustache模板引擎（笔记整理）](https://blog.csdn.net/yan_danfeng/article/details/114699710)
@@ -210,6 +210,13 @@ idea 基本配置与操作
 ## avalonia
 
 [avalonia hello world](/2024/08/12/avalonia-hello-world)
+
+## win32
+[win32 总览](/2024/10/01/win32-总览/)
+
+[win32 hello world](/2024/10/01/win32-hello-world/)
+
+[mfc hello world](/2024/10/01/mfc-hello-world/)
 
 
 # 器
