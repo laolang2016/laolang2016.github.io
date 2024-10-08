@@ -60,6 +60,12 @@ idea 基本配置与操作
 ## maven
 [maven 笔记](/2024/09/15/maven-note/)
 
+## groovy
+
+[groovy 总览](/2024/10/03/groovy-总览/)
+[groovy 安装与 Hello World](/2024/10/03/groovy-安装与-Hello-World/)
+[groovy 与 java 的异同](/2024/10/04/groovy-与-java-的异同/)
+
 ## gradle 
 [gradle 基本使用](/2024/09/12/gradle-study/)
 
@@ -135,6 +141,12 @@ idea 基本配置与操作
 ## cloud
 [openfeign 笔记](/2024/09/30/openfeign-笔记/)
 
+## 大数据
+
+### droid
+
+[doris 基础](/2024/10/07/doris-基础/)
+
 # 数据库
 
 [B树 基操](/2024/08/19/B树-基操/)
@@ -180,7 +192,14 @@ idea 基本配置与操作
 
 # c++
 
-[C++ 工程化 hello world](/2024/09/25/cpp-工程化-hello-world/)
+[c++ 基础](/2024/10/02/cpp-基础/)
+
+## cmake
+[cmake 总览](/2024/10/09/cmake-总览/)
+[cmake Hello World](/2024/10/09/cmake-Hello-World/)
+
+
+
 
 # lua
 [vscode 搭建 lua 开发环境](/2024/08/29/vscode-搭建-lua-开发环境/)
