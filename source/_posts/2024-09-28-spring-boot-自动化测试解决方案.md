@@ -76,6 +76,52 @@ tags:
 [postman windows 版本下载](https://www.filehorse.com/download-postman/old-versions/)
 [postman 9.31.0 下载地址](https://www.filehorse.com/download-postman/75425/download/)
 
+[postman archive / postman old versions / postman 历史版本下载](https://blog.csdn.net/iTarget/article/details/132841694)
+
+```
+Installing earlier versions of Postman:
+
+    Downloading Postman v9:
+
+        Download Postman v9 for Windows 64-bit: https://go.pstmn.io/dl-win64-v9-latest
+
+        Download Postman v9 for Linux 64-bit: https://go.pstmn.io/dl-linux64-v9-latest
+
+        Download Postman v9 for macOS (Intel chip) 64-bit: https://go.pstmn.io/dl-osx64-v9-latest
+
+        Download Postman v9 for macOS (Apple silicon) 64-bit: https://go.pstmn.io/dl-osxarm64-v9-latest
+
+    Downloading Postman v8:
+
+        Download Postman v8 for Windows 64-bit: https://go.pstmn.io/dl-win64-v8-latest
+
+        Download Postman v8 for Windows 32-bit: https://go.pstmn.io/dl-win32-v8-latest
+
+        Download Postman v8 for Linux 64-bit: https://go.pstmn.io/dl-linux64-v8-latest
+
+        Download Postman v8 for macOS 64-bit: https://go.pstmn.io/dl-macos64-v8-latest
+
+    Downloading Postman v7:
+
+        Download Postman v7 for Windows 64-bit: https://go.pstmn.io/dl-win64-v7-latest
+
+        Download Postman v7 for Windows 32-bit: https://go.pstmn.io/dl-win32-v7-latest
+
+        Download Postman v7 for Linux 64-bit: https://go.pstmn.io/dl-linux64-v7-latest
+
+        Download Postman v7 for macOS 64-bit: https://go.pstmn.io/dl-macos64-v7-latest
+
+     Downloading Postman v6:
+
+        Download Postman v6 for Windows 64-bit: https://go.pstmn.io/dl-win64-v6-latest
+
+        Download Postman v6 for Windows 32-bit: https://go.pstmn.io/dl-win32-v6-latest
+
+        Download Postman v6 for Linux 64-bit: https://go.pstmn.io/dl-linux64-v6-latest
+
+        Download Postman v6 for macOS 64-bit: https://go.pstmn.io/dl-macos64-v6-latest
+```
+
 ## junit
 
 [Junit5 入门系列](https://blog.csdn.net/ryo1060732496/category_9276134.html)
