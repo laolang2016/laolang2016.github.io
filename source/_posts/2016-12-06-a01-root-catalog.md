@@ -41,11 +41,23 @@ idea 基本配置与操作
 
 [Vue之mustache模板引擎（笔记整理）](https://blog.csdn.net/yan_danfeng/article/details/114699710)
 
+# 其他文档
+
+[leetcode](https://laolang2016.github.io/leetcode/)
+
 # 996.icu
+
+## 基础
+
+### 数据结构
+[数据结构 C 语言版 动态数组](/2024/09/22/数据结构-C-语言版-动态数组/)
 
 ## nginx
 
 [nginx 笔记](/2024/09/15/nginx-note/)
+
+## tomcat
+[tomcat 总览](/2024/10/26/tomcat-总览/)
 
 ## linux
 
@@ -56,6 +68,7 @@ idea 基本配置与操作
 
 [java 大项目](/2024/09/12/java-大项目/)
 [java 新特性](/2024/09/13/java-new-feature/)
+[java8 函数式编程](/2024/10/27/java8-函数式编程/)
 
 ## maven
 [maven 笔记](/2024/09/15/maven-note/)
@@ -130,6 +143,7 @@ idea 基本配置与操作
 [docker 启动 spring boot](/2024/09/22/run-spring-boot-with-docker/)
 [spring boot kotlin java 混编](/2024/08/29/spring-boot-kotlin-java-混编/)
 [spring boot java groovy 混编](/2024/09/28/spring-boot-java-groovy-混编/)
+[spring boot 接收各种参数](/2024/10/27/spring-boot-接收各种参数/)
 
 ### mybatis
 [mybatis 源码环境搭建](/2024/09/22/mybatis-源码环境搭建/)
@@ -137,9 +151,16 @@ idea 基本配置与操作
 ### 整合
 [spring mvc 整合 mybatis](/2024/08/30/spring-mvc-整合-mybatis/)
 
+[若依源码分析 总览](/2024/10/12/若依源码分析-总览/)
+[若依 环境搭建与启动](/2024/10/12/若依-环境搭建与启动/)
+
 
 ## cloud
 [openfeign 笔记](/2024/09/30/openfeign-笔记/)
+
+## tdd
+
+
 
 ## 大数据
 
@@ -166,13 +187,6 @@ idea 基本配置与操作
 [git 记录](/2024/09/22/git-记录/)
 
 
-# 编译原理
-
-## 基础
-
-### 数据结构
-[数据结构 C 语言版 动态数组](/2024/09/22/数据结构-C-语言版-动态数组/)
-
 # 前端
 
 ## webpack
@@ -194,9 +208,15 @@ idea 基本配置与操作
 
 [c++ 基础](/2024/10/02/cpp-基础/)
 
+## makefile
+[makefile 总览](/2024/11/09/makefile-总览/)
+
+
 ## cmake
 [cmake 总览](/2024/10/09/cmake-总览/)
 [cmake Hello World](/2024/10/09/cmake-Hello-World/)
+
+
 
 
 
@@ -219,7 +239,14 @@ idea 基本配置与操作
 ## ubuntu
 [ubuntu 基本操作](/2024/08/29/ubuntu-基本操作/)
 
+# cui
+
 # gui
+
+## qt
+
+[qt 总览](/2024/11/05/qt-总览/)
+[qt 安装与 Hello World](/2024/11/05/qt-安装与-Hello-World/)
 
 ## javafx
 [javafx 001 hello world](/2024/09/14/javafx-001-hello-world/)
@@ -237,9 +264,21 @@ idea 基本配置与操作
 
 [mfc hello world](/2024/10/01/mfc-hello-world/)
 
+## linux
+
+### gtk
+[gtk 总览](/2024/10/15/gtk-总览/)
 
 # 器
 
 [dbeaver](/2024/09/22/dbeaver/)
 [eclipse](/2024/08/30/eclipse/)
 [emacs](/2024/09/24/emacs/)
+
+[chrome 扩展开发 总览](http://localhost:4000/2024/11/03/chrome-%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91-%E6%80%BB%E8%A7%88/)
+
+# 编译原理
+
+
+
+

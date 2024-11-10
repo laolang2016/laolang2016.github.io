@@ -9,7 +9,7 @@ tags:
 - cmake
 ---
 
-# 源码
+# linux 下最小化 cmake 程序
 
 ## 目录结构
 ```
@@ -70,7 +70,29 @@ cmake -S . -G "Unix Makefiles" -B build && cmake --build build
 ```
 
 
+# windows 下 cmake 如何使用
 
+## 前提
+
+需要安装 `vs2022` , 以及安装响应的 `c++` 组件
+
+
+## 命令
+```
+cmake -S . -G "Visual Studio 17 2022" -B build && cmake --build build
+```
+
+# windows 下使用 mingw
+
+## 前提
+
+安装 `tdmgcc` , 并配置环境变量
+
+## 命令
+
+```
+cmake -S . -G "MinGW Makefiles" -B build && cmake --build build
+```
 
 [详细教程：如何解决vs 2022 vc++项目 “warning C4819: 该文件包含不能在当前代码页(936)中表示的字符...](https://blog.csdn.net/u011775793/article/details/134760711)
 [VS中如何编写和使用动态库--C++](https://blog.csdn.net/weixin_61196167/article/details/120958210)

@@ -16,9 +16,12 @@
 <p><a href="https://blog.csdn.net/qq_33204709/category_9828619.html">SpringBoot实战</a><br><a href="https://blog.csdn.net/weixin_40141628/article/details/140924757">springboot+Loki+Loki4j+Grafana搭建轻量级日志系统</a><br><a href="https://blog.csdn.net/qq_51808107/article/details/119300264">Log4j2整合ELK搭建实时日志平台</a></p>
 <p><a href="https://blog.csdn.net/weixin_44543482/article/details/135305720">Windows安装Minio(超详细)</a></p>
 <p><a href="https://blog.csdn.net/yan_danfeng/article/details/114699710">Vue之mustache模板引擎（笔记整理）</a></p>
-<h1 id="996-icu"><a href="#996-icu" class="headerlink" title="996.icu"></a>996.icu</h1><h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p><a href="/2024/09/15/nginx-note/">nginx 笔记</a></p>
+<h1 id="其他文档"><a href="#其他文档" class="headerlink" title="其他文档"></a>其他文档</h1><p><a href="https://laolang2016.github.io/leetcode/">leetcode</a></p>
+<h1 id="996-icu"><a href="#996-icu" class="headerlink" title="996.icu"></a>996.icu</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p><a href="/2024/09/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-C-%E8%AF%AD%E8%A8%80%E7%89%88-%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/">数据结构 C 语言版 动态数组</a></p>
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p><a href="/2024/09/15/nginx-note/">nginx 笔记</a></p>
+<h2 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h2><p><a href="/2024/10/26/tomcat-%E6%80%BB%E8%A7%88/">tomcat 总览</a></p>
 <h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><h3 id="centos"><a href="#centos" class="headerlink" title="centos"></a>centos</h3><p><a href="/2024/09/15/centos-note/">centos 笔记</a></p>
-<h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><p><a href="/2024/09/12/java-%E5%A4%A7%E9%A1%B9%E7%9B%AE/">java 大项目</a><br><a href="/2024/09/13/java-new-feature/">java 新特性</a></p>
+<h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><p><a href="/2024/09/12/java-%E5%A4%A7%E9%A1%B9%E7%9B%AE/">java 大项目</a><br><a href="/2024/09/13/java-new-feature/">java 新特性</a><br><a href="/2024/10/27/java8-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/">java8 函数式编程</a></p>
 <h2 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h2><p><a href="/2024/09/15/maven-note/">maven 笔记</a></p>
 <h2 id="groovy"><a href="#groovy" class="headerlink" title="groovy"></a>groovy</h2><p><a href="/2024/10/03/groovy-%E6%80%BB%E8%A7%88/">groovy 总览</a><br><a href="/2024/10/03/groovy-%E5%AE%89%E8%A3%85%E4%B8%8E-Hello-World/">groovy 安装与 Hello World</a><br><a href="/2024/10/04/groovy-%E4%B8%8E-java-%E7%9A%84%E5%BC%82%E5%90%8C/">groovy 与 java 的异同</a></p>
 <h2 id="gradle"><a href="#gradle" class="headerlink" title="gradle"></a>gradle</h2><p><a href="/2024/09/12/gradle-study/">gradle 基本使用</a></p>
@@ -34,33 +37,37 @@
 <h2 id="request"><a href="#request" class="headerlink" title="request"></a>request</h2><h3 id="okhttp"><a href="#okhttp" class="headerlink" title="okhttp"></a>okhttp</h3><p><a href="/2024/09/28/okhttp-%E7%AC%94%E8%AE%B0/">okhttp 笔记</a><br><a href="/2024/09/29/RestTemplate-%E7%AC%94%E8%AE%B0/">RestTemplate 笔记</a></p>
 <h2 id="ssm"><a href="#ssm" class="headerlink" title="ssm"></a>ssm</h2><h3 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h3><p><a href="/2024/08/29/spring-Hello-World/">spring Hello World</a><br><a href="/2024/08/31/spring-aop/">spring aop</a><br><a href="/2024/09/01/spring-%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86/">spring 事务管理</a><br><a href="/2024/09/22/spring-jdbc-template-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">spring jdbc template 基本使用</a></p>
 <h3 id="spring-mvc"><a href="#spring-mvc" class="headerlink" title="spring mvc"></a>spring mvc</h3><p><a href="/2024/08/29/spring-mvc-%E6%90%AD%E5%BB%BA/">spring mvc 搭建</a><br><a href="/2024/09/27/spring-mvc-%E6%8E%A5%E5%8F%97%E5%8F%82%E6%95%B0/">spring mvc 接收参数</a><br><a href="/2024/08/30/spring-mvc-converter-%E4%B8%8E-jackson-%E9%85%8D%E7%BD%AE/">spring mvc converter 与 jackson 配置</a><br><a href="/2024/08/30/spring-mvc-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">spring mvc 异常处理</a></p>
-<h3 id="spring-boot"><a href="#spring-boot" class="headerlink" title="spring boot"></a>spring boot</h3><p><a href="/2024/09/22/run-spring-boot-with-linux/">spring boot 在 linux 下的启动</a><br><a href="/2024/09/22/run-spring-boot-with-docker/">docker 启动 spring boot</a><br><a href="/2024/08/29/spring-boot-kotlin-java-%E6%B7%B7%E7%BC%96/">spring boot kotlin java 混编</a><br><a href="/2024/09/28/spring-boot-java-groovy-%E6%B7%B7%E7%BC%96/">spring boot java groovy 混编</a></p>
+<h3 id="spring-boot"><a href="#spring-boot" class="headerlink" title="spring boot"></a>spring boot</h3><p><a href="/2024/09/22/run-spring-boot-with-linux/">spring boot 在 linux 下的启动</a><br><a href="/2024/09/22/run-spring-boot-with-docker/">docker 启动 spring boot</a><br><a href="/2024/08/29/spring-boot-kotlin-java-%E6%B7%B7%E7%BC%96/">spring boot kotlin java 混编</a><br><a href="/2024/09/28/spring-boot-java-groovy-%E6%B7%B7%E7%BC%96/">spring boot java groovy 混编</a><br><a href="/2024/10/27/spring-boot-%E6%8E%A5%E6%94%B6%E5%90%84%E7%A7%8D%E5%8F%82%E6%95%B0/">spring boot 接收各种参数</a></p>
 <h3 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h3><p><a href="/2024/09/22/mybatis-%E6%BA%90%E7%A0%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">mybatis 源码环境搭建</a></p>
 <h3 id="整合"><a href="#整合" class="headerlink" title="整合"></a>整合</h3><p><a href="/2024/08/30/spring-mvc-%E6%95%B4%E5%90%88-mybatis/">spring mvc 整合 mybatis</a></p>
+<p><a href="/2024/10/12/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-%E6%80%BB%E8%A7%88/">若依源码分析 总览</a><br><a href="/2024/10/12/%E8%8B%A5%E4%BE%9D-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%90%AF%E5%8A%A8/">若依 环境搭建与启动</a></p>
 <h2 id="cloud"><a href="#cloud" class="headerlink" title="cloud"></a>cloud</h2><p><a href="/2024/09/30/openfeign-%E7%AC%94%E8%AE%B0/">openfeign 笔记</a></p>
-<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><h3 id="droid"><a href="#droid" class="headerlink" title="droid"></a>droid</h3><p><a href="/2024/10/07/doris-%E5%9F%BA%E7%A1%80/">doris 基础</a></p>
+<h2 id="tdd"><a href="#tdd" class="headerlink" title="tdd"></a>tdd</h2><h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><h3 id="droid"><a href="#droid" class="headerlink" title="droid"></a>droid</h3><p><a href="/2024/10/07/doris-%E5%9F%BA%E7%A1%80/">doris 基础</a></p>
 <h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p><a href="/2024/08/19/B%E6%A0%91-%E5%9F%BA%E6%93%8D/">B树 基操</a></p>
 <h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><p><a href="/2024/09/22/mysql-summary/">mysql 总览</a><br><a href="/2024/08/22/mysql-%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2/">mysql 常用查询</a><br><a href="/2024/09/22/mysql-base/">mysql 基础</a></p>
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><h2 id="jmeter"><a href="#jmeter" class="headerlink" title="jmeter"></a>jmeter</h2><p><a href="/2024/09/26/jemeter-%E5%9F%BA%E7%A1%80/">jmeter 基础</a><br><a href="/2024/09/28/spring-boot-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">spring boot 自动化测试解决方案</a></p>
 <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><p><a href="/2024/09/22/git-%E8%AE%B0%E5%BD%95/">git 记录</a></p>
-<h1 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p><a href="/2024/09/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-C-%E8%AF%AD%E8%A8%80%E7%89%88-%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/">数据结构 C 语言版 动态数组</a></p>
 <h1 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h1><h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p><a href="/2024/09/19/webpack-note/">webpack 笔记</a></p>
 <h2 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h2><p><a href="/2024/09/21/vue3-with-prismjs/">vue3 使用 prismjs</a></p>
 <h2 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a>jquery</h2><p><a href="/2024/09/22/jquery-summary/">jquery 系列总览</a></p>
 <h2 id="extjs"><a href="#extjs" class="headerlink" title="extjs"></a>extjs</h2><p><a href="/2024/09/22/extjs-summary/">extjs 总览</a><br><a href="/2024/09/22/extjs-4-x-base/">extjs 4.x 基本使用</a></p>
 <h1 id="c"><a href="#c" class="headerlink" title="c++"></a>c++</h1><p><a href="/2024/10/02/cpp-%E5%9F%BA%E7%A1%80/">c++ 基础</a></p>
+<h2 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h2><p><a href="/2024/11/09/makefile-%E6%80%BB%E8%A7%88/">makefile 总览</a></p>
 <h2 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h2><p><a href="/2024/10/09/cmake-%E6%80%BB%E8%A7%88/">cmake 总览</a><br><a href="/2024/10/09/cmake-Hello-World/">cmake Hello World</a></p>
 <h1 id="lua"><a href="#lua" class="headerlink" title="lua"></a>lua</h1><p><a href="/2024/08/29/vscode-%E6%90%AD%E5%BB%BA-lua-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">vscode 搭建 lua 开发环境</a><br><a href="/2024/08/29/luarocks-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">luarocks 的基本使用</a><br><a href="/2024/08/29/lua-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">lua 开发环境搭建</a></p>
 <h1 id="dotnet"><a href="#dotnet" class="headerlink" title="dotnet"></a>dotnet</h1><p><a href="/2024/09/25/dotnet-hello-world/">dotnet hello world</a></p>
 <h1 id="php"><a href="#php" class="headerlink" title="php"></a>php</h1><p><a href="/2024/09/16/php-setup/">php 环境搭建</a></p>
 <h1 id="linux-1"><a href="#linux-1" class="headerlink" title="linux"></a>linux</h1><h2 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h2><p><a href="/2024/08/29/ubuntu-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">ubuntu 基本操作</a></p>
-<h1 id="gui"><a href="#gui" class="headerlink" title="gui"></a>gui</h1><h2 id="javafx"><a href="#javafx" class="headerlink" title="javafx"></a>javafx</h2><p><a href="/2024/09/14/javafx-001-hello-world/">javafx 001 hello world</a><br><a href="/2024/09/14/javafx-002-start-type/">javafx 002 启动方式</a><br><a href="/2024/09/14/javafx-003-lifecycle/">javafx 003 生命周期</a></p>
+<h1 id="cui"><a href="#cui" class="headerlink" title="cui"></a>cui</h1><h1 id="gui"><a href="#gui" class="headerlink" title="gui"></a>gui</h1><h2 id="qt"><a href="#qt" class="headerlink" title="qt"></a>qt</h2><p><a href="/2024/11/05/qt-%E6%80%BB%E8%A7%88/">qt 总览</a><br><a href="/2024/11/05/qt-%E5%AE%89%E8%A3%85%E4%B8%8E-Hello-World/">qt 安装与 Hello World</a></p>
+<h2 id="javafx"><a href="#javafx" class="headerlink" title="javafx"></a>javafx</h2><p><a href="/2024/09/14/javafx-001-hello-world/">javafx 001 hello world</a><br><a href="/2024/09/14/javafx-002-start-type/">javafx 002 启动方式</a><br><a href="/2024/09/14/javafx-003-lifecycle/">javafx 003 生命周期</a></p>
 <h2 id="avalonia"><a href="#avalonia" class="headerlink" title="avalonia"></a>avalonia</h2><p><a href="/2024/08/12/avalonia-hello-world">avalonia hello world</a></p>
 <h2 id="win32"><a href="#win32" class="headerlink" title="win32"></a>win32</h2><p><a href="/2024/10/01/win32-%E6%80%BB%E8%A7%88/">win32 总览</a></p>
 <p><a href="/2024/10/01/win32-hello-world/">win32 hello world</a></p>
 <p><a href="/2024/10/01/mfc-hello-world/">mfc hello world</a></p>
+<h2 id="linux-2"><a href="#linux-2" class="headerlink" title="linux"></a>linux</h2><h3 id="gtk"><a href="#gtk" class="headerlink" title="gtk"></a>gtk</h3><p><a href="/2024/10/15/gtk-%E6%80%BB%E8%A7%88/">gtk 总览</a></p>
 <h1 id="器"><a href="#器" class="headerlink" title="器"></a>器</h1><p><a href="/2024/09/22/dbeaver/">dbeaver</a><br><a href="/2024/08/30/eclipse/">eclipse</a><br><a href="/2024/09/24/emacs/">emacs</a></p>
-]]></content>
+<p><a href="http://localhost:4000/2024/11/03/chrome-%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91-%E6%80%BB%E8%A7%88/">chrome 扩展开发 总览</a></p>
+<h1 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h1>]]></content>
   </entry>
   <entry>
     <title>资源汇总</title>
@@ -83,6 +90,11 @@
 <h2 id="testng"><a href="#testng" class="headerlink" title="testng"></a>testng</h2><p><a href="https://www.yiibai.com/testng">TestNG教程 易百教程</a></p>
 <p><a href="https://www.cnblogs.com/df888/p/15803356.html">单篇长文TestNG从入门到精通</a></p>
 <p><a href="https://www.cnblogs.com/du-hong/category/1566525.html">Java自动化测试框架 （详细教程）</a></p>
+<h2 id="junit5"><a href="#junit5" class="headerlink" title="junit5"></a>junit5</h2><p><a href="https://junit.github.net.cn/junit5/docs/current/user-guide/">JUnit 5 用户指南</a></p>
+<p><a href="https://blog.csdn.net/ryo1060732496/category_9276134.html">Junit5 入门系列</a></p>
+<p><a href="https://blog.csdn.net/qq_15283475/article/details/127328418">《单元测试》Junit5入门教程——非常详细，入门即精通</a></p>
+<p><a href="https://www.letianbiji.com/article/101720.html">Mocktio 入门</a></p>
+<p><a href="https://blog.csdn.net/kanmima/article/details/123925873">使用mockito来mock final、static、private以及构造方法</a></p>
 <h2 id="gui"><a href="#gui" class="headerlink" title="gui"></a>gui</h2><h3 id="javafx"><a href="#javafx" class="headerlink" title="javafx"></a>javafx</h3><p><a href="https://space.bilibili.com/5096022/channel/seriesdetail?sid=394169">javafx 视频教程 极其完整</a><br><a href="https://www.bilibili.com/video/BV1H14y1g7ji">JavaFx 系列教程 2024版 整合SpringBoot3+MyBaitsPlus</a></p>
 <h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1><p><a href="https://blog.csdn.net/luyaran/article/details/80928666">mysql使用技巧之比较两个表是否有不同的数据</a></p>
 <h1 id="编译原理"><a href="#编译原理" class="headerlink" title="编译原理"></a>编译原理</h1><p><a href="https://github.com/DoctorWkt/acwj">acwj</a><br><a href="https://www.youtube.com/playlist?list=PLwHDUsnIdlMy52QnKX-2Unl6Hmfm9A6jt">Compiler From Scratch</a></p>
@@ -139,6 +151,8 @@
 
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://github.com/dorisoy/Prism.Avalonia">https://github.com/dorisoy/Prism.Avalonia</a><br><a href="https://github.com/SuessLabs/Prism.Avalonia.Templates/tree/master">https://github.com/SuessLabs/Prism.Avalonia.Templates/tree/master</a></p>
 <p><a href="https://www.bilibili.com/video/BV1Ei4y1F7du">WPF-Prism8.0核心教程(公益)</a></p>
+<p><a href="https://www.cnblogs.com/zh7791/category/1893907.html">prism 合集</a></p>
+<p><a href="https://github.com/irihitech/Semi.Avalonia/tree/main">Semi.Avalonia</a></p>
 <h1 id="新建-avalonia-项目"><a href="#新建-avalonia-项目" class="headerlink" title="新建 avalonia 项目"></a>新建 avalonia 项目</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">md AvaloniaStudy</span><br><span class="line">cd AvaloniaStudy</span><br><span class="line">dotnet new sln</span><br><span class="line">dotnet new avalonia.app -o AvaloniaHello</span><br><span class="line">dotnet sln add AvaloniaHello\AvaloniaHello.csproj</span><br></pre></td></tr></table></figure>
 
 <h1 id="添加-prism-依赖"><a href="#添加-prism-依赖" class="headerlink" title="添加 prism 依赖"></a>添加 prism 依赖</h1><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Project</span> <span class="attr">Sdk</span>=<span class="string">&quot;Microsoft.NET.Sdk&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">PropertyGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">OutputType</span>&gt;</span>WinExe<span class="tag">&lt;/<span class="name">OutputType</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TargetFramework</span>&gt;</span>net8.0<span class="tag">&lt;/<span class="name">TargetFramework</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Nullable</span>&gt;</span>enable<span class="tag">&lt;/<span class="name">Nullable</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">BuiltInComInteropSupport</span>&gt;</span>true<span class="tag">&lt;/<span class="name">BuiltInComInteropSupport</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ApplicationManifest</span>&gt;</span>app.manifest<span class="tag">&lt;/<span class="name">ApplicationManifest</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AvaloniaUseCompiledBindingsByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">AvaloniaUseCompiledBindingsByDefault</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">PropertyGroup</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">&quot;Avalonia&quot;</span> <span class="attr">Version</span>=<span class="string">&quot;11.1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">&quot;Avalonia.Desktop&quot;</span> <span class="attr">Version</span>=<span class="string">&quot;11.1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">&quot;Avalonia.Themes.Fluent&quot;</span> <span class="attr">Version</span>=<span class="string">&quot;11.1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">&quot;Avalonia.Fonts.Inter&quot;</span> <span class="attr">Version</span>=<span class="string">&quot;11.1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Condition</span>=<span class="string">&quot;&#x27;$(Configuration)&#x27; == &#x27;Debug&#x27;&quot;</span> <span class="attr">Include</span>=<span class="string">&quot;Avalonia.Diagnostics&quot;</span> <span class="attr">Version</span>=<span class="string">&quot;11.1.0&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- prism 依赖,只能使用 DryIoc , avalonia 不支持 unity ioc --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">PackageReference</span> <span class="attr">Include</span>=<span class="string">&quot;Prism.DryIoc.Avalonia&quot;</span> <span class="attr">Version</span>=<span class="string">&quot;8.1.97.11073&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ItemGroup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Project</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -2530,6 +2544,7 @@
 <h1 id="关于-git-log"><a href="#关于-git-log" class="headerlink" title="关于 git log"></a>关于 git log</h1><h2 id="参考-3"><a href="#参考-3" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/m0_37996629/article/details/129796377">Git log 进阶用法（含格式化、以及数据过滤）</a><br><a href="https://www.cnblogs.com/wutou/p/17490984.html">git log 单行、多行 详细显示结果、提交的文件名【汇总参数演示】</a></p>
 <h1 id="gitea"><a href="#gitea" class="headerlink" title="gitea"></a>gitea</h1><p><a href="https://www.cnblogs.com/Gitea/p/windows.html">手把手教你玩转 Gitea｜在 Windows 系统上安装 Gitea</a></p>
 <p><code>clone</code> 时使用 <code>http</code> 的方式, 然后直接 <code>push</code> , 此时会弹出一个页面, 点接受即可</p>
+<h1 id="同时推送两个仓库"><a href="#同时推送两个仓库" class="headerlink" title="同时推送两个仓库"></a>同时推送两个仓库</h1><p><a href="https://www.cnblogs.com/zbcn/p/18337190">本地同时配置github 和gitee 远程仓库</a></p>
 ]]></content>
       <categories>
         <category>git</category>
@@ -3354,12 +3369,12 @@
     <url>/2024/09/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-C-%E8%AF%AD%E8%A8%80%E7%89%88-%E5%8A%A8%E6%80%81%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>编译原理</category>
+        <category>996.icu</category>
         <category>基础</category>
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>编译原理</tag>
+        <tag>996.icu</tag>
         <tag>基础</tag>
         <tag>数据结构</tag>
       </tags>
@@ -3800,7 +3815,7 @@
   <entry>
     <title>cmake Hello World</title>
     <url>/2024/10/09/cmake-Hello-World/</url>
-    <content><![CDATA[<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:cmake-cpp-mini$ tree</span><br><span class="line">.</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">└── main.cpp</span><br><span class="line"></span><br><span class="line">1 directory, 2 files</span><br><span class="line">laolang@laolang-mint:cmake-cpp-mini$ </span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h1 id="linux-下最小化-cmake-程序"><a href="#linux-下最小化-cmake-程序" class="headerlink" title="linux 下最小化 cmake 程序"></a>linux 下最小化 cmake 程序</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:cmake-cpp-mini$ tree</span><br><span class="line">.</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">└── main.cpp</span><br><span class="line"></span><br><span class="line">1 directory, 2 files</span><br><span class="line">laolang@laolang-mint:cmake-cpp-mini$ </span><br></pre></td></tr></table></figure>
 
 <h2 id="cpp"><a href="#cpp" class="headerlink" title="cpp"></a>cpp</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello World&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -3813,7 +3828,11 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake -S . -G &quot;Unix Makefiles&quot; -B build &amp;&amp; cmake --build build</span><br></pre></td></tr></table></figure>
 
 
+<h1 id="windows-下-cmake-如何使用"><a href="#windows-下-cmake-如何使用" class="headerlink" title="windows 下 cmake 如何使用"></a>windows 下 cmake 如何使用</h1><h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><p>需要安装 <code>vs2022</code> , 以及安装响应的 <code>c++</code> 组件</p>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake -S . -G &quot;Visual Studio 17 2022&quot; -B build &amp;&amp; cmake --build build</span><br></pre></td></tr></table></figure>
 
+<h1 id="windows-下使用-mingw"><a href="#windows-下使用-mingw" class="headerlink" title="windows 下使用 mingw"></a>windows 下使用 mingw</h1><h2 id="前提-1"><a href="#前提-1" class="headerlink" title="前提"></a>前提</h2><p>安装 <code>tdmgcc</code> , 并配置环境变量</p>
+<h2 id="命令-1"><a href="#命令-1" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake -S . -G &quot;MinGW Makefiles&quot; -B build &amp;&amp; cmake --build build</span><br></pre></td></tr></table></figure>
 
 <p><a href="https://blog.csdn.net/u011775793/article/details/134760711">详细教程：如何解决vs 2022 vc++项目 “warning C4819: 该文件包含不能在当前代码页(936)中表示的字符…</a><br><a href="https://blog.csdn.net/weixin_61196167/article/details/120958210">VS中如何编写和使用动态库–C++</a><br><a href="https://blog.csdn.net/wap1981314/article/details/12653545">CMake Error: your RC compiler: “CMAKE_RC_COMPILER-NOTFOUND” was not found.</a><br><a href="https://www.cnblogs.com/Koomee/p/17158096.html">关于使用vcvars32.bat，vcvarsall.bat配置VS编译环境配置的方法</a><br><a href="https://zhuanlan.zhihu.com/p/627531212?theme=light">记录Windows下开发C&#x2F;C++如何避免乱码</a></p>
 ]]></content>
@@ -3953,7 +3972,7 @@
 </thead>
 <tbody><tr>
 <td><a href="/2024/10/09/cmake-Hello-World/">cmake Hello World</a></td>
-<td>一个最小化的例子, 包括 <code>linux</code> 环境下使用 <code>cmake</code> 和 <code>gcc</code> 以及如何在 <code>windows</code> 环境下使用 <code>cmake</code> 和 <code>msvc</code></td>
+<td>一个最小化的例子, 包括 <code>linux</code> 环境下使用 <code>cmake</code> 和 <code>gcc</code> 以及如何在 <code>windows</code> 环境下使用 <code>cmake</code> 以及 <code>mingw</code> 和 <code>msvc</code></td>
 <td>无</td>
 <td>略简,看一眼就行, 也可以复制代码运行一下</td>
 </tr>
@@ -3966,6 +3985,531 @@
       <tags>
         <tag>c++</tag>
         <tag>cmake</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>若依 环境搭建与启动</title>
+    <url>/2024/10/12/%E8%8B%A5%E4%BE%9D-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E4%B8%8E%E5%90%AF%E5%8A%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>java</category>
+        <category>ssm</category>
+        <category>ssm 整合</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>ssm</tag>
+        <tag>ssm 整合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>若依源码分析 总览</title>
+    <url>/2024/10/12/%E8%8B%A5%E4%BE%9D%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-%E6%80%BB%E8%A7%88/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>java</category>
+        <category>ssm</category>
+        <category>ssm 整合</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>ssm</tag>
+        <tag>ssm 整合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gtk 总览</title>
+    <url>/2024/10/15/gtk-%E6%80%BB%E8%A7%88/</url>
+    <content><![CDATA[<h1 id="参考资料汇总"><a href="#参考资料汇总" class="headerlink" title="参考资料汇总"></a>参考资料汇总</h1><p><a href="https://gtk.awaysoft.com/">gtk 中文社区</a><br><a href="https://blog.csdn.net/tennysonsky/article/details/42778635">GTK帮助文档的使用</a></p>
+<p><a href="https://space.bilibili.com/76048877/channel/collectiondetail?sid=2534379&ctype=0">GTK 包教不包会</a></p>
+]]></content>
+      <categories>
+        <category>桌面端开发</category>
+        <category>linux</category>
+        <category>gtk</category>
+      </categories>
+      <tags>
+        <tag>桌面端开发</tag>
+        <tag>linux</tag>
+        <tag>gtk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tomcat 总览</title>
+    <url>/2024/10/26/tomcat-%E6%80%BB%E8%A7%88/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>996.icu</category>
+        <category>tomcat</category>
+      </categories>
+      <tags>
+        <tag>996.icu</tag>
+        <tag>tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>java8 函数式编程</title>
+    <url>/2024/10/27/java8-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.bilibili.com/video/BV1fz421C7tj">黑马程序员Java函数式编程全套视频教程，Lambda表达式、Stream流、函数式编程一套全通关</a></p>
+<p><a href="https://blog.csdn.net/NarutoConanKing/article/details/86573449">Java8 四大核心函数式接口</a></p>
+<p>Java 8函数式编程</p>
+<p><img src="/images/2024-10-27-java8-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/001.png"></p>
+<p>Java 8实战</p>
+<p><img src="/images/2024-10-27-java8-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/002.png"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>spring boot 接收各种参数</title>
+    <url>/2024/10/27/spring-boot-%E6%8E%A5%E6%94%B6%E5%90%84%E7%A7%8D%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/qq_44627608/article/details/132425435">SpringBoot接收参数的8种方式</a><br><a href="https://blog.csdn.net/albert_xjf/article/details/131576898">Spring Boot中的请求参数绑定及使用</a></p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>ssm</category>
+        <category>spring boot</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring boot</tag>
+        <tag>ssm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>chrome 扩展开发 总览</title>
+    <url>/2024/11/03/chrome-%E6%89%A9%E5%B1%95%E5%BC%80%E5%8F%91-%E6%80%BB%E8%A7%88/</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://developer.chrome.com/docs/extensions?hl=zh-cn">官方文档</a></p>
+<p><a href="https://blog.csdn.net/guoqiankunmiss/article/details/112007833">15000字大章带你一步一步使用Vue3开发chrome浏览器插件</a><br><a href="https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html">【干货】Chrome插件(扩展)开发全攻略</a></p>
+<p><a href="https://www.cnblogs.com/champagne/p/?page=1">Chrome浏览器扩展开发系列</a></p>
+<p><a href="https://segmentfault.com/a/1190000042851130">Chrome Extension v3 开发指南</a></p>
+]]></content>
+      <categories>
+        <category>器</category>
+      </categories>
+      <tags>
+        <tag>器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>qt 总览</title>
+    <url>/2024/11/05/qt-%E6%80%BB%E8%A7%88/</url>
+    <content><![CDATA[<h1 id="参考资料汇总"><a href="#参考资料汇总" class="headerlink" title="参考资料汇总"></a>参考资料汇总</h1><h2 id="博客系列"><a href="#博客系列" class="headerlink" title="博客系列"></a>博客系列</h2><p><a href="https://zetcode.apachecn.org/gui/">【布客】ZetCode 图形界面教程 包含 win32 qt swing等</a></p>
+<h2 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h2><p><a href="https://www.bilibili.com/video/BV1GW42197ff">C++QT2024年最新版</a></p>
+<p><a href="https://www.bilibili.com/video/BV1km4y1k7CW">《Qt6 C++开发指南 》2023（上册，完整版）</a></p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p><a href="/2024/11/05/qt-%E5%AE%89%E8%A3%85%E4%B8%8E-Hello-World/">qt 安装与 Hello World</a></p>
+]]></content>
+      <categories>
+        <category>桌面端开发</category>
+        <category>qt</category>
+      </categories>
+      <tags>
+        <tag>桌面端开发</tag>
+        <tag>qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>qt 安装与 Hello World</title>
+    <url>/2024/11/05/qt-%E5%AE%89%E8%A3%85%E4%B8%8E-Hello-World/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>桌面端开发</category>
+        <category>qt</category>
+      </categories>
+      <tags>
+        <tag>桌面端开发</tag>
+        <tag>qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>makefile 总览</title>
+    <url>/2024/11/09/makefile-%E6%80%BB%E8%A7%88/</url>
+    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.gnu.org/software/make/">gnu make 官网</a></p>
+<p><a href="https://github.com/seisman/how-to-write-makefile">跟我一起写Makefile (PDF重制版)</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Bv4y1J7QT">从零开始学Makefile</a><br><a href="https://www.bilibili.com/video/BV1Xt4y1h7rH">makefile从入门到项目编译实战</a></p>
+<h1 id="进度"><a href="#进度" class="headerlink" title="进度"></a>进度</h1><p><a href="/2024/11/09/makefile-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">makefile 基本使用</a></p>
+]]></content>
+      <categories>
+        <category>c++</category>
+        <category>makefile</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>makefile</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>makefile 基本使用</title>
+    <url>/2024/11/09/makefile-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="一个最简单的-Makefile"><a href="#一个最简单的-Makefile" class="headerlink" title="一个最简单的 Makefile"></a>一个最简单的 Makefile</h1><h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:make_cpp_hello$ tree</span><br><span class="line">.</span><br><span class="line">├── hello.cpp</span><br><span class="line">└── Makefile</span><br><span class="line"></span><br><span class="line">1 directory, 2 files</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><h3 id="hello-cpp"><a href="#hello-cpp" class="headerlink" title="hello.cpp"></a>hello.cpp</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello World&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h3><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">hello: hello.cpp</span></span><br><span class="line">	g++ -o hello hello.cpp</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用过程"><a href="#使用过程" class="headerlink" title="使用过程"></a>使用过程</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:make_cpp_hello$ ls -l</span><br><span class="line">total 8</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 92 11月  9 18:21 hello.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 40 11月  9 18:21 Makefile</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ make</span><br><span class="line">g++ -o hello hello.cpp</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ ls -l</span><br><span class="line">total 28</span><br><span class="line">-rwxrwxr-x 1 laolang laolang 16496 11月  9 18:32 hello</span><br><span class="line">-rw-rw-r-- 1 laolang laolang    92 11月  9 18:21 hello.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang    40 11月  9 18:21 Makefile</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ ./hello </span><br><span class="line">Hello World</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="分两步编译"><a href="#分两步编译" class="headerlink" title="分两步编译"></a>分两步编译</h2><h3 id="Makefile-1"><a href="#Makefile-1" class="headerlink" title="Makefile"></a>Makefile</h3><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">hello: hello.o</span></span><br><span class="line">	g++ hello.o -o hello</span><br><span class="line"><span class="section">hello.o: hello.cpp</span></span><br><span class="line">	g++ -c hello.cpp</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用过程-1"><a href="#使用过程-1" class="headerlink" title="使用过程"></a>使用过程</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:make_cpp_hello$ ls -l</span><br><span class="line">total 8</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 92 11月  9 18:21 hello.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 73 11月  9 18:33 Makefile</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ make</span><br><span class="line">g++ -c hello.cpp</span><br><span class="line">g++ hello.o -o hello</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ ls -l</span><br><span class="line">total 32</span><br><span class="line">-rwxrwxr-x 1 laolang laolang 16496 11月  9 18:33 hello</span><br><span class="line">-rw-rw-r-- 1 laolang laolang    92 11月  9 18:21 hello.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  2128 11月  9 18:33 hello.o</span><br><span class="line">-rw-rw-r-- 1 laolang laolang    73 11月  9 18:33 Makefile</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ ./hello </span><br><span class="line">Hello World</span><br><span class="line">laolang@laolang-mint:make_cpp_hello$ </span><br></pre></td></tr></table></figure>
+
+<h1 id="Makefile-文件名的命名与指定"><a href="#Makefile-文件名的命名与指定" class="headerlink" title="Makefile 文件名的命名与指定"></a>Makefile 文件名的命名与指定</h1><h2 id="命名方式"><a href="#命名方式" class="headerlink" title="命名方式"></a>命名方式</h2><p><code>make</code> 会自动查找 <code>Makefile</code> 文件,查找顺序为 <code>GNUmakefile</code> -&gt; <code>makefile</code> -&gt; <code>Makefile</code></p>
+<p><strong>GNUmakefile</strong>: 不建议使用,因为只有 <code>GNU make</code> 会识别<br><strong>makefile</strong>: 可以使用, <code>GNU make</code> 和其他版本的 <code>make</code> 可以识别<br><strong>Makefile</strong>: 最常用, 建议使用该命名方式</p>
+<h2 id="如何指定-Makefile-文件"><a href="#如何指定-Makefile-文件" class="headerlink" title="如何指定 Makefile 文件"></a>如何指定 Makefile 文件</h2><p>如果 <code>Makefile</code> 文件名比较特殊, 可在命令行指定</p>
+<ol>
+<li><code>make -f &lt;filename&gt;</code></li>
+<li><code>make --file=&lt;filename&gt;</code></li>
+</ol>
+<h1 id="一个略复杂的-Makefile"><a href="#一个略复杂的-Makefile" class="headerlink" title="一个略复杂的 Makefile"></a>一个略复杂的 Makefile</h1><h2 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h2><p><a href="https://github.com/mayerui/sudoku">https://github.com/mayerui/sudoku</a></p>
+<h2 id="目录结构-1"><a href="#目录结构-1" class="headerlink" title="目录结构"></a>目录结构</h2><blockquote>
+<p>此目录中的文件来自与 <code>sudoku/src</code> ,然后添加了一个 <code>Makefile</code> 文件</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ l</span><br><span class="line">total 76K</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 2.4K 2024-11-09 23:09:12 block.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  390 2024-11-09 23:09:17 block.h</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 1.3K 2024-11-09 23:09:17 color.h</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  752 2024-11-09 23:09:12 command.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  809 2024-11-09 23:09:17 command.h</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 1.2K 2024-11-09 23:09:17 common.h</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  148 2024-11-09 23:09:17 display_symbol.h</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 2.0K 2024-11-09 23:09:12 i18n.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  566 2024-11-09 23:09:17 i18n.h</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 1.8K 2024-11-09 23:09:12 input.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  157 2024-11-09 23:09:17 input.h</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 1.2K 2024-11-09 23:09:12 main.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  782 2024-11-09 23:17:54 Makefile</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 9.5K 2024-11-09 23:09:12 scene.cpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 1.1K 2024-11-09 23:09:17 scene.h</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  184 2024-11-09 23:13:45 system_env.hpp</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 2.7K 2024-11-09 23:09:27 utility.inl</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="一个简略的-Makefile"><a href="#一个简略的-Makefile" class="headerlink" title="一个简略的 Makefile"></a>一个简略的 Makefile</h2><h3 id="确定文件依赖关系的方法"><a href="#确定文件依赖关系的方法" class="headerlink" title="确定文件依赖关系的方法"></a>确定文件依赖关系的方法</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ g++ -MM main.cpp</span><br><span class="line">main.o: main.cpp i18n.h input.h common.h scene.h block.h command.h \</span><br><span class="line"> system_env.hpp utility.inl</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<h3 id="Makefile-内容"><a href="#Makefile-内容" class="headerlink" title="Makefile 内容"></a>Makefile 内容</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudoku: block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line">	g++ -o sudoku block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line"></span><br><span class="line">block.o: block.cpp block.h common.h color.h display_symbol.h</span><br><span class="line">	g++ -c block.cpp -o block.o</span><br><span class="line"></span><br><span class="line">command.o: command.cpp scene.h common.h block.h command.h</span><br><span class="line">	g++ -c command.cpp -o command.o</span><br><span class="line"></span><br><span class="line">i18n.o: i18n.cpp i18n.h</span><br><span class="line">	g++ -c i18n.cpp -o i18n.o</span><br><span class="line"></span><br><span class="line">input.o: input.cpp common.h i18n.h utility.inl</span><br><span class="line">	g++ -c input.cpp -o input.o</span><br><span class="line"></span><br><span class="line">main.o: main.cpp i18n.h input.h common.h scene.h block.h command.h system_env.hpp utility.inl</span><br><span class="line">	g++ -c main.cpp -o main.o</span><br><span class="line"></span><br><span class="line">scene.o: scene.cpp scene.h common.h block.h command.h display_symbol.h i18n.h utility.inl color.h</span><br><span class="line">	g++ -c scene.cpp -o scene.o</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	rm -rf sudoku</span><br><span class="line">	rm -rf block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make</span><br><span class="line">g++ -c block.cpp -o block.o</span><br><span class="line">g++ -c command.cpp -o command.o</span><br><span class="line">g++ -c i18n.cpp -o i18n.o</span><br><span class="line">g++ -c input.cpp -o input.o</span><br><span class="line">g++ -c main.cpp -o main.o</span><br><span class="line">g++ -c scene.cpp -o scene.o</span><br><span class="line">g++ -o sudoku block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line">laolang@laolang-mint:sudoku_make$ make</span><br><span class="line">make: &#x27;sudoku&#x27; is up to date.</span><br><span class="line">laolang@laolang-mint:sudoku_make$ make clean</span><br><span class="line">rm -rf sudoku</span><br><span class="line">rm -rf block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<h1 id="目标与伪目标"><a href="#目标与伪目标" class="headerlink" title="目标与伪目标"></a>目标与伪目标</h1><p><code>.DEFAULT_GOAL</code>: 指定默认的目标. 如果没有显示的指定, 则 <code>Makefile</code> 的第一个目标就是默认的目标<br><code>.PHONY</code>: 指定伪目标. <code>clean</code> 只是一个标签,不是一个需要生成的文件,使用 <code>.PHONY</code> 可以显示的指明 <code>clean</code> 是一个伪目标, 可避免文件名和伪目标重名. <code>main.o</code> 即是一个伪目标又是一个需要生成的文件, 此时每次执行都会生成 <code>main.o</code> , 也就会重新生成依赖 <code>main.o</code> 的目标<br><code>-rm -rf sudoku</code>: 意指无论文件是否存在,都不会报错</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DEFAULT_GOAL = sudoku</span><br><span class="line"></span><br><span class="line">sudoku: block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line">	g++ -o sudoku block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line"></span><br><span class="line">block.o: block.cpp block.h common.h color.h display_symbol.h</span><br><span class="line">	g++ -c block.cpp -o block.o</span><br><span class="line"></span><br><span class="line">command.o: command.cpp scene.h common.h block.h command.h</span><br><span class="line">	g++ -c command.cpp -o command.o</span><br><span class="line"></span><br><span class="line">i18n.o: i18n.cpp i18n.h</span><br><span class="line">	g++ -c i18n.cpp -o i18n.o</span><br><span class="line"></span><br><span class="line">input.o: input.cpp common.h i18n.h utility.inl</span><br><span class="line">	g++ -c input.cpp -o input.o</span><br><span class="line"></span><br><span class="line">main.o: main.cpp i18n.h input.h common.h scene.h block.h command.h system_env.hpp utility.inl</span><br><span class="line">	g++ -c main.cpp -o main.o</span><br><span class="line"></span><br><span class="line">scene.o: scene.cpp scene.h common.h block.h command.h display_symbol.h i18n.h utility.inl color.h</span><br><span class="line">	g++ -c scene.cpp -o scene.o</span><br><span class="line"></span><br><span class="line">.PHONY : clean main.o</span><br><span class="line">clean:</span><br><span class="line">	- rm -rf sudoku</span><br><span class="line">	- rm -rf block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h1><h2 id="依赖类型"><a href="#依赖类型" class="headerlink" title="依赖类型"></a>依赖类型</h2><p>之前的依赖形式都是普通依赖, 直接列在目标后面, 其有两个特点</p>
+<ol>
+<li>如果这一依赖是由其他规则生成的文件, 那么执行到这一目标前会先执行生成依赖的那一规则</li>
+<li>如果任何一个依赖文件修改时间比目标晚, 那么就重新生成目标文件</li>
+</ol>
+<h2 id="order-only-依赖"><a href="#order-only-依赖" class="headerlink" title="order-only 依赖"></a>order-only 依赖</h2><p>依赖文件不存在时, 会执行对应的方法生成, 但依赖文件更新并不会导致目标文件的更新.<br>如果目标文件已存在, <code>order-only</code> 依赖中的文件即使修改时间比目标文件晚, 目标文件也不会更新.</p>
+<p>定义方法如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">targets: normal-prerequisites | order-only-prerequisites</span><br></pre></td></tr></table></figure>
+<p><code>normal-prerequisites</code> 可以为空</p>
+<h1 id="关于方法的一些问题"><a href="#关于方法的一些问题" class="headerlink" title="关于方法的一些问题"></a>关于方法的一些问题</h1><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.PHONY : clean</span><br><span class="line">clean:</span><br><span class="line">	rm sudoku</span><br></pre></td></tr></table></figure>
+
+<p>如上命令,当文件不存在时,会报错, 并且会退出 <code>make</code> 进程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make clean</span><br><span class="line">rm sudoku</span><br><span class="line">rm: cannot remove &#x27;sudoku&#x27;: No such file or directory</span><br><span class="line">make: *** [Makefile:27: clean] Error 1</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<p>解决方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.PHONY : clean</span><br><span class="line">clean:</span><br><span class="line">	- rm sudoku</span><br></pre></td></tr></table></figure>
+
+<p>命令前加 <code>-</code> 虽然还是会报错,但是不会退出 <code>make</code> 进程</p>
+<h2 id="禁止回显"><a href="#禁止回显" class="headerlink" title="禁止回显"></a>禁止回显</h2><h3 id="添加"><a href="#添加" class="headerlink" title="添加 @"></a>添加 @</h3><p>每一条命令都会回显, 可在命令前加 <code>@</code> 取消回显</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.PHONY : clean</span><br><span class="line">clean:</span><br><span class="line">	-@ rm -rf sudoku</span><br><span class="line">	-@ rm -rf block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br></pre></td></tr></table></figure>
+
+<h3 id="SILENT"><a href="#SILENT" class="headerlink" title=".SILENT"></a>.SILENT</h3><p>另一种方式是使用 <code>.SILENT</code> 显示指定不需要回显命令的目标</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.SILENT: hello</span><br><span class="line">hello:</span><br><span class="line">	@str=hello</span><br><span class="line">	echo $$str</span><br></pre></td></tr></table></figure>
+<p>此时 <code>hello</code> 不会再输出命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make hello</span><br><span class="line">hello</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<h3 id="s-选项"><a href="#s-选项" class="headerlink" title="-s 选项"></a>-s 选项</h3><p>也可以使用 <code>-s</code> 选项</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make</span><br><span class="line">g++ -c block.cpp -o block.o</span><br><span class="line">g++ -c command.cpp -o command.o</span><br><span class="line">g++ -c i18n.cpp -o i18n.o</span><br><span class="line">g++ -c input.cpp -o input.o</span><br><span class="line">g++ -c main.cpp -o main.o</span><br><span class="line">g++ -c scene.cpp -o scene.o</span><br><span class="line">g++ -o sudoku block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line">laolang@laolang-mint:sudoku_make$ make clean</span><br><span class="line">laolang@laolang-mint:sudoku_make$ make -s</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="显示要执行的命令"><a href="#显示要执行的命令" class="headerlink" title="显示要执行的命令"></a>显示要执行的命令</h2><p><code>make -n &lt;target&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make clean</span><br><span class="line">laolang@laolang-mint:sudoku_make$ make clean -n</span><br><span class="line">rm -rf sudoku</span><br><span class="line">rm -rf block.o  command.o  i18n.o  input.o  main.o  scene.o</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="共享-shell-进程"><a href="#共享-shell-进程" class="headerlink" title="共享 shell 进程"></a>共享 shell 进程</h2><p><code>make</code> 中每条命令都会开启一个独立的进程, 如果要在同一个进程中使用 <code>shell</code> 命令, 可使用 <code>.ONESHELL</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hello:</span><br><span class="line">	@str=hello</span><br><span class="line">	@echo $$str</span><br></pre></td></tr></table></figure>
+
+<p>此时输出空白</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make hello</span><br><span class="line"></span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<p>添加 <code>.ONESHELL</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.ONESHELL:</span><br><span class="line">hello:</span><br><span class="line">	@str=hello</span><br><span class="line">	@echo $$str</span><br></pre></td></tr></table></figure>
+
+<p>可以看到输出</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make hello</span><br><span class="line">hello</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+
+<h1 id="使用变量简化-Makefile"><a href="#使用变量简化-Makefile" class="headerlink" title="使用变量简化 Makefile"></a>使用变量简化 Makefile</h1><h2 id="Makefile-变量简述"><a href="#Makefile-变量简述" class="headerlink" title="Makefile 变量简述"></a>Makefile 变量简述</h2><p>在 <code>Makefile</code> 中定义变量, 就像是在 <code>C/C++</code> 中定义宏一样, 即用一个名称代表一串文本. 但是 <code>Makefile</code> 的变量值是可以改变的, 定义后可以在目标、方法、依赖等 <code>Makefile</code> 中任意地方进行引用</p>
+<p><strong>注意:</strong></p>
+<blockquote>
+<p><code>Makefile</code> 中的变量值只有一种类型: 字符串</p>
+</blockquote>
+<h2 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># &lt;变量名&gt; = &lt;变量值&gt; &lt;变量名&gt; := &lt;变量值&gt; &lt;变量名&gt; ?= &lt;变量值&gt; &lt;变量名&gt; += &lt;变量值&gt;</span><br></pre></td></tr></table></figure>
+
+<p>变量名区分大小写,且不能包含 <code>:</code> 、 <code>,</code> 、 <code>#</code> 、 <code>=</code></p>
+<p>使用方式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># $(&lt;变量名&gt;) 或者 $&#123;&lt;变量名&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>例如如下简化</p>
+<blockquote>
+<p>使用变量 <code>objs</code> 复用 <code>.o</code> 文件列表</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.DEFAULT_GOAL = sudoku</span><br><span class="line"></span><br><span class="line">.SILENT: hello</span><br><span class="line"></span><br><span class="line">.ONESHELL:</span><br><span class="line"></span><br><span class="line">objs = block.o command.o i18n.o input.o main.o scene.o</span><br><span class="line"></span><br><span class="line">sudoku: $(objs)</span><br><span class="line">	g++ -o sudoku $(objs)</span><br><span class="line"></span><br><span class="line">block.o: block.cpp block.h common.h color.h display_symbol.h</span><br><span class="line">	g++ -c block.cpp -o block.o</span><br><span class="line"></span><br><span class="line">command.o: command.cpp scene.h common.h block.h command.h</span><br><span class="line">	g++ -c command.cpp -o command.o</span><br><span class="line"></span><br><span class="line">i18n.o: i18n.cpp i18n.h</span><br><span class="line">	g++ -c i18n.cpp -o i18n.o</span><br><span class="line"></span><br><span class="line">input.o: input.cpp common.h i18n.h utility.inl</span><br><span class="line">	g++ -c input.cpp -o input.o</span><br><span class="line"></span><br><span class="line">main.o: main.cpp i18n.h input.h common.h scene.h block.h command.h system_env.hpp utility.inl</span><br><span class="line">	g++ -c main.cpp -o main.o</span><br><span class="line"></span><br><span class="line">scene.o: scene.cpp scene.h common.h block.h command.h display_symbol.h i18n.h utility.inl color.h</span><br><span class="line">	g++ -c scene.cpp -o scene.o</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean:</span><br><span class="line">	-@ rm -rf sudoku</span><br><span class="line">	-@ rm -rf $(objs)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Makefile-读取过程"><a href="#Makefile-读取过程" class="headerlink" title="Makefile 读取过程"></a>Makefile 读取过程</h2><p><code>GNU make</code> 分两个阶段来执行 <code>Makefile</code></p>
+<p>第一阶段(读取阶段):</p>
+<ul>
+<li>读取 <code>Makefile</code> 文件的所有内容</li>
+<li>根据 <code>Makefile</code> 的内容在程序内建立起变量</li>
+<li>在程序内建起显示规则、隐式规则</li>
+<li>建立目标和依赖之间的依赖图</li>
+</ul>
+<p>第二阶段(目标更新阶段):</p>
+<ul>
+<li>用第一阶段构建起来的数据确定哪个目标需要更新,然后执行对应的更新方法</li>
+</ul>
+<p>变量和函数的展开如果发生在第一节点, 就称作 <em>立即展开</em> , 否则称作 <em>延迟展开</em> . 立即展开的变量或函数都在第一阶段, 也就是 <code>Makefile</code> 呗读取解析的时候就进行展开. 延迟展开的变量或函数将会到用到的时候才会进行展开, 有一下两种情况:</p>
+<ol>
+<li>在一个立即展开的表达式中用到</li>
+<li>在第二个阶段中用到</li>
+</ol>
+<p><strong>显示规则中, 目标和依赖部分是立即展开, 在更新方法中延迟展开</strong></p>
+<h2 id="各种变量赋值方式"><a href="#各种变量赋值方式" class="headerlink" title="各种变量赋值方式"></a>各种变量赋值方式</h2><h3 id="递归展开赋值-延迟展开"><a href="#递归展开赋值-延迟展开" class="headerlink" title="&#x3D; 递归展开赋值(延迟展开)"></a>&#x3D; 递归展开赋值(延迟展开)</h3><p>第一中方式就是直接使用 <code>=</code>, 这种方式如果赋值的时候右边是其他变量或其他变量引用或函数调用之类的, 将不会做处理, 在使用到该变量的时候再进行处理得到变量值( <code>Makefile</code> 执行的第二个阶段再进行变量展开得到变量值)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objs = a.cpp b.cpp</span><br><span class="line"></span><br><span class="line">files = $(objs)</span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line">	echo $(files)</span><br><span class="line"></span><br><span class="line">objs = a.o b.o</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make -s</span><br><span class="line">a.o b.o</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h3 id="简单赋值-立即展开"><a href="#简单赋值-立即展开" class="headerlink" title=":&#x3D; 简单赋值(立即展开)"></a>:&#x3D; 简单赋值(立即展开)</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">objs = a.cpp b.cpp</span><br><span class="line"></span><br><span class="line">files := $(objs)</span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line">	echo $(files)</span><br><span class="line"></span><br><span class="line">objs = a.o b.o</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make -s</span><br><span class="line">a.cpp b.cpp</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h3 id="条件赋值-延迟展开"><a href="#条件赋值-延迟展开" class="headerlink" title="?&#x3D; 条件赋值(延迟展开)"></a>?&#x3D; 条件赋值(延迟展开)</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a = hello</span><br><span class="line">a ?= world</span><br><span class="line">b ?= world</span><br><span class="line">b ?= hello</span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line">	echo $(a) $(b)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make -s</span><br><span class="line">hello world</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h3 id="追加赋值-立即展开"><a href="#追加赋值-立即展开" class="headerlink" title="+&#x3D; 追加赋值(立即展开)"></a>+&#x3D; 追加赋值(立即展开)</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CC = gcc</span><br><span class="line">CFLAGS += -Wall</span><br><span class="line">CFLAGS += -O3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">hello: hello.o</span><br><span class="line">	gcc -o hello hello.o</span><br><span class="line"></span><br><span class="line">hello.o: main.c</span><br><span class="line">	$(CC) $(CFLAGS) -c main.c -o hello.o</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make</span><br><span class="line">gcc -Wall -O3 -c main.c -o hello.o</span><br><span class="line">gcc -o hello hello.o</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h3 id="shell-运行赋值"><a href="#shell-运行赋值" class="headerlink" title="shell 运行赋值"></a>shell 运行赋值</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">work_dir != pwd</span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line">	echo $(work_dir)</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make -s</span><br><span class="line">/home/laolang/code/make_study/tmp</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="定义多行变量"><a href="#定义多行变量" class="headerlink" title="定义多行变量"></a>定义多行变量</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">define msg</span><br><span class="line">echo hello</span><br><span class="line">echo world</span><br><span class="line">endef</span><br><span class="line"></span><br><span class="line">all:</span><br><span class="line">	$(msg)</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make -s</span><br><span class="line">hello</span><br><span class="line">world</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="取消变量"><a href="#取消变量" class="headerlink" title="取消变量"></a>取消变量</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">undefine &lt;变量名&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>直接使用即可</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">all:</span><br><span class="line">	echo $(PATH)</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make -s</span><br><span class="line">/home/laolang/program/ninja/bin:/home/laolang/program/cmake/bin:/home/laolang/.local/bin:/home/laolang/program/ninja/bin:/home/laolang/program/cmake/bin:/home/laolang/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/laolang/.dotnet/tools</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="变量替换引用"><a href="#变量替换引用" class="headerlink" title="变量替换引用"></a>变量替换引用</h2><p>语法：$(var:a&#x3D;b)，意思是将变量var的值当中每一项结尾的a替换为b，直接上例子</p>
+<p>也可以: <code>objs := $(files:%.cpp=%.o)</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">srcs = main.c</span><br><span class="line">objs := $(srcs:.c=.o)</span><br><span class="line"></span><br><span class="line">hello: $(objs)</span><br><span class="line">	gcc -o hello $(objs)</span><br><span class="line"></span><br><span class="line">$(objs): $(srcs)</span><br><span class="line">	gcc -c $(srcs) -o $(objs)</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ ls -l</span><br><span class="line">total 8</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  77 11月 11 01:05 main.c</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 118 11月 11 01:27 Makefile</span><br><span class="line">laolang@laolang-mint:tmp$ make</span><br><span class="line">gcc -c main.c -o main.o</span><br><span class="line">gcc -o hello main.o</span><br><span class="line">laolang@laolang-mint:tmp$ l</span><br><span class="line">total 28K</span><br><span class="line">-rwxrwxr-x 1 laolang laolang  16K 2024-11-11 01:27:33 hello*</span><br><span class="line">-rw-rw-r-- 1 laolang laolang   77 2024-11-11 01:05:25 main.c</span><br><span class="line">-rw-rw-r-- 1 laolang laolang 1.5K 2024-11-11 01:27:33 main.o</span><br><span class="line">-rw-rw-r-- 1 laolang laolang  118 2024-11-11 01:27:27 Makefile</span><br><span class="line">laolang@laolang-mint:tmp$ ./hello </span><br><span class="line"></span><br><span class="line">Hello World</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BUILD_TYPE := DEBUG</span><br><span class="line">all:</span><br><span class="line">	echo $(BUILD_TYPE)</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<blockquote>
+<p>注意: &#x3D; 两边不能有空格</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make -s</span><br><span class="line">DEBUG</span><br><span class="line">laolang@laolang-mint:tmp$ make BUILD_TYPE=RELEASE -s</span><br><span class="line">RELEASE</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="自动变量"><a href="#自动变量" class="headerlink" title="自动变量"></a>自动变量</h2><table>
+    <thead>
+        <tr>
+            <td width="100" align="center">变量名</td>
+            <td>含义</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="center">$@</td>
+            <td>①本条规则的目标名；<br />②如果目标是归档文件的成员，则为归档文件名；<br />③在多目标的模式规则中, 为导致本条规则方法执行的那个目标名；</td>
+        </tr>
+        <tr>
+            <td align="center">@<</td>
+            <td>本条规则的第一个依赖名称</td>
+        </tr>
+        <tr>
+            <td align="center">$?</td>
+            <td>依赖中修改时间晚于目标文件修改时间的所有文件名，以空格隔开</td>
+        </tr>
+        <tr>
+            <td align="center">$^</td>
+            <td>所有依赖文件名，文件名不会重复，不包含order-only依赖</td>
+        </tr>
+        <tr>
+            <td align="center">$+</td>
+            <td>类似上一个， 表示所有依赖文件名，包括重复的文件名，不包含order-only依赖</td>
+        </tr>
+        <tr>
+            <td align="center">$|</td>
+            <td>所有order-only依赖文件名</td>
+        </tr>
+        <tr>
+            <td align="center">$*</td>
+            <td>：(简单理解)目标文件名的主干部分(即不包括后缀名)</td>
+        </tr>
+        <tr>
+            <td align="center">$%</td>
+            <td>如果目标不是归档文件，则为空；如果目标是归档文件成员，则为对应的成员文件名</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p>以下变量对应上述变量，D为对应变量所在的目录，结尾不带&#x2F;，F为对应变量除去目录部分的文件名</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$(@D)</span><br><span class="line"></span><br><span class="line">$(@F)</span><br><span class="line"></span><br><span class="line">$(*D)</span><br><span class="line"></span><br><span class="line">$(*F)</span><br><span class="line"></span><br><span class="line">$(%D)</span><br><span class="line"></span><br><span class="line">$(%F)</span><br><span class="line"></span><br><span class="line">$(&lt;D)</span><br><span class="line"></span><br><span class="line">$(&lt;F)</span><br><span class="line"></span><br><span class="line">$(^D)</span><br><span class="line"></span><br><span class="line">$(^F)</span><br><span class="line"></span><br><span class="line">$(+D)</span><br><span class="line"></span><br><span class="line">$(+F)</span><br><span class="line"></span><br><span class="line">$(?D)</span><br><span class="line"></span><br><span class="line">$(?F)</span><br></pre></td></tr></table></figure>
+
+<p>例如修改 <code>sudoku</code> 的 <code>Makefile</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">CXX = g++</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.DEFAULT_GOAL = sudoku</span><br><span class="line"></span><br><span class="line">.SILENT: hello</span><br><span class="line"></span><br><span class="line">.ONESHELL:</span><br><span class="line"></span><br><span class="line">objs = block.o command.o i18n.o input.o main.o scene.o</span><br><span class="line"></span><br><span class="line">sudoku: $(objs)</span><br><span class="line">	$(CXX) -o $@ $^</span><br><span class="line"></span><br><span class="line">block.o: block.cpp block.h common.h color.h display_symbol.h</span><br><span class="line">	$(CXX) -c $&lt; -o $@</span><br><span class="line"></span><br><span class="line">command.o: command.cpp scene.h common.h block.h command.h</span><br><span class="line">	$(CXX) -c $&lt; -o $@</span><br><span class="line"></span><br><span class="line">i18n.o: i18n.cpp i18n.h</span><br><span class="line">	$(CXX) -c $&lt; -o $@</span><br><span class="line"></span><br><span class="line">input.o: input.cpp common.h i18n.h utility.inl</span><br><span class="line">	$(CXX) -c $&lt; -o $@</span><br><span class="line"></span><br><span class="line">main.o: main.cpp i18n.h input.h common.h scene.h block.h command.h system_env.hpp utility.inl</span><br><span class="line">	$(CXX) -c $&lt; -o $@</span><br><span class="line"></span><br><span class="line">scene.o: scene.cpp scene.h common.h block.h command.h display_symbol.h i18n.h utility.inl color.h</span><br><span class="line">	$(CXX) -c $&lt; -o $@</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean:</span><br><span class="line">	-@ rm -rf sudoku</span><br><span class="line">	-@ rm -rf $(objs)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make</span><br><span class="line">g++ -c block.cpp -o block.o</span><br><span class="line">g++ -c command.cpp -o command.o</span><br><span class="line">g++ -c i18n.cpp -o i18n.o</span><br><span class="line">g++ -c input.cpp -o input.o</span><br><span class="line">g++ -c main.cpp -o main.o</span><br><span class="line">g++ -c scene.cpp -o scene.o</span><br><span class="line">g++ -o sudoku block.o command.o i18n.o input.o main.o scene.o</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="绑定目标的变量"><a href="#绑定目标的变量" class="headerlink" title="绑定目标的变量"></a>绑定目标的变量</h2><p>Makefile中的变量一般是全局变量。也就是说定义之后在Makefile的任意位置都可以使用。但也可以将变量指定在某个目标的范围内，这样这个变量就只能在这个目标对应的规则里面保用</p>
+<p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">target … : variable-assignment</span><br><span class="line">target … : prerequisites</span><br><span class="line">    recipes</span><br><span class="line">    …</span><br></pre></td></tr></table></figure>
+
+
+<p>例一</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var1 = Global Var</span><br><span class="line"></span><br><span class="line">first: all t2</span><br><span class="line"></span><br><span class="line">all: var2 = Target All Var</span><br><span class="line">all:</span><br><span class="line">	@echo $(var1)</span><br><span class="line">	@echo $(var2)</span><br><span class="line"></span><br><span class="line">t2:</span><br><span class="line">	@echo $(var1)</span><br><span class="line">	@echo $(var2) # 空白输出</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make </span><br><span class="line">Global Var</span><br><span class="line">Target All Var</span><br><span class="line">Global Var</span><br><span class="line"></span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<p>这种定义变量的方式，目标也可以使用模式匹配，这样所有能匹配上的目标范围内都可以使用这些变量</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var1 = Global Var</span><br><span class="line"></span><br><span class="line">first: all.v t2.v t3</span><br><span class="line"></span><br><span class="line">%.v: var2 = Target %.v Var</span><br><span class="line">all.v:</span><br><span class="line">	@echo $@ -- $(var1)</span><br><span class="line">	@echo $@ -- $(var2) # 模式匹配</span><br><span class="line"></span><br><span class="line">t2.v:</span><br><span class="line">	@echo $@ -- $(var1)</span><br><span class="line">	@echo $@ -- $(var2) # 模式匹配</span><br><span class="line">t3:</span><br><span class="line">	@echo $@ -- $(var1)</span><br><span class="line">	@echo $@ -- $(var2) # 空白输出</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make </span><br><span class="line">all.v -- Global Var</span><br><span class="line">all.v -- Target %.v Var</span><br><span class="line">t2.v -- Global Var</span><br><span class="line">t2.v -- Target %.v Var</span><br><span class="line">t3 -- Global Var</span><br><span class="line">t3 --</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h2 id="二次展开"><a href="#二次展开" class="headerlink" title="二次展开"></a>二次展开</h2><p>前面说过依赖中的变量都是在Makefile读取阶段立即展开的。如果想让依赖的的变量延迟展开，可以使用.SECONDEXPANSION:，添加之后，在依赖中使用变量时用$$，可以让变量在第二阶段进行二次展开，从而达到延迟展开的效果。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">VAR1 = hello.c</span><br><span class="line">.SECONDEXPANSION:</span><br><span class="line">all: $$(VAR1)</span><br><span class="line">	@echo $^</span><br><span class="line"></span><br><span class="line">VAR1 = main.c</span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:tmp$ make</span><br><span class="line">main.c</span><br><span class="line">laolang@laolang-mint:tmp$ </span><br></pre></td></tr></table></figure>
+
+<h1 id="自动推到与隐式规则"><a href="#自动推到与隐式规则" class="headerlink" title="自动推到与隐式规则"></a>自动推到与隐式规则</h1><p>Makefile中有一些生成目标文件的规则使用频率非常高，比如由.c或.cpp文件编译成.o文件，这样的规则在make中可以自动推导，所以可以不用明确写出来，这样的规则称为隐式规则。</p>
+<h2 id="一些-make-预定义的规则"><a href="#一些-make-预定义的规则" class="headerlink" title="一些 make 预定义的规则"></a>一些 make 预定义的规则</h2><h3 id="C-语言编译"><a href="#C-语言编译" class="headerlink" title="C 语言编译"></a>C 语言编译</h3><p>从 <code>.c</code> 到 <code>.o</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$(CC) $(CPPFLAGS) $(CFLAGS) -c</span><br></pre></td></tr></table></figure>
+
+<h3 id="C-编译"><a href="#C-编译" class="headerlink" title="C++ 编译"></a>C++ 编译</h3><p>从 <code>.cpp</code> 到 <code>.o</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c</span><br></pre></td></tr></table></figure>
+
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>由 .o 文件链接到可执行文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$(CC) $(LDFLAGS) *.o $(LOADLIBES) $(LDLIBS)</span><br></pre></td></tr></table></figure>
+
+<h2 id="隐式规则中常用的一些变量"><a href="#隐式规则中常用的一些变量" class="headerlink" title="隐式规则中常用的一些变量"></a>隐式规则中常用的一些变量</h2><table>
+    <thead>
+        <tr>
+            <td width="100" align="center">变量名</td>
+            <td>含义</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="center">CC</td>
+            <td>编译 C 语言的程序, 默认为: `cc`</td>
+        </tr>
+        <tr>
+            <td align="center">CXX</td>
+            <td>编译 C++ 的程序, 默认为: `g++`</td>
+        </tr>
+        <tr>
+            <td align="center">AR</td>
+            <td>归档程序, 默认为: `ar`</td>
+        </tr>
+        <tr>
+            <td align="center">CFLAGS</td>
+            <td>传递给 C 编译器的一些选项, 例如: `-O2 -linclude`</td>
+        </tr>
+        <tr>
+            <td align="center">CXXFLAGS</td>
+            <td>传递给 C 编译器的一些选项, 例如: `-std=c++ 11 -fexec-charset=GBK`</td>
+        </tr>
+        <tr>
+            <td align="center">CPPFLAGS</td>
+            <td>预处理的一些选项</td>
+        </tr>
+        <tr>
+            <td align="center">LDFLAGS</td>
+            <td>链接选项，如 `-L`</td>
+        </tr>
+        <tr>
+            <td align="center">LDLIBS</td>
+            <td>链接需要用到的库，如 `-lkernel32 -luser32 -lgdi32`</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="多目标与多规则"><a href="#多目标与多规则" class="headerlink" title="多目标与多规则"></a>多目标与多规则</h2><p>显式规则中一条规则可以有多个目标，多个目标可以是相互独立的目标，也可以是组合目标，用写法来区分</p>
+<h3 id="独立多目标"><a href="#独立多目标" class="headerlink" title="独立多目标"></a>独立多目标</h3><p>相互独立的多个目标与依赖之间直接用 <code>:</code> ，常用这种方式的有以下两种情况</p>
+<ol>
+<li><p>只需要写目标和依赖，不需要写方法的时候</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o input.o scene.o : common.h</span><br></pre></td></tr></table></figure>
+<p>这种写法等价于</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o : common.h</span><br><span class="line">input.o : common.h</span><br><span class="line">scene.o : common.h</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成(更新)目标的方法写法一样的，只是依赖与目标不一样时。之前写的Makfile中，有如下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o: block.cpp common.h block.h color.h</span><br><span class="line">    g++ -c block.cpp</span><br><span class="line">command.o: command.cpp command.h scene.h</span><br><span class="line">    g++ -c command.cpp</span><br><span class="line">input.o: input.cpp common.h utility.inl</span><br><span class="line">    g++ -c input.cpp</span><br><span class="line">main.o: main.cpp scene.h input.h test.h</span><br><span class="line">    g++ -c main.cpp</span><br><span class="line">scene.o: scene.cpp common.h scene.h utility.inl</span><br><span class="line">    g++ -c scene.cpp</span><br><span class="line">test.o: test.cpp test.h</span><br><span class="line">    g++ -c test.cpp</span><br></pre></td></tr></table></figure>
+<p>所有.o文件的生成都用的同一方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">g++ -c &lt;文件名&gt;</span><br></pre></td></tr></table></figure>
+<p>如果不考虑依赖源文件进行更新时，可以进行简写如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o command.o input.o main.o scene.o test.o : common.h block.h command.h ...</span><br><span class="line">    g++ -c $(@:%.o=%.cpp)</span><br></pre></td></tr></table></figure>
+<p>这种写法实际上等价于</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o : common.h block.h command.h ...</span><br><span class="line">    g++ -c $(subst .o,.cpp,$@)</span><br><span class="line">command.o : common.h block.h command.h ...</span><br><span class="line">    g++ -c $(subst .o,.cpp,$@)</span><br><span class="line">input.o : common.h block.h command.h ...</span><br><span class="line">    g++ -c $(subst .o,.cpp,$@)</span><br><span class="line">main.o : common.h block.h command.h ...</span><br><span class="line">    g++ -c $(subst .o,.cpp,$@)</span><br><span class="line">scene.o : common.h block.h command.h ...</span><br><span class="line">    g++ -c $(subst .o,.cpp,$@)</span><br><span class="line">test.o : common.h block.h command.h ...</span><br><span class="line">    g++ -c $(subst .o,.cpp,$@)</span><br></pre></td></tr></table></figure>
+<p>其中，@表示的是目标名称。subst是一个字符串替换函数，<code>(subst .o,.cpp,$@)</code> 表示将目标名称中的 <code>.o</code> 替换为 <code>.cpp</code> 。<br>这样的简写可以减少内容的书写量，但是不利于将每个目标与依赖分别对应。</p>
+</li>
+</ol>
+<p>例如更新 sudoku Makefile</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CXX = g++</span><br><span class="line">CXXFLAGS = -Wall</span><br><span class="line">.DEFAULT_GOAL = sudoku</span><br><span class="line"></span><br><span class="line">.SILENT: hello</span><br><span class="line"></span><br><span class="line">.ONESHELL:</span><br><span class="line"></span><br><span class="line">objs = block.o command.o i18n.o input.o main.o scene.o</span><br><span class="line"></span><br><span class="line">sudoku: $(objs)</span><br><span class="line">	$(CXX) -o $@ $^</span><br><span class="line"></span><br><span class="line">$(objs):</span><br><span class="line">	$(CXX) $(CXXFLAGS) -c $(@:%.o=%.cpp)</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean:</span><br><span class="line">	-@ rm -rf sudoku</span><br><span class="line">	-@ rm -rf $(objs)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行效果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make</span><br><span class="line">g++ -Wall -c block.cpp</span><br><span class="line">g++ -Wall -c command.cpp</span><br><span class="line">g++ -Wall -c i18n.cpp</span><br><span class="line">g++ -Wall -c input.cpp</span><br><span class="line">g++ -Wall -c main.cpp</span><br><span class="line">g++ -Wall -c scene.cpp</span><br><span class="line">g++ -o sudoku block.o command.o i18n.o input.o main.o scene.o</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>
+
+<h3 id="组合多目标"><a href="#组合多目标" class="headerlink" title="组合多目标"></a>组合多目标</h3><p>多目标与依赖之前用 <code>&amp;:</code>，这样的多个目标称为组合目标。与独立多目标的区别在于，独立多目标每个目标的更新需要单独调用一次更新方法。而组合多目标调用一次方法将更新所有目标</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o input.o scene.o &amp;: block.cpp input.cpp scene.cpp common.h</span><br><span class="line">    g++ -c block.cpp</span><br><span class="line">    g++ -c input.cpp</span><br><span class="line">    g++ -c scene.cpp</span><br></pre></td></tr></table></figure>
+
+<p>所有目标的更新方法都写到其中，每次更新只会调用一次。</p>
+<h3 id="同一目标多条规则"><a href="#同一目标多条规则" class="headerlink" title="同一目标多条规则"></a>同一目标多条规则</h3><p>同一目标可以对应多条规则。同一目标的所有规则中的依赖会被合并。但如果同一目标对应的多条规则都写了更新方法，则会使用最新的一条更新方法，并且会输出警告信息。</p>
+<p>同一目标多规则通常用来给多个目标添加依赖而不用改动已写好的部分。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">input.o: input.cpp utility.inl</span><br><span class="line">    g++ -c input.cpp</span><br><span class="line">main.o: main.cpp scene.h input.h test.h</span><br><span class="line">    g++ -c main.cpp</span><br><span class="line">scene.o: scene.cpp scene.h utility.inl</span><br><span class="line">    g++ -c scene.cpp</span><br><span class="line"></span><br><span class="line">input.o main.o scene.o : common.h</span><br></pre></td></tr></table></figure>
+
+<p>同时给三个目标添加了一个依赖common.h，但是不用修改上面已写好的部分。</p>
+<h2 id="静态模式"><a href="#静态模式" class="headerlink" title="静态模式"></a>静态模式</h2><p>独立多目标可以简化Makefile的书写，但是不利于将各个目标的依赖分开，让目标文件根据各自的依赖进行更新。静态模式可以在一定程度上改进依赖分开问题。</p>
+<p>静态模式就是用 <code>%</code> 进行文件匹配来推导出对应的依赖。</p>
+<p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">targets …: target-pattern(目标模式): prereq-patterns(依赖模式) …</span><br><span class="line">        recipe</span><br><span class="line">        …</span><br></pre></td></tr></table></figure>
+
+<p>先看一个例子</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o : %.o : %.cpp %.h</span><br><span class="line">    g++ -c $&lt;</span><br></pre></td></tr></table></figure>
+
+<p>block.o为目标，%.o为目标模式，%.cpp，%.h为依赖模式，对于这一条规则，%.o代表的是目标文件block.o，所以这里的%匹配的是block，因此，%.cpp表示block.cpp，%.h代表block.h，所以block.o : %.o : %.cpp %.h表示的意思同下面这种写法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o : block.cpp block.h</span><br></pre></td></tr></table></figure>
+<p>自动推导出block.o依赖block.cpp和block.h。</p>
+<p>另外，&lt;表示目标的第一个依赖，在这条规则中，<br>&lt;表示block.cpp</p>
+<p>对应的Makefile可以做如下改进</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">block.o command.o input.o scene.o test.o: %.o : %.cpp %.h</span><br><span class="line">    g++ -c $&lt;</span><br><span class="line">main.o: main.cpp scene.h input.h test.h</span><br><span class="line">    g++ -c main.cpp</span><br></pre></td></tr></table></figure>
+
+<p>用这种方式可以在简写的同时一定程度上解决各个目标对应的依赖问题。</p>
+<p>(不属于静态模式的内容，隐式规则的内容)利用模式匹配可以直接将所有.cpp到.o文件的编译简写为如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">%.o : %.cpp %.h</span><br><span class="line">    g++ -c $&lt;</span><br></pre></td></tr></table></figure>
+
+<p>修正 sudoku Makefile 如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CXX = g++</span><br><span class="line">CXXFLAGS = -Wall</span><br><span class="line">.DEFAULT_GOAL = sudoku</span><br><span class="line"></span><br><span class="line">.SILENT: hello</span><br><span class="line"></span><br><span class="line">.ONESHELL:</span><br><span class="line"></span><br><span class="line">objs = block.o command.o i18n.o input.o scene.o</span><br><span class="line"></span><br><span class="line">sudoku: $(objs) main.o</span><br><span class="line">	$(CXX) -o $@ $^</span><br><span class="line"></span><br><span class="line">main.o: %.o : %.cpp</span><br><span class="line">	$(CXX) $(CXXFLAGS) -c $&lt;</span><br><span class="line"></span><br><span class="line">$(objs): %.o : %.cpp %.h</span><br><span class="line">	$(CXX) $(CXXFLAGS) -c $&lt;</span><br><span class="line"></span><br><span class="line">.PHONY : clean</span><br><span class="line">clean:</span><br><span class="line">	-@ rm -rf sudoku</span><br><span class="line">	-@ rm -rf $(objs)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make</span><br><span class="line">g++ -Wall -c block.cpp</span><br><span class="line">g++ -Wall -c command.cpp</span><br><span class="line">g++ -Wall -c i18n.cpp</span><br><span class="line">g++ -Wall -c input.cpp</span><br><span class="line">g++ -Wall -c scene.cpp</span><br><span class="line">g++ -o sudoku block.o command.o i18n.o input.o scene.o main.o</span><br><span class="line">laolang@laolang-mint:sudoku_make$</span><br></pre></td></tr></table></figure>
+
+<p>修改 block.h 之后</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">laolang@laolang-mint:sudoku_make$ make</span><br><span class="line">g++ -Wall -c block.cpp</span><br><span class="line">g++ -o sudoku block.o command.o i18n.o input.o scene.o main.o</span><br><span class="line">laolang@laolang-mint:sudoku_make$ </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>c++</category>
+        <category>makefile</category>
+      </categories>
+      <tags>
+        <tag>c++</tag>
+        <tag>makefile</tag>
       </tags>
   </entry>
 </search>

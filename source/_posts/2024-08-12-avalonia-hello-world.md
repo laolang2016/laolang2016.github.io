@@ -23,6 +23,10 @@ avalonia hello world
 
 [WPF-Prism8.0核心教程(公益)](https://www.bilibili.com/video/BV1Ei4y1F7du)
 
+[prism 合集](https://www.cnblogs.com/zh7791/category/1893907.html)
+
+[Semi.Avalonia](https://github.com/irihitech/Semi.Avalonia/tree/main)
+
 # 新建 avalonia 项目
 
 ```
