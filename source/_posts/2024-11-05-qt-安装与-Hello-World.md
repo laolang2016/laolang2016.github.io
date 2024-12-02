@@ -10,9 +10,28 @@ tags:
 ---
 
 
+# 参考
+
+[Qt6入门教程 2：Qt6下载与安装](https://blog.csdn.net/caoshangpa/article/details/135420524)
+[Linux 系统（Ubuntu）下安装 Qt 环境](https://blog.csdn.net/YMGogre/article/details/130565726)
+
+
+[Qt6入门教程 3：创建Hello World项目](https://blog.csdn.net/caoshangpa/article/details/135428677)
+
 # 安装
 
+linux 注意事项
+
+```
+sudo apt-get install build-essential libgl1-mesa-dev
+sudo apt installibxcb-cursoro libxcb-cursor-dev
+```
+
 # 卸载
+
+# 代码地址
+
+[https://github.com/ghost-hello-project/qt-study/tree/main/qt-hello](https://github.com/ghost-hello-project/qt-study/tree/main/qt-hello)
 
 # Hello World
 
@@ -21,6 +40,10 @@ tags:
 # 改造
 
 ## 改造说明
+
+1. 能够命令行编译
+2. vscode 编写、调试
+
 
 ## windows 脱离 qt creator
 
@@ -208,7 +231,382 @@ E:\code\qt\qt-one>
 ![](/images/2024-11-05-qt-安装与-Hello-World/006.png)
 
 
-## 修改目录结构
+## linux 脱离 qt creator
+
+linux 版本只需要修改 `CMakePresets.json` 即可, 不需要其他特殊配置
+
+### CMakePresets.json
+
+
+```json
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 26,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "windows-base",
+            "displayName": "windows base",
+            "description": "windows 通用设置",
+            "generator": "MinGW Makefiles",
+            "cacheVariables": {
+                "CMAKE_PREFIX_PATH": "D:/program/qt/6.5.3/mingw_64",
+                "CMAKE_CXX_COMPILER": "D:/program/qt/Tools/mingw1120_64/bin/g++.exe",
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra"
+            }
+        },
+        {
+            "name": "windows-release",
+            "displayName": "windows release",
+            "description": "windows 平台下使用 mingw 构建 release 版本",
+            "inherits": "windows-base",
+            "binaryDir": "${sourceDir}/build/windows-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "linux-base",
+            "displayName": "linux base",
+            "description": "linux 通用设置",
+            "generator": "Unix Makefiles",
+            "cacheVariables": {
+                "CMAKE_PREFIX_PATH": "/home/laolang/Qt/6.7.2/gcc_64",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra"
+            }
+        },
+        {
+            "name": "linux-release",
+            "displayName": "linux release",
+            "description": "linux 平台下使用 gcc 构建 release 版本",
+            "inherits": "linux-base",
+            "binaryDir": "${sourceDir}/build/linux-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "windows-release",
+            "configurePreset": "windows-release"
+        },
+        {
+            "name": "linux-release",
+            "configurePreset": "linux-release"
+        }
+    ]
+}
+```
+
+## 多目录构建
+
+### 与 Hello World 相比修改了哪些内容
+
+1. 添加了一个 `Makefile` 文件用于控制构架流程
+2. 添加了 `windows` 与 `linux` 平台的 `debug` 配置
+3. 添加了一些 `vscode` 的配置文件
+
+
+### 目录结构
+
+```
+laolang@laolang-mint:qt-hello$ tree
+.
+├── CMakeLists.txt
+├── CMakePresets.json
+├── include
+│   └── qt-hello
+│       └── app
+│           └── mainwindow.h
+├── Makefile
+└── src
+    ├── app
+    │   ├── CMakeLists.txt
+    │   ├── main.cpp
+    │   └── mainwindow.cpp
+    └── CMakeLists.txt
+
+6 directories, 8 files
+laolang@laolang-mint:qt-hello$ 
+```
+
+### 总构建脚本 Makefile
+```makefile
+
+ifeq ($(shell uname -s), Linux)
+	OS = Linux
+	PRESET_DEBUG = linux-debug
+	PRESET_RELEASE = linux-release
+else
+	OS = Windows
+	PRESET_DEBUG = windows-debug
+	PRESET_RELEASE = windows-release
+endif
+
+BUILD_DIR_DEBUG = build/$(PRESET_DEBUG)
+BUILD_DIR_RELEASE = build/$(PRESET_RELEASE)
+
+
+ALL: app
+
+t:
+	@echo $(PRESET_DEBUG)
+	@echo $(PRESET_RELEASE)
+
+app: print config_release build_release
+
+config_debug:
+	cmake --preset=$(PRESET_DEBUG)
+build_debug:
+	cmake --build --preset=$(PRESET_DEBUG)
+config_release:
+	cmake --preset=$(PRESET_RELEASE)
+build_release:
+	cmake --build --preset=$(PRESET_RELEASE)
+
+print:
+	@echo "OS:$(OS)"
+
+clean_debug:
+	-rm -rf $(BUILD_DIR_DEBUG)
+
+clean_release:
+	-rm -rf $(BUILD_DIR_RELEASE)
+
+clean_all: clean_debug clean_release
+
+.PHONY: app config_debug build_debug config_release build_release print clean_debug clean_release clean_all
+```
+
+### CMakePresets.json
+```json
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 26,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "windows-base",
+            "displayName": "windows base",
+            "description": "windows 通用设置",
+            "generator": "MinGW Makefiles",
+            "cacheVariables": {
+                "CMAKE_PREFIX_PATH": "D:/program/qt/6.5.3/mingw_64",
+                "CMAKE_CXX_COMPILER": "D:/program/qt/Tools/mingw1120_64/bin/g++.exe",
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra"
+            }
+        },
+        {
+            "name": "windows-release",
+            "displayName": "windows release",
+            "description": "windows 平台下使用 mingw 构建 release 版本",
+            "inherits": "windows-base",
+            "binaryDir": "${sourceDir}/build/windows-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "windows-debug",
+            "displayName": "windows debug",
+            "description": "windows 平台下使用 mingw 构建 debug 版本",
+            "inherits": "windows-base",
+            "binaryDir": "${sourceDir}/build/windows-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "linux-base",
+            "displayName": "linux base",
+            "description": "linux 通用设置",
+            "generator": "Unix Makefiles",
+            "cacheVariables": {
+                "CMAKE_PREFIX_PATH": "/home/laolang/Qt/6.7.2/gcc_64",
+                "CMAKE_CXX_COMPILER": "/usr/bin/g++",
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra"
+            }
+        },
+        {
+            "name": "linux-release",
+            "displayName": "linux release",
+            "description": "linux 平台下使用 gcc 构建 release 版本",
+            "inherits": "linux-base",
+            "binaryDir": "${sourceDir}/build/linux-release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "linux-debug",
+            "displayName": "linux debug",
+            "description": "linux 平台下使用 gcc 构建 debug 版本",
+            "inherits": "linux-base",
+            "binaryDir": "${sourceDir}/build/linux-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "windows-release",
+            "configurePreset": "windows-release"
+        },
+        {
+            "name": "windows-debug",
+            "configurePreset": "windows-debug"
+        },
+        {
+            "name": "linux-release",
+            "configurePreset": "linux-release"
+        },
+        {
+            "name": "linux-debug",
+            "configurePreset": "linux-debug"
+        }
+    ]
+}
+```
+
+### CMakeLists.txt
+
+#### 顶层 CMakeLists.txt
+```cmake
+cmake_minimum_required(VERSION 3.16)
+
+# 语言环境配置 ###########################################################################################################
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# 项目配置 ##############################################################################################################
+project(qt-hello VERSION 0.1 LANGUAGES CXX)
+
+# 构建目录
+set(dist_dir ${CMAKE_BINARY_DIR}/dist)
+
+# 二进制文件目录
+set(bin_dir ${dist_dir}/bin)
+
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+
+# 编译相关配置 ###########################################################################################################
+# 生成 compile_commands.json
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# 包含全局头文件
+include_directories(${PROJECT_SOURCE_DIR}/include ${RAPIDJSON_INCLUDE_DIRS})
+
+
+# 添加子目录 #############################################################################################################
+add_subdirectory(src)
+```
+
+
+#### src/app/CMakeLists.txt
+```cmake
+set(APP_SOURCES
+    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/mainwindow.cpp
+    ${PROJECT_SOURCE_DIR}/include/qt-hello/app/mainwindow.h
+)
+
+qt_add_executable(qt-hello
+    MANUAL_FINALIZATION
+    ${APP_SOURCES}
+)
+
+target_link_libraries(qt-hello PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${bin_dir})
+
+set_target_properties(qt-hello PROPERTIES
+    ${BUNDLE_ID_OPTION}
+    WIN32_EXECUTABLE TRUE
+)
+
+qt_finalize_executable(qt-hello)
+
+if(WIN32)
+    # 构建后动作
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+
+        # 复制 qt 资源文件
+        COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/resources_build/win32/qt/Qt6Core.dll $<TARGET_FILE_DIR:${PROJECT_NAME}>/
+        COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/resources_build/win32/qt/Qt6Gui.dll $<TARGET_FILE_DIR:${PROJECT_NAME}>/
+        COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/resources_build/win32/qt/Qt6Widgets.dll $<TARGET_FILE_DIR:${PROJECT_NAME}>/
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${PROJECT_SOURCE_DIR}/resources_build/win32/qt/plugins $<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins
+    )
+endif()
+```
+
+## 添加一个自定义库
+
+### 目录结构
+```
+laolang@laolang-mint:qt-hello$ tree
+.
+├── CMakeLists.txt
+├── CMakePresets.json
+├── include
+│   └── qt-hello
+│       ├── app
+│       │   └── mainwindow.h
+│       └── util
+│           ├── app_config.h
+│           ├── configuration.h
+│           └── log_util.h
+├── janna_configuration.h.in
+├── Makefile
+├── src
+│   ├── app
+│   │   ├── CMakeLists.txt
+│   │   ├── main.cpp
+│   │   └── mainwindow.cpp
+│   ├── CMakeLists.txt
+│   └── util
+│       ├── app_config.cpp
+│       ├── CMakeLists.txt
+│       └── log_util.cpp
+├── test
+│   ├── CMakeLists.txt
+│   ├── test_common.cpp
+│   ├── test_common.h
+│   └── testmain.cpp
+└── third
+    └── spdlog
+
+16 directories, 123 files
+laolang@laolang-mint:qt-hello$ 
+```
+
+# 打包
+
+## 参考
+
+[Linux下打包qt程序，可以发布到一台纯净的linux发行版系统上](https://blog.csdn.net/bjbz_cxy/article/details/115440768)
+
+[Linux平台关于可执行程序的动态库加载路径(rpath)的查看与修改](https://blog.csdn.net/u013992330/article/details/115959142)
+
+
+
+
+
+
+
 
 
 
