@@ -18,7 +18,7 @@
         <link rel="prev" href="../a01_summary/">
       
       
-        <link rel="next" href="../../../about/material_base_use/">
+        <link rel="next" href="../a03_hello/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -385,6 +385,8 @@
       
         
       
+        
+      
     
     
       
@@ -511,6 +513,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../a03_hello/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    cmake Hello World
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -664,8 +687,31 @@
 
 
 <h1 id="cmake">cmake 安装</h1>
+<p>安装有多种方式,本问选择使用解压版. 下载地址: <a href="https://cmake.org/download/">https://cmake.org/download/</a> , 下载最新版本即可.</p>
 <h2 id="linux">linux</h2>
+<p>下载如下版本</p>
+<p><img alt="" src="/cpp-study/cpp-build/assets/images/cmake/cmake_base/a02_install/001.png" /></p>
+<p>解压并将 <code>bin</code> 目录添加到环境变量
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>export PATH=~/program/cmake/bin:$PATH
+</span></code></pre></div></p>
+<p>对于 <code>cmake</code> 的图形界面,可以在 <code>~/.local/share/applications</code> 添加 <code>cmake-gui.desktop</code> 文件
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>laolang@laolang-mint:applications$ cat cmake-gui.desktop 
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>[Desktop Entry]
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Name=cmake-gui
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Comment=cmake gui
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>Exec=/home/laolang/program/cmake/bin/cmake-gui
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Icon=/home/laolang/program/cmake/share/icons/hicolor/32x32/apps/CMakeSetup.png
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Type=Application
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>StartupNotify=true
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>MimeType=text/plain;
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>laolang@laolang-mint:applications$ 
+</span></code></pre></div></p>
+<p><img alt="" src="/cpp-study/cpp-build/assets/images/cmake/cmake_base/a02_install/002.png" /></p>
 <h2 id="windows">windows</h2>
+<p>下载如下版本</p>
+<p><img alt="" src="/cpp-study/cpp-build/assets/images/cmake/cmake_base/a02_install/003.png" /></p>
+<p>解压后将 <code>bin</code> 目录添加到 <code>PATH</code> 即可</p>
 
 
 
