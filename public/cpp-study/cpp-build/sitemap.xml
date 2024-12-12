@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://laolang2016.github.io//cmake-study/</loc>
-         <lastmod>2024-12-11</lastmod>
+         <loc>https://laolang2016.github.io/cpp-study/cpp-build/</loc>
+         <lastmod>2024-12-12</lastmod>
     </url>
     <url>
-         <loc>https://laolang2016.github.io/cmake-study/about/material_base_use/</loc>
-         <lastmod>2024-12-11</lastmod>
+         <loc>https://laolang2016.github.io/cpp-study/cpp-build/about/material_base_use/</loc>
+         <lastmod>2024-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://laolang2016.github.io/cpp-study/cpp-build/cmake/cmake_base/a01_summary/</loc>
+         <lastmod>2024-12-12</lastmod>
+    </url>
+    <url>
+         <loc>https://laolang2016.github.io/cpp-study/cpp-build/cmake/cmake_base/a02_install/</loc>
+         <lastmod>2024-12-12</lastmod>
     </url>
 </urlset>
