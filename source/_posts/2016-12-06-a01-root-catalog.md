@@ -45,6 +45,13 @@ idea 基本配置与操作
 
 [leetcode](https://laolang2016.github.io/leetcode/)
 
+## java
+[J**V 全干](https://laolang2016.github.io/java/java-full-stack)
+
+## cpp
+
+[cpp-build](https://laolang2016.github.io/cpp-study/cpp-build)
+
 # 996.icu
 
 ## 基础
