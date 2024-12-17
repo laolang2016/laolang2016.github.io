@@ -7,6 +7,10 @@ sticky: 999
 
 # todo
 
+[QT6.6设置Windows应用程序图标](https://blog.csdn.net/qq_46440249/article/details/135884583)
+[Qt6入门教程](https://blog.csdn.net/caoshangpa/category_12543063.html)
+[cmake自动打包--Qt项目](https://blog.csdn.net/mp553074150/article/details/124212336)
+
 [spring-brick](https://gitee.com/starblues/springboot-plugin-framework-parent)
 
 [基于spring-plugin做插件化开发](https://cloud.tencent.com/developer/article/2310456)
@@ -51,6 +55,10 @@ idea 基本配置与操作
 ## cpp
 
 [cpp-build](https://laolang2016.github.io/cpp-study/cpp-build)
+
+## xui
+[xui-note](https://laolang2016.github.io/xui-note)
+
 
 # 996.icu
 
