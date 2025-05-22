@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>hexo butterfly 基本使用</title>
+      <link href="/2025/05/22/hexo-butterfly-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+      <url>/2025/05/22/hexo-butterfly-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="/images/2025_05_22_hexo-butterfly-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/003.jpg"></p><h1 id="标签外挂"><a href="#标签外挂" class="headerlink" title="标签外挂"></a>标签外挂</h1><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.laolang.bible.designpattern.simplefactory;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BusinessException</span> <span class="keyword">extends</span> <span class="title class_">RuntimeException</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">BusinessException</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="mermaid"><a href="#mermaid" class="headerlink" title="mermaid"></a>mermaid</h2><pre><code class="highlight mermaid">pietitle Key elements in Product X&quot;Calcium&quot; : 42.96&quot;Potassium&quot; : 50.05&quot;Magnesium&quot; : 10.01&quot;Iron&quot; : 5</code></pre><h2 id="tabs"><a href="#tabs" class="headerlink" title="tabs"></a>tabs</h2><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">test1 1</button><button type="button" class="tab">test1 2</button><button type="button" class="tab">test1 3</button></div><div class="tab-contents"><div class="tab-item-content active"><p><strong>This is Tab 1.</strong></p></div><div class="tab-item-content"><p><strong>This is Tab 2.</strong></p></div><div class="tab-item-content"><p><strong>This is Tab 3.</strong></p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h2 id="label"><a href="#label" class="headerlink" title="label"></a>label</h2><p>臣亮言：<mark class="hl-label default">先帝</mark>创业未半，而<mark class="hl-label blue">中道崩殂</mark>。今天下三分，<mark class="hl-label pink">益州疲敝</mark>，此诚<mark class="hl-label red">危急存亡之秋</mark>也！然侍衞之臣，不懈于内；<mark class="hl-label purple">忠志之士</mark>，忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气；不宜妄自菲薄，引喻失义，以塞忠谏之路也。<br>宫中、府中，俱为一体；陟罚臧否，不宜异同。若有<mark class="hl-label orange">作奸</mark>、<mark class="hl-label green">犯科</mark>，及为忠善者，宜付有司，论其刑赏，以昭陛下平明之治；不宜偏私，使内外异法也。</p><h2 id="chartjs"><a href="#chartjs" class="headerlink" title="chartjs"></a>chartjs</h2><div class="chartjs-container" data-chartjs-id="" data-width="70%">            <pre class="chartjs-src" hidden>{    &quot;type&quot;: &quot;line&quot;,    &quot;data&quot;: {        &quot;labels&quot;: [&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;],        &quot;datasets&quot;: [{            &quot;label&quot;: &quot;My First dataset&quot;,            &quot;backgroundColor&quot;: &quot;rgb(255, 99, 132)&quot;,            &quot;borderColor&quot;: &quot;rgb(255, 99, 132)&quot;,            &quot;data&quot;: [0, 10, 5, 2, 20, 30, 45]        }]    },    &quot;options&quot;: {        &quot;responsive&quot;: true,        &quot;title&quot;: {            &quot;display&quot;: true,            &quot;text&quot;: &quot;Chart.js Line Chart&quot;        }    }}</pre>                      </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
