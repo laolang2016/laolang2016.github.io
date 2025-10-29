@@ -1,5 +1,4 @@
 #!/bin/bash
-rm -rf public
 rm -rf src/.vuepress/dist
 npm run docs:build
 mv src/.vuepress/dist public
