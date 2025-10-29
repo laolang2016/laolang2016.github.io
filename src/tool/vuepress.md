@@ -35,7 +35,7 @@ title: vuepress 演示
 
 ### 导入文件
 
-<!-- @include: ./vuepress/content.md -->
+<!-- @include: ./vuepress.snippet.md -->
 
 
 ### 脚注
