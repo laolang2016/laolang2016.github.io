@@ -7,13 +7,13 @@ export default hopeTheme({
   hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
-    name: "Mr.Hope",
-    url: "https://mister-hope.com",
+    name: "潼关路边的一只野鬼",
+    url: "https://laolang2016.github.io/",
   },
 
   logo: "https://theme-hope-assets.vuejs.press/logo.svg",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "https://github.com/laolang2016/laolang2016.github.io",
 
   docsDir: "src",
 
@@ -136,6 +136,9 @@ export default hopeTheme({
     icon: {
       prefix: "fa6-solid:",
     },
+
+    // 搜索
+    slimsearch: true,
 
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
     // pwa: {

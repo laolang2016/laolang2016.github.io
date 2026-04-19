@@ -23,4 +23,7 @@ export default sidebar({
       link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
     },
   ],
+  "/javaweb-fullstack/": "structure",
+  "/readbook/": "structure",
+  "/about/": "structure"
 });
