@@ -24,8 +24,14 @@ export default hopeTheme({
   sidebar,
 
   // 页脚
-  footer: "默认页脚",
+  footer: "潼关路上始终是黑暗的",
   displayFooter: true,
+
+  // 关闭 编辑此页
+  editLink: false,
+
+  // 关闭 dockmode
+  darkmode: 'disable',
 
   // 加密配置
   encrypt: {
@@ -47,18 +53,56 @@ export default hopeTheme({
 
   // 此处开启了很多功能用于演示，你应仅保留用到的功能。
   markdown: {
+
+    // 任务列表
+    tasklist: true,
+
+    /* 图片 */
+    // 启用 figure
+    figure: true,
+    // 启用图片懒加载
+    imgLazyload: true,
+    // 启用图片标记
+    imgMark: true,
+    // 启用图片大小
+    imgSize: true,
+
+    // 代码预览
+    preview: true,
+    // 代码分组
+    codeTabs: true,
+
+    // 导入文件
+    include: true,
+
+    // 脚注
+    footnote: true,
+
+    // 选项卡
+    tabs: true,
+
+    // 提示容器
+    hint: true,
+
+    // GFM
+    alert: true,
+
+    /* 图表 */
+    plantuml: true,
+    // 在启用之前安装 flowchart.ts
+    flowchart: true,
+    // 在启用之前安装 mermaid
+    mermaid: true,
+
     align: true,
     attrs: true,
-    codeTabs: true,
+    
     component: true,
     demo: true,
-    figure: true,
     gfm: true,
-    imgLazyload: true,
-    imgSize: true,
-    include: true,
+    
     mark: true,
-    plantuml: true,
+    
     spoiler: true,
     stylize: [
       {
@@ -76,8 +120,8 @@ export default hopeTheme({
     ],
     sub: true,
     sup: true,
-    tabs: true,
-    tasklist: true,
+    
+    
     vPre: true,
 
     // 取消注释它们如果你需要 TeX 支持
@@ -101,11 +145,9 @@ export default hopeTheme({
     // 在启用之前安装 echarts
     // echarts: true,
 
-    // 在启用之前安装 flowchart.ts
-    // flowchart: true,
+    
 
-    // 在启用之前安装 mermaid
-    // mermaid: true,
+
 
     // playground: {
     //   presets: ["ts", "vue"],
@@ -120,19 +162,6 @@ export default hopeTheme({
 
   // 在这里配置主题提供的插件
   plugins: {
-    // 注意: 仅用于测试! 你必须自行生成并在生产环境中使用自己的评论服务
-    comment: {
-      provider: "Giscus",
-      repo: "vuepress-theme-hope/giscus-discussions",
-      repoId: "R_kgDOG_Pt2A",
-      category: "Announcements",
-      categoryId: "DIC_kwDOG_Pt2M4COD69",
-    },
-
-    components: {
-      components: ["Badge", "VPCard"],
-    },
-
     icon: {
       prefix: "fa6-solid:",
     },
