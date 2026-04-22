@@ -27,3 +27,29 @@ footer: 使用 <a href="https://theme-hope.vuejs.press/zh/" target="_blank">VueP
 想要使用此布局，你需要在页面 front matter 中设置 `home: true`。
 
 配置项的相关说明详见 [项目主页配置](https://theme-hope.vuejs.press/zh/guide/layout/home.html)。
+
+
+
+virtualbox 硬盘扩容
+
+
+接口测试神器 postman: https://www.zhihu.com/column/c_114768572
+
+
+
+程序员常用高效实用工具: https://github.com/YSGStudyHards/Awesome-Tools
+
+有趣的vscode插件: https://www.cnblogs.com/jackson1/p/13663118.html
+
+编辑器也有邪修？盘点VS Code邪门/有趣的扩展: https://juejin.cn/post/7536530451461472265
+
+
+玩玩VirtualBox，实现宿主机和VirtualBox下虚拟机的互ping相通: https://www.cnblogs.com/chenhaoqiang/p/9491902.html
+
+
+Emacs Lisp 简明教程: https://smacs.github.io/elisp/
+
+Elisp: Lisp Basics: http://xahlee.info/emacs/emacs/elisp.html
+
+Build Your Own Text Editor: https://viewsourcecode.org/snaptoken/kilo/
+
