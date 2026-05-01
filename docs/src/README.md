@@ -53,3 +53,19 @@ Elisp: Lisp Basics: http://xahlee.info/emacs/emacs/elisp.html
 
 Build Your Own Text Editor: https://viewsourcecode.org/snaptoken/kilo/
 
+
+.NET Core 资料精选：入门篇: https://www.cnblogs.com/heyuquan/p/dotnet-basic-learning-resource.html
+
+简明 ASP.NET Core 手册: https://windsting.github.io/little-aspnetcore-book/book/
+
+官方文档: https://learn.microsoft.com/zh-cn/aspnet/core/get-started?view=aspnetcore-10.0
+
+Ant Design Blazor: https://antblazor.com/zh-CN/
+
+重构 改善既有代码的设计第二版: https://book-refactoring2.ifmicro.com/
+
+
+C#/.NET/.NET Core学习、工作、面试指南: https://github.com/YSGStudyHards/DotNetGuide
+
+
+

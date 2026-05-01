@@ -1,6 +1,7 @@
 ---
 title: pom 基础和常用插件
 order: 103
+icon: /assets/image/javaweb-fullstack/build/maven/maven_icon.png
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 title: 总览
 order: 101
+icon: /assets/image/javaweb-fullstack/build/maven/maven_icon.png
 ---
 
 
@@ -48,3 +49,6 @@ CSDN · 岁月玲珑 Maven (包含若干 maven 源码解读) : https://blog.csdn
 maven进阶——开发自定义插件: https://www.cnblogs.com/moutory/p/17752687.html
 
 博客园 · binarylei : https://www.cnblogs.com/binarylei/category/1159277.html
+
+Maven常用参数及其说明: https://www.cnblogs.com/han-bigdata/p/17095865.html
+

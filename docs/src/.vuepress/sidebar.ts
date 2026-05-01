@@ -25,5 +25,6 @@ export default sidebar({
   ],
   "/javaweb-fullstack/": "structure",
   "/readbook/": "structure",
+  "/c_series/": "structure",
   "/about/": "structure"
 });

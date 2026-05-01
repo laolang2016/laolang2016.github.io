@@ -18,6 +18,7 @@ tomcat 官网: https://tomcat.apache.org/
 tomcat github: https://github.com/apache/tomcat
 
 
+JavaEE7 Servlet 3.1（JSR 340）规范中文版: https://www.iteye.com/news/27727-jinnianshilongnian
 
 ## 环境说明
 

@@ -1,10 +1,11 @@
 ---
 title: 安装和 Hello World
 order: 102
+icon: /assets/image/javaweb-fullstack/build/maven/maven_icon.png
 ---
 
 
-## 下载
+## 1. 下载
 
 直接下载最新版本即可
 
@@ -14,7 +15,7 @@ https://maven.apache.org/download.cgi
 
 ![](/assets/image/javaweb-fullstack/build/maven/a02_setup_and_hello_world/001.png)
 
-## 安装
+## 2. 安装
 
 其实现在已经不需要所谓的 `M2_HOME` 或者 `MAVEN_HOME` 了, 直接将 bin 目录添加到 `PATH` 即可. 具体可参考: https://maven.apache.org/install.html
 
@@ -30,9 +31,9 @@ OS name: "linux", version: "6.17.0-20-generic", arch: "amd64", family: "unix"
 laolang@ubuntu-devstudio:~$ 
 ```
 
-## 第一个 maven 项目
+## 3. 第一个 maven 项目
 
-### 创建项目
+### 3.1. 创建项目
 
 安装后不用修改任何 maven 配置文件, 可直接运行一下命令
 
@@ -69,11 +70,11 @@ mvn archetype:generate ^
 :::
 
 
-### 一些基本配置
+### 3.2. 一些基本配置
 
 > **够用就好, 不够再加**
 
-#### 修改默认的 jdk 版本
+#### 3.2.1. 修改默认的 jdk 版本
 
 现在 `maven` 生成的是适配 `jdk17` 的版本, 我们可以做一点修改以适配 `jdk8`
 
@@ -86,7 +87,7 @@ mvn archetype:generate ^
 </properties>
 ```
 
-#### .gitignore
+#### 3.2.2. .gitignore
 
 ```git
 target/
@@ -99,7 +100,7 @@ target/
 .project
 ```
 
-#### editorconfig
+#### 3.2.3. editorconfig
 
 ```ini
 # EditorConfig 文件：用于跨编辑器统一代码风格
@@ -129,7 +130,7 @@ indent_style = space
 indent_size = 4
 ```
 
-#### 目录结构
+#### 3.2.4. 目录结构
 
 ``` :no-line-numbers
 laolang@ubuntu-devstudio:~/work/gitea/coder-base/maven-study/mvn-quickstart-app$ tree -a

@@ -5,6 +5,7 @@ export default navbar([
   "/portfolio",
   "/javaweb-fullstack/",
   "/readbook/",
+  "/c_series/",
   "/about/",
   {
     text: "V2 文档",
