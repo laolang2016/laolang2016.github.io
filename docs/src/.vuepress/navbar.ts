@@ -6,6 +6,9 @@ export default navbar([
   "/javaweb-fullstack/",
   "/readbook/",
   "/c_series/",
+  "/tool/",
+  "/ai/",
+  "/gui/",
   "/about/",
   {
     text: "V2 文档",

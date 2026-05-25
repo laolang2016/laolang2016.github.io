@@ -2,7 +2,7 @@
 title: xml
 index: false
 dir:
-  order: 3
+  order: 7
 ---
 
 <Catalog />
