@@ -1,0 +1,20 @@
+.layout{
+    max-width: 1400px !important;
+}
+
+#article-container img {
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+
+#post {
+    background: rgba(227, 234, 242, .9);
+}
+
+.card-widget {
+    background: rgba(227, 234, 242, .9) !important;
+}
+
+.recent-post-item {
+    background: rgba(227, 234, 242, .9) !important;
+}
