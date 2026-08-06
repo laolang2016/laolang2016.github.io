@@ -1,0 +1,599 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>apollo 笔记 | 野鬼圣经</title><meta name="author" content="潼关路边的一只野鬼"><meta name="copyright" content="潼关路边的一只野鬼"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="参考Apollo 生产环境多环境部署方案: https:&#x2F;&#x2F;lilu.org.cn&#x2F;notes&#x2F;middleware&#x2F;config-center&#x2F;apollo&#x2F;Apollo%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88.html docker安装多">
+<meta property="og:type" content="article">
+<meta property="og:title" content="apollo 笔记">
+<meta property="og:url" content="https://laolang2016.github.io/2026/07/04/apollo-%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="野鬼圣经">
+<meta property="og:description" content="参考Apollo 生产环境多环境部署方案: https:&#x2F;&#x2F;lilu.org.cn&#x2F;notes&#x2F;middleware&#x2F;config-center&#x2F;apollo&#x2F;Apollo%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88.html docker安装多">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://laolang2016.github.io/upload/avatar.jpg">
+<meta property="article:published_time" content="2026-07-03T19:08:52.000Z">
+<meta property="article:modified_time" content="2026-07-05T17:22:59.222Z">
+<meta property="article:author" content="潼关路边的一只野鬼">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://laolang2016.github.io/upload/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "apollo 笔记",
+  "url": "https://laolang2016.github.io/2026/07/04/apollo-%E7%AC%94%E8%AE%B0/",
+  "image": "https://laolang2016.github.io/upload/avatar.jpg",
+  "datePublished": "2026-07-03T19:08:52.000Z",
+  "dateModified": "2026-07-05T17:22:59.222Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "潼关路边的一只野鬼",
+      "url": "https://laolang2016.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://laolang2016.github.io/2026/07/04/apollo-%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.4"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"pagination":{"enable":false,"hitsPerPage":8},"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'apollo 笔记',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/style/style.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div class="bg-animation" id="web_bg" style="background-image: url(/upload/bg.jpg);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/upload/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">68</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">32</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">野鬼圣经</span></a><a class="nav-page-title" href="/"><span class="site-name">apollo 笔记</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">apollo 笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-03T19:08:52.000Z" title="发表于 2026-07-04 03:08:52">2026-07-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-05T17:22:59.222Z" title="更新于 2026-07-06 01:22:59">2026-07-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>Apollo 生产环境多环境部署方案: <a target="_blank" rel="noopener" href="https://lilu.org.cn/notes/middleware/config-center/apollo/Apollo%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88.html">https://lilu.org.cn/notes/middleware/config-center/apollo/Apollo%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88.html</a></p>
+<p>docker安装多环境Apollo: <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000042107120">https://segmentfault.com/a/1190000042107120</a></p>
+<h1 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h1><p>该方式为 <code>docker</code> 多环境配置, <code>docker</code> 在虚拟机中, 虚拟机 <code>IP</code> 为 <code>192.168.56.105</code>, 最好为固定 <code>IP</code></p>
+<h1 id="准备数据库"><a href="#准备数据库" class="headerlink" title="准备数据库"></a>准备数据库</h1><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/apolloconfig/apollo-quick-start/blob/master/sql/apolloconfigdb.sql">https://github.com/apolloconfig/apollo-quick-start/blob/master/sql/apolloconfigdb.sql</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/apolloconfig/apollo-quick-start/blob/master/sql/apolloportaldb.sql">https://github.com/apolloconfig/apollo-quick-start/blob/master/sql/apolloportaldb.sql</a></p>
+<h2 id="portal"><a href="#portal" class="headerlink" title="portal"></a>portal</h2><p>直接执行脚本 <code>apolloportaldb.sql</code> 即可. 执行之后需要修改如下数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> ServerConfig <span class="keyword">set</span> `<span class="keyword">Value</span>` <span class="operator">=</span> <span class="string">&#x27;dev,stg&#x27;</span> <span class="keyword">where</span> `Key` <span class="operator">=</span> <span class="string">&#x27;apollo.portal.envs&#x27;</span>;</span><br><span class="line"><span class="keyword">update</span> ServerConfig <span class="keyword">set</span> `<span class="keyword">Value</span>` <span class="operator">=</span> <span class="string">&#x27;&#123;&quot;dev&quot;:&quot;http://common-apollo-dev-configservice:8080&quot;,&quot;stg&quot;:&quot;http://common-apollo-stg-configservice:8080&quot;&#125;&#x27;</span> <span class="keyword">where</span> `Key` <span class="operator">=</span> <span class="string">&#x27;apollo.portal.meta.servers&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>apollo.portal.meta.servers</code> 的值分别为两个环境的 <code>configservice</code> 的地址, 详见下文</p>
+<h2 id="ApolloConfigDBDev"><a href="#ApolloConfigDBDev" class="headerlink" title="ApolloConfigDBDev"></a>ApolloConfigDBDev</h2><p>将脚本 <code>apolloconfigdb.sql</code> 中的数据库名字修改为 <code>ApolloConfigDBDev</code>, 然后执行, 再修改如下数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> ServerConfig <span class="keyword">set</span> `<span class="keyword">Value</span>` <span class="operator">=</span> <span class="string">&#x27;http://192.168.56.105:10123/eureka/&#x27;</span> <span class="keyword">where</span> `Key` <span class="operator">=</span> <span class="string">&#x27;eureka.service.url&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该地址为宿主机地址</p>
+<h2 id="ApolloConfigDBStg"><a href="#ApolloConfigDBStg" class="headerlink" title="ApolloConfigDBStg"></a>ApolloConfigDBStg</h2><p>将脚本 <code>apolloconfigdb.sql</code> 中的数据库名字修改为 <code>ApolloConfigDBStg</code>, 然后执行, 再修改如下数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> ServerConfig <span class="keyword">set</span> `<span class="keyword">Value</span>` <span class="operator">=</span> <span class="string">&#x27;http://common-apollo-stg-configservice:8080/eureka/&#x27;</span> <span class="keyword">where</span> `Key` <span class="operator">=</span> <span class="string">&#x27;eureka.service.url&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>该地址为 <code>stg</code> 环境的 <code>configservice</code> 服务名</p>
+<h1 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h1><p>注意:</p>
+<ol>
+<li>该 <code>docker-compose.yml</code> 并未包含数据库部分, 可自行添加</li>
+<li>只有 <code>dev</code> 环境需要配置额外的 <code>EUREKA</code> 环境变量</li>
+<li>网络需提前创建</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="comment"># portal</span></span><br><span class="line">  <span class="attr">common-apollo-portal:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apolloconfig/apollo-portal:2.5.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">common-apollo-portal</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">common-apollo-portal</span></span><br><span class="line">    <span class="attr">privileged:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-apollo-dev-adminservice</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-apollo-stg-adminservice</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">10121</span><span class="string">:8070</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_URL:</span> <span class="string">jdbc:mysql://common-mysql8:3306/ApolloPortalDB?allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_USERNAME:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_PASSWORD:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./portal/log:/opt/logs</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-network</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># dev 环境 configservice</span></span><br><span class="line">  <span class="attr">common-apollo-dev-configservice:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apolloconfig/apollo-configservice:2.5.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">common-apollo-dev-configservice</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">common-apollo-dev-configservice</span></span><br><span class="line">    <span class="attr">privileged:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">10123</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_URL:</span> <span class="string">jdbc:mysql://common-mysql8:3306/ApolloConfigDBDev?allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_USERNAME:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_PASSWORD:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">EUREKA_INSTANCE_IP_ADDRESS:</span> <span class="number">192.168</span><span class="number">.56</span><span class="number">.105</span></span><br><span class="line">      <span class="attr">EUREKA_INSTANCE_NON_SECURE_PORT:</span> <span class="number">10123</span></span><br><span class="line">      <span class="attr">EUREKA_INSTANCE_PREFER_IP_ADDRESS:</span> <span class="string">&quot;true&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./dev/config/log:/opt/logs</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-network</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># dev 环境 adminservice</span></span><br><span class="line">  <span class="attr">common-apollo-dev-adminservice:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apolloconfig/apollo-adminservice:2.5.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">common-apollo-dev-adminservice</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">common-apollo-dev-adminservice</span></span><br><span class="line">    <span class="attr">privileged:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">10124</span><span class="string">:8090</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-apollo-dev-configservice</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_URL:</span> <span class="string">jdbc:mysql://common-mysql8:3306/ApolloConfigDBDev?allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_USERNAME:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_PASSWORD:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">EUREKA_INSTANCE_IP_ADDRESS:</span> <span class="number">192.168</span><span class="number">.56</span><span class="number">.105</span></span><br><span class="line">      <span class="attr">EUREKA_INSTANCE_NON_SECURE_PORT:</span> <span class="number">10124</span></span><br><span class="line">      <span class="attr">EUREKA_SERVICE_URL:</span> <span class="string">http://192.168.56.105:10123/eureka/</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./dev/admin/log:/opt/logs</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-network</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># stg 环境 configservice</span></span><br><span class="line">  <span class="attr">common-apollo-stg-configservice:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apolloconfig/apollo-configservice:2.5.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">common-apollo-stg-configservice</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">common-apollo-stg-configservice</span></span><br><span class="line">    <span class="attr">privileged:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">10125</span><span class="string">:8080</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_URL:</span> <span class="string">jdbc:mysql://common-mysql8:3306/ApolloConfigDBStg?allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_USERNAME:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_PASSWORD:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./stg/config/log:/opt/logs</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-network</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># stg 环境 adminservice</span></span><br><span class="line">  <span class="attr">common-apollo-stg-adminservice:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apolloconfig/apollo-adminservice:2.5.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">common-apollo-stg-adminservice</span></span><br><span class="line">    <span class="attr">hostname:</span> <span class="string">common-apollo-stg-adminservice</span></span><br><span class="line">    <span class="attr">privileged:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">10126</span><span class="string">:8090</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-apollo-stg-configservice</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_URL:</span> <span class="string">jdbc:mysql://common-mysql8:3306/ApolloConfigDBStg?allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_USERNAME:</span> <span class="string">root</span></span><br><span class="line">      <span class="attr">SPRING_DATASOURCE_PASSWORD:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./stg/admin/log:/opt/logs</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">common-network</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">common-network:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">common-network</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="spring-boot"><a href="#spring-boot" class="headerlink" title="spring boot"></a>spring boot</h1><h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.ctrip.framework.apollo<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>apollo-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="开发环境-application-dev-yml"><a href="#开发环境-application-dev-yml" class="headerlink" title="开发环境 application-dev.yml"></a>开发环境 application-dev.yml</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">app:</span></span><br><span class="line">  <span class="attr">id:</span> <span class="string">jx-boot2</span></span><br><span class="line"><span class="attr">apollo:</span></span><br><span class="line">  <span class="attr">bootstrap:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">namespaces:</span> <span class="string">application.yml</span></span><br><span class="line">  <span class="attr">meta:</span> <span class="string">http://192.168.56.105:10123</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="测试环境-application-dev-yml"><a href="#测试环境-application-dev-yml" class="headerlink" title="测试环境 application-dev.yml"></a>测试环境 application-dev.yml</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">app:</span></span><br><span class="line">  <span class="attr">id:</span> <span class="string">jx-boot2</span></span><br><span class="line"><span class="attr">apollo:</span></span><br><span class="line">  <span class="attr">bootstrap:</span></span><br><span class="line">    <span class="attr">enabled:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">namespaces:</span> <span class="string">application.yml</span></span><br><span class="line">  <span class="attr">meta:</span> <span class="string">http://common-apollo-stg-configservice:8080</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.laolang.jx.<span class="keyword">module</span>.system.facade;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.common.collect.Lists;</span><br><span class="line"><span class="keyword">import</span> com.laolang.jx.framework.common.util.jackson.JsonUtil;</span><br><span class="line"><span class="keyword">import</span> com.laolang.jx.<span class="keyword">module</span>.system.domain.res.SysDictTypeGroupInfoRes;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> lombok.RequiredArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> laolang</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SysDictFacade</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;devstudio.common&#125;&quot;)</span></span><br><span class="line">    String common;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 字典分组信息</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;SysDictTypeGroupInfoRes&gt; <span class="title function_">typeGroupInfo</span><span class="params">()</span> &#123;</span><br><span class="line">        ArrayList&lt;SysDictTypeGroupInfoRes&gt; ret = Lists</span><br><span class="line">                .newArrayList(<span class="keyword">new</span> <span class="title class_">SysDictTypeGroupInfoRes</span>().setGroupCode(<span class="string">&quot;system&quot;</span>).setGroupName(<span class="string">&quot;系统字典&quot;</span>));</span><br><span class="line">        log.info(<span class="string">&quot;common:&#123;&#125;&quot;</span>, common);</span><br><span class="line">        log.info(<span class="string">&quot;字典分组信息:&#123;&#125;&quot;</span>, JsonUtil.toJson(ret));</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="apollo-配置文件"><a href="#apollo-配置文件" class="headerlink" title="apollo 配置文件"></a>apollo 配置文件</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">devstudio:</span></span><br><span class="line">  <span class="attr">common:</span> <span class="string">你好654</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>先直接访问应用, 然后再修改一下配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2026-07-04 03:50:34.616 [http-nio-8080-exec-3] INFO  c.l.j.m.s.f.SysDictFacade:30 - &lt;19145178127728768&gt; common:你好654</span><br><span class="line">2026-07-04 03:50:34.616 [http-nio-8080-exec-3] INFO  c.l.j.m.s.f.SysDictFacade:31 - &lt;19145178127728768&gt; 字典分组信息:[&#123;&quot;groupCode&quot;:&quot;system&quot;,&quot;groupName&quot;:&quot;系统字典&quot;&#125;]</span><br><span class="line">2026-07-04 03:50:50.458 [Apollo-Config-2] INFO  c.c.f.a.s.p.AutoUpdateConfigChangeListener:91 - Auto update apollo changed value successfully, new value: 你好321, key: devstudio.common, beanName: sysDictFacade, field: com.laolang.jx.module.system.facade.SysDictFacade.common</span><br><span class="line">2026-07-04 03:50:56.957 [http-nio-8080-exec-2] INFO  c.l.j.m.s.f.SysDictFacade:30 - &lt;19145179591934080&gt; common:你好321</span><br><span class="line">2026-07-04 03:50:56.958 [http-nio-8080-exec-2] INFO  c.l.j.m.s.f.SysDictFacade:31 - &lt;19145179591934080&gt; 字典分组信息:[&#123;&quot;groupCode&quot;:&quot;system&quot;,&quot;groupName&quot;:&quot;系统字典&quot;&#125;]</span><br></pre></td></tr></table></figure>
+
+<h1 id="ConfigurationProperties-监听刷新"><a href="#ConfigurationProperties-监听刷新" class="headerlink" title="ConfigurationProperties 监听刷新"></a>ConfigurationProperties 监听刷新</h1><h2 id="添加依赖-1"><a href="#添加依赖-1" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;springboot.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2021.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ApolloChangeListener"><a href="#ApolloChangeListener" class="headerlink" title="ApolloChangeListener"></a>ApolloChangeListener</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.laolang.jx.framework.common.apollo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.ctrip.framework.apollo.model.ConfigChangeEvent;</span><br><span class="line"><span class="keyword">import</span> com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.BeansException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.context.environment.EnvironmentChangeEvent;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContextAware;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.util.StopWatch;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ApolloChangeListener</span> <span class="keyword">implements</span> <span class="title class_">ApplicationContextAware</span> &#123;</span><br><span class="line"></span><br><span class="line">    ApplicationContext applicationContext;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setApplicationContext</span><span class="params">(ApplicationContext applicationContext)</span> <span class="keyword">throws</span> BeansException &#123;</span><br><span class="line">        <span class="built_in">this</span>.applicationContext = applicationContext;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 注意: </span></span><br><span class="line"><span class="comment">     * 1. 如果后缀不是 properties , 则需要写出完整的文件名</span></span><br><span class="line"><span class="comment">     * 2. value 是个数组, 可以有多个</span></span><br><span class="line"><span class="comment">     */</span> </span><br><span class="line">    <span class="meta">@ApolloConfigChangeListener(value = &#123;&quot;application.yml&quot;&#125;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onApolloChange</span><span class="params">(ConfigChangeEvent changeEvent)</span> &#123;</span><br><span class="line">        <span class="type">StopWatch</span> <span class="variable">stopWatch</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StopWatch</span>();</span><br><span class="line">        log.info(<span class="string">&quot;apollo chanag start&quot;</span>);</span><br><span class="line">        stopWatch.start();</span><br><span class="line">        changeEvent.changedKeys().forEach(key -&gt; &#123;</span><br><span class="line">            log.info(<span class="string">&quot;apollo old value: &#123;&#125;=&#123;&#125;&quot;</span>, key, changeEvent.getChange(key).getOldValue());</span><br><span class="line">            log.info(<span class="string">&quot;apollo new value: &#123;&#125;=&#123;&#125;&quot;</span>, key, changeEvent.getChange(key).getNewValue());</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="built_in">this</span>.applicationContext.publishEvent(<span class="keyword">new</span> <span class="title class_">EnvironmentChangeEvent</span>(changeEvent.changedKeys()));</span><br><span class="line">        stopWatch.stop();</span><br><span class="line">        log.info(<span class="string">&quot;apollo chanag end. &#123;&#125; ms&quot;</span>, stopWatch.getLastTaskTimeMillis());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置类"><a href="#配置类" class="headerlink" title="配置类"></a>配置类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.laolang.jx.framework.common.properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;devstudio&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DevStudioConfigProperties</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String author;</span><br><span class="line">    <span class="keyword">private</span> String common;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="效果-1"><a href="#效果-1" class="headerlink" title="效果"></a>效果</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2026-07-04 04:02:25.686 [http-nio-8094-exec-2] INFO  c.l.j.m.s.f.SysDictFacade:30 - &lt;19145224716845120&gt; common:你好5</span><br><span class="line">2026-07-04 04:02:25.767 [http-nio-8094-exec-2] INFO  c.l.j.m.s.f.SysDictFacade:31 - &lt;19145224716845120&gt; 字典分组信息:[&#123;&quot;groupCode&quot;:&quot;system&quot;,&quot;groupName&quot;:&quot;系统字典&quot;&#125;]</span><br><span class="line">2026-07-04 04:02:36.148 [Apollo-Config-2] INFO  c.l.j.f.c.a.ApolloChangeListener:27 - apollo chanag start</span><br><span class="line">2026-07-04 04:02:36.149 [Apollo-Config-2] INFO  c.l.j.f.c.a.ApolloChangeListener:30 - apollo old value: devstudio.common=你好5</span><br><span class="line">2026-07-04 04:02:36.149 [Apollo-Config-2] INFO  c.l.j.f.c.a.ApolloChangeListener:31 - apollo new value: devstudio.common=你好6</span><br><span class="line">2026-07-04 04:02:36.157 [Apollo-Config-2] INFO  c.c.f.a.s.a.SpringValueProcessor:141 - Monitoring key: SPRING_UTIL_TIMEOUT_SEC, beanName: inetUtilsProperties, field: org.springframework.cloud.commons.util.InetUtilsProperties.timeoutSeconds</span><br><span class="line">2026-07-04 04:02:36.157 [Apollo-Config-2] INFO  c.c.f.a.s.a.SpringValueProcessor:141 - Monitoring key: spring.util.timeout.sec, beanName: inetUtilsProperties, field: org.springframework.cloud.commons.util.InetUtilsProperties.timeoutSeconds</span><br><span class="line">2026-07-04 04:02:36.176 [Apollo-Config-2] INFO  c.l.j.f.c.a.ApolloChangeListener:35 - apollo chanag end. 25 ms</span><br><span class="line">2026-07-04 04:02:43.504 [http-nio-8094-exec-3] INFO  c.l.j.m.s.f.SysDictFacade:30 - &lt;19145225896165440&gt; common:你好6</span><br><span class="line">2026-07-04 04:02:43.504 [http-nio-8094-exec-3] INFO  c.l.j.m.s.f.SysDictFacade:31 - &lt;19145225896165440&gt; 字典分组信息:[&#123;&quot;groupCode&quot;:&quot;system&quot;,&quot;groupName&quot;:&quot;系统字典&quot;&#125;]</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="补充-mysql-docker-compose"><a href="#补充-mysql-docker-compose" class="headerlink" title="补充 mysql docker compose"></a>补充 mysql docker compose</h1><h2 id="my-cnf"><a href="#my-cnf" class="headerlink" title="my.cnf"></a>my.cnf</h2><p>位于相对目录 <code>./conf/my.cnf</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># For advice on how to change settings please see</span></span><br><span class="line"><span class="comment"># http://dev.mysql.com/doc/refman/8.4/en/server-configuration-defaults.html</span></span><br><span class="line"></span><br><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Remove leading # and set to the amount of RAM for the most important data</span></span><br><span class="line"><span class="comment"># cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.</span></span><br><span class="line"><span class="comment"># innodb_buffer_pool_size = 128M</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Remove leading # to turn on a very important data integrity option: logging</span></span><br><span class="line"><span class="comment"># changes to the binary log between backups.</span></span><br><span class="line"><span class="comment"># log_bin</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Remove leading # to set options mainly useful for reporting servers.</span></span><br><span class="line"><span class="comment"># The server defaults are faster for transactions and fast SELECTs.</span></span><br><span class="line"><span class="comment"># Adjust sizes as needed, experiment to find the optimal values.</span></span><br><span class="line"><span class="comment"># join_buffer_size = 128M</span></span><br><span class="line"><span class="comment"># sort_buffer_size = 2M</span></span><br><span class="line"><span class="comment"># read_rnd_buffer_size = 2M</span></span><br><span class="line"></span><br><span class="line"><span class="attr">host-cache-size</span>=<span class="number">0</span></span><br><span class="line">skip-name-resolve</span><br><span class="line"><span class="attr">datadir</span>=/var/lib/mysql</span><br><span class="line"><span class="attr">socket</span>=/var/run/mysqld/mysqld.sock</span><br><span class="line"><span class="attr">secure-file-priv</span>=/var/lib/mysql-files</span><br><span class="line"><span class="attr">user</span>=mysql</span><br><span class="line"></span><br><span class="line"><span class="attr">pid-file</span>=/var/run/mysqld/mysqld.pid</span><br><span class="line"></span><br><span class="line"><span class="attr">bind-address</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置东八区时区</span></span><br><span class="line"><span class="attr">default-time_zone</span> = <span class="string">&#x27;+8:00&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置密码验证规则（authentication_policy 替代已废弃的 default_authentication_plugin）</span></span><br><span class="line"><span class="attr">authentication_policy</span>=mysql_native_password</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 字符集 ---</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8mb4</span><br><span class="line"><span class="attr">collation-server</span>=utf8mb<span class="number">4_0900_</span>ai_ci</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 连接设置 ---</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">500</span></span><br><span class="line"><span class="attr">max_connect_errors</span>=<span class="number">10000</span></span><br><span class="line"><span class="attr">table_open_cache</span>=<span class="number">2000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 日志设置 ---</span></span><br><span class="line"><span class="attr">log_error</span> = /var/log/mysql/error.log</span><br><span class="line"><span class="attr">log_timestamps</span> = SYSTEM <span class="comment"># 日志显示系统时间而非 UTC</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启慢查询日志</span></span><br><span class="line"><span class="attr">slow_query_log</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">slow_query_log_file</span> = /var/log/mysql/slow.log</span><br><span class="line"><span class="attr">long_query_time</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="attr">socket</span>=/var/run/mysqld/mysqld.sock</span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">!includedir /etc/mysql/conf.d/</span><br></pre></td></tr></table></figure>
+
+<h2 id="docker-compose-yml-1"><a href="#docker-compose-yml-1" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">common-mysql8:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:8.4</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">common-mysql8</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">privileged:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3306:3306&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">&quot;root&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="comment"># 挂载日志目录</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./log:/var/log/mysql</span></span><br><span class="line">      <span class="comment"># 挂载数据目录（核心）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/var/lib/mysql</span></span><br><span class="line">      <span class="comment"># 挂载配置文件目录（注意：官方推荐挂载到 conf.d 目录，避免覆盖整个 /etc/mysql 导致启动异常）</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./conf:/etc/mysql/conf.d/my.cnf</span></span><br><span class="line">      <span class="comment"># 同步宿主机时区</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/localtime:/etc/localtime:ro</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">common-network:</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">common-network:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">common-network</span></span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://laolang2016.github.io">潼关路边的一只野鬼</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://laolang2016.github.io/2026/07/04/apollo-%E7%AC%94%E8%AE%B0/">https://laolang2016.github.io/2026/07/04/apollo-笔记/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://laolang2016.github.io" target="_blank">野鬼圣经</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/upload/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/upload/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">潼关路边的一只野鬼</div><div class="author-info-description">潼关路上始终是黑暗的</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">68</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">32</div></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">1.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">环境说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">准备数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-number">3.1.</span> <span class="toc-text">下载地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#portal"><span class="toc-number">3.2.</span> <span class="toc-text">portal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApolloConfigDBDev"><span class="toc-number">3.3.</span> <span class="toc-text">ApolloConfigDBDev</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApolloConfigDBStg"><span class="toc-number">3.4.</span> <span class="toc-text">ApolloConfigDBStg</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-compose-yml"><span class="toc-number">4.</span> <span class="toc-text">docker-compose.yml</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#spring-boot"><span class="toc-number">5.</span> <span class="toc-text">spring boot</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96"><span class="toc-number">5.1.</span> <span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">5.2.</span> <span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83-application-dev-yml"><span class="toc-number">5.2.1.</span> <span class="toc-text">开发环境 application-dev.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83-application-dev-yml"><span class="toc-number">5.2.2.</span> <span class="toc-text">测试环境 application-dev.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java"><span class="toc-number">5.2.3.</span> <span class="toc-text">java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apollo-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">5.2.4.</span> <span class="toc-text">apollo 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E6%9E%9C"><span class="toc-number">5.2.5.</span> <span class="toc-text">效果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ConfigurationProperties-%E7%9B%91%E5%90%AC%E5%88%B7%E6%96%B0"><span class="toc-number">6.</span> <span class="toc-text">ConfigurationProperties 监听刷新</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BE%9D%E8%B5%96-1"><span class="toc-number">6.1.</span> <span class="toc-text">添加依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ApolloChangeListener"><span class="toc-number">6.2.</span> <span class="toc-text">ApolloChangeListener</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-number">6.3.</span> <span class="toc-text">配置类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E6%9E%9C-1"><span class="toc-number">6.4.</span> <span class="toc-text">效果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%A5%E5%85%85-mysql-docker-compose"><span class="toc-number">7.</span> <span class="toc-text">补充 mysql docker compose</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#my-cnf"><span class="toc-number">7.1.</span> <span class="toc-text">my.cnf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-compose-yml-1"><span class="toc-number">7.2.</span> <span class="toc-text">docker-compose.yml</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/08/04/obsidian-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="obsidian 基本使用">obsidian 基本使用</a><time datetime="2026-08-03T21:23:19.000Z" title="发表于 2026-08-04 05:23:19">2026-08-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/08/01/react-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="react 基本使用">react 基本使用</a><time datetime="2026-08-01T10:19:17.000Z" title="发表于 2026-08-01 18:19:17">2026-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/08/01/react-%E6%80%BB%E8%A7%88/" title="react 总览">react 总览</a><time datetime="2026-08-01T10:19:11.000Z" title="发表于 2026-08-01 18:19:11">2026-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/20/guice-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="guice 基本使用">guice 基本使用</a><time datetime="2026-07-20T14:34:06.000Z" title="发表于 2026-07-20 22:34:06">2026-07-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/16/vscode-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="vscode 基本使用">vscode 基本使用</a><time datetime="2026-07-16T08:26:53.000Z" title="发表于 2026-07-16 16:26:53">2026-07-16</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2016 - 2026 By 潼关路边的一只野鬼</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.4</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.4"></script><script src="/js/main.js?v=5.5.4"></script><script src="/js/tw_cn.js?v=5.5.4"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1.9/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const parseViewBox = viewBox => {
+    if (!viewBox) return null
+    const parts = viewBox.trim().split(/[\s,]+/).map(n => Number(n))
+    if (parts.length !== 4 || parts.some(n => Number.isNaN(n))) return null
+    return parts
+  }
+
+  const getSvgViewBox = svg => {
+    const attr = parseViewBox(svg.getAttribute('viewBox'))
+    if (attr) return attr
+
+    // Fallback: use bbox to build a viewBox
+    try {
+      const bbox = svg.getBBox()
+      if (bbox && bbox.width && bbox.height) return [bbox.x, bbox.y, bbox.width, bbox.height]
+    } catch (e) {
+      // getBBox may fail on some edge cases; ignore
+    }
+
+    const w = Number(svg.getAttribute('width')) || 0
+    const h = Number(svg.getAttribute('height')) || 0
+    if (w > 0 && h > 0) return [0, 0, w, h]
+    return [0, 0, 100, 100]
+  }
+
+  const setSvgViewBox = (svg, vb) => {
+    svg.setAttribute('viewBox', `${vb[0]} ${vb[1]} ${vb[2]} ${vb[3]}`)
+  }
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v))
+
+  const openSvgInNewTab = ({ source, initViewBox }) => {
+    const getClonedSvg = () => {
+      if (typeof source === 'string') {
+        const template = document.createElement('template')
+        template.innerHTML = source.trim()
+        const svg = template.content.querySelector('svg')
+        return svg ? svg.cloneNode(true) : null
+      }
+      if (source && typeof source.cloneNode === 'function') {
+        return source.cloneNode(true)
+      }
+      return null
+    }
+
+    const clone = getClonedSvg()
+    if (!clone) return
+    if (initViewBox && initViewBox.length === 4) {
+      clone.setAttribute('viewBox', initViewBox.join(' '))
+    }
+    if (!clone.getAttribute('xmlns')) clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg')
+    if (!clone.getAttribute('xmlns:xlink') && clone.outerHTML.includes('xlink:')) {
+      clone.setAttribute('xmlns:xlink', 'http://www.w3.org/1999/xlink')
+    }
+    // inject background to match current theme
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
+    const bg = getComputedStyle(document.body).backgroundColor || (isDark ? '#1e1e1e' : '#ffffff')
+    if (!clone.style.background) clone.style.background = bg
+
+    const serializer = new XMLSerializer()
+    const svgSource = serializer.serializeToString(clone)
+    const htmlSource = `<!doctype html><html><head><meta charset="utf-8" />
+      <style>
+        html, body { width: 100%; height: 100%; margin: 0; display: flex; align-items: center; justify-content: center; background: ${bg}; }
+        svg { max-width: 100%; max-height: 100%; height: auto; width: auto; }
+      </style>
+      </head><body>${svgSource}</body></html>`
+    const blob = new Blob([htmlSource], { type: 'text/html;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    window.open(url, '_blank', 'noopener')
+    setTimeout(() => URL.revokeObjectURL(url), 30000)
+  }
+
+  const attachMermaidViewerButton = wrap => {
+    let btn = wrap.querySelector('.mermaid-open-btn')
+    if (!btn) {
+      btn = document.createElement('button')
+      btn.type = 'button'
+      btn.className = 'mermaid-open-btn'
+      wrap.appendChild(btn)
+    }
+
+    btn.innerHTML = '<i class="fa fa-search fa-fw" aria-hidden="true"></i>'
+
+    if (!btn.__mermaidViewerBound) {
+      btn.addEventListener('click', e => {
+        e.preventDefault()
+        e.stopPropagation()
+        const svg = wrap.__mermaidOriginalSvg || wrap.querySelector('svg')
+        if (!svg) return
+        const initViewBox = wrap.__mermaidInitViewBox
+        if (typeof svg === 'string') {
+          openSvgInNewTab({ source: svg, initViewBox })
+          return
+        }
+        openSvgInNewTab({ source: svg, initViewBox })
+      })
+      btn.__mermaidViewerBound = true
+    }
+  }
+
+  // Zoom around a point (px, py) in the SVG viewport (in viewBox coordinates)
+  const zoomAtPoint = (vb, factor, px, py) => {
+    const w = vb[2] * factor
+    const h = vb[3] * factor
+    const nx = px - (px - vb[0]) * factor
+    const ny = py - (py - vb[1]) * factor
+    return [nx, ny, w, h]
+  }
+
+  const initMermaidGestures = wrap => {
+    const svg = wrap.querySelector('svg')
+    if (!svg) return
+
+    // Ensure viewBox exists so gestures always work
+    const initVb = getSvgViewBox(svg)
+    wrap.__mermaidInitViewBox = initVb
+    wrap.__mermaidCurViewBox = initVb.slice()
+    setSvgViewBox(svg, initVb)
+
+    // Avoid binding multiple times on themeChange/pjax
+    if (wrap.__mermaidGestureBound) return
+    wrap.__mermaidGestureBound = true
+
+    // Helper: map client (viewport) coordinate -> viewBox coordinate
+    const clientToViewBox = (clientX, clientY) => {
+      const rect = svg.getBoundingClientRect()
+      const vb = wrap.__mermaidCurViewBox || getSvgViewBox(svg)
+      const x = vb[0] + (clientX - rect.left) * (vb[2] / rect.width)
+      const y = vb[1] + (clientY - rect.top) * (vb[3] / rect.height)
+      return { x, y, rect, vb }
+    }
+
+    const state = {
+      pointers: new Map(),
+      startVb: null,
+      startDist: 0,
+      startCenter: null
+    }
+
+    const clampVb = vb => {
+      const init = wrap.__mermaidInitViewBox || vb
+      const minW = init[2] * 0.1
+      const maxW = init[2] * 10
+      const minH = init[3] * 0.1
+      const maxH = init[3] * 10
+      vb[2] = clamp(vb[2], minW, maxW)
+      vb[3] = clamp(vb[3], minH, maxH)
+      return vb
+    }
+
+    const setCurVb = vb => {
+      vb = clampVb(vb)
+      wrap.__mermaidCurViewBox = vb
+      setSvgViewBox(svg, vb)
+    }
+
+    const onPointerDown = e => {
+      // Allow only primary button for mouse
+      if (e.pointerType === 'mouse' && e.button !== 0) return
+      svg.setPointerCapture(e.pointerId)
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      if (state.pointers.size === 1) {
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      } else if (state.pointers.size === 2) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        state.startDist = Math.hypot(dx, dy)
+        state.startVb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        state.startCenter = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 }
+      }
+    }
+
+    const onPointerMove = e => {
+      if (!state.pointers.has(e.pointerId)) return
+      state.pointers.set(e.pointerId, { x: e.clientX, y: e.clientY })
+
+      // Pan with 1 pointer
+      if (state.pointers.size === 1 && state.startVb) {
+        const p = [...state.pointers.values()][0]
+        const prev = { x: e.clientX - e.movementX, y: e.clientY - e.movementY }
+        // movementX/Y unreliable on touch, compute from stored last position
+        const last = wrap.__mermaidLastSinglePointer || p
+        const dxClient = p.x - last.x
+        const dyClient = p.y - last.y
+        wrap.__mermaidLastSinglePointer = p
+
+        const { rect } = clientToViewBox(p.x, p.y)
+        const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+        const dx = dxClient * (vb[2] / rect.width)
+        const dy = dyClient * (vb[3] / rect.height)
+        setCurVb([vb[0] - dx, vb[1] - dy, vb[2], vb[3]])
+        return
+      }
+
+      // Pinch zoom with 2 pointers
+      if (state.pointers.size === 2 && state.startVb && state.startDist > 0) {
+        const pts = [...state.pointers.values()]
+        const dx = pts[0].x - pts[1].x
+        const dy = pts[0].y - pts[1].y
+        const dist = Math.hypot(dx, dy)
+        if (!dist) return
+        const factor = state.startDist / dist // dist bigger => zoom in (viewBox smaller)
+
+        const cx = (pts[0].x + pts[1].x) / 2
+        const cy = (pts[0].y + pts[1].y) / 2
+        const centerClient = { x: cx, y: cy }
+
+        const pxy = clientToViewBox(centerClient.x, centerClient.y)
+        const cpx = pxy.x
+        const cpy = pxy.y
+
+        const vb = zoomAtPoint(state.startVb, factor, cpx, cpy)
+        setCurVb(vb)
+      }
+    }
+
+    const onPointerUpOrCancel = e => {
+      state.pointers.delete(e.pointerId)
+      if (state.pointers.size === 0) {
+        state.startVb = null
+        state.startDist = 0
+        state.startCenter = null
+        wrap.__mermaidLastSinglePointer = null
+      } else if (state.pointers.size === 1) {
+        // reset single pointer baseline to avoid jump
+        wrap.__mermaidLastSinglePointer = [...state.pointers.values()][0]
+      }
+    }
+
+    // Wheel zoom (mouse/trackpad)
+    const onWheel = e => {
+      // ctrlKey on mac trackpad pinch; we treat both as zoom
+      e.preventDefault()
+      const delta = e.deltaY
+      const zoomFactor = delta > 0 ? 1.1 : 0.9
+      const { x, y } = clientToViewBox(e.clientX, e.clientY)
+      const vb = (wrap.__mermaidCurViewBox || getSvgViewBox(svg)).slice()
+      setCurVb(zoomAtPoint(vb, zoomFactor, x, y))
+    }
+
+    const onDblClick = () => {
+      const init = wrap.__mermaidInitViewBox
+      if (!init) return
+      wrap.__mermaidCurViewBox = init.slice()
+      setSvgViewBox(svg, init)
+    }
+
+    svg.addEventListener('pointerdown', onPointerDown)
+    svg.addEventListener('pointermove', onPointerMove)
+    svg.addEventListener('pointerup', onPointerUpOrCancel)
+    svg.addEventListener('pointercancel', onPointerUpOrCancel)
+    svg.addEventListener('wheel', onWheel, { passive: false })
+    svg.addEventListener('dblclick', onDblClick)
+  }
+
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+
+      // Clear old render (themeChange/pjax will rerun)
+      const oldSvg = item.querySelector('svg')
+      if (oldSvg) oldSvg.remove()
+      item.__mermaidGestureBound = false
+
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+        if (true) initMermaidGestures(item)
+        item.__mermaidOriginalSvg = svg
+        if (true) attachMermaidViewerButton(item)
+      }
+
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const applyThemeDefaultsConfig = theme => {
+    if (theme === 'dark-mode') {
+      Chart.defaults.color = "rgba(255, 255, 255, 0.8)"
+      Chart.defaults.borderColor = "rgba(255, 255, 255, 0.2)"
+      Chart.defaults.scale.ticks.backdropColor = "transparent"
+    } else {
+      Chart.defaults.color = "rgba(0, 0, 0, 0.8)"
+      Chart.defaults.borderColor = "rgba(0, 0, 0, 0.1)"
+      Chart.defaults.scale.ticks.backdropColor = "transparent"
+    }
+  }
+
+  // Recursively traverse the config object and automatically apply theme-specific color schemes
+  const applyThemeConfig = (obj, theme) => {
+    if (typeof obj !== 'object' || obj === null) return
+
+    Object.keys(obj).forEach(key => {
+      const value = obj[key]
+      // If the property is an object and has theme-specific options, apply them
+      if (typeof value === 'object' && value !== null) {
+        if (value[theme]) {
+          obj[key] = value[theme] // Apply the value for the current theme
+        } else {
+          // Recursively process child objects
+          applyThemeConfig(value, theme)
+        }
+      }
+    })
+  }
+
+  const runChartJS = ele => {
+    window.loadChartJS = true
+
+    Array.from(ele).forEach((item, index) => {
+      const chartSrc = item.firstElementChild
+      const chartID = item.getAttribute('data-chartjs-id') || ('chartjs-' + index) // Use custom ID or default ID
+      const width = item.getAttribute('data-width')
+      const existingCanvas = document.getElementById(chartID)
+
+      // If a canvas already exists, remove it to avoid rendering duplicates
+      if (existingCanvas) {
+          existingCanvas.parentNode.remove()
+      }
+
+      const chartDefinition = chartSrc.textContent
+      const canvas = document.createElement('canvas')
+      canvas.id = chartID
+
+      const div = document.createElement('div')
+      div.className = 'chartjs-wrap'
+
+      if (width) {
+        div.style.width = width
+      }
+
+      div.appendChild(canvas)
+      chartSrc.insertAdjacentElement('afterend', div)
+
+      const ctx = document.getElementById(chartID).getContext('2d')
+
+      const config = JSON.parse(chartDefinition)
+
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark-mode' : 'light-mode'
+
+      // Set default styles (initial setup)
+      applyThemeDefaultsConfig(theme)
+
+      // Automatically traverse the config and apply dual-mode color schemes
+      applyThemeConfig(config, theme)
+
+      new Chart(ctx, config)
+    })
+  }
+
+  const loadChartJS = () => {
+    const chartJSEle = document.querySelectorAll('#article-container .chartjs-container')
+    if (chartJSEle.length === 0) return
+
+    window.loadChartJS ? runChartJS(chartJSEle) : btf.getScript('https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js').then(() => runChartJS(chartJSEle))
+  }
+
+  // Listen for theme change events
+  btf.addGlobalFn('themeChange', loadChartJS, 'chartjs')
+  btf.addGlobalFn('encrypt', loadChartJS, 'chartjs')
+
+  window.pjax ? loadChartJS() : document.addEventListener('DOMContentLoaded', loadChartJS)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><i class="fas fa-spinner fa-pulse" id="loading-status" hidden="hidden"></i><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="local-search-input"><input placeholder="搜索文章" type="text"/></div><hr/><div id="local-search-results"></div><div class="ais-Pagination" id="local-search-pagination" style="display:none;"><ul class="ais-Pagination-list"></ul></div><div id="local-search-stats"></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=5.5.4"></script></div></div></body></html>
