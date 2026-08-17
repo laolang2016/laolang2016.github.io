@@ -45,6 +45,44 @@ dotnet build --configuration Release
 dotnet run --configuration Release --project HelloDotnet/HelloDotnet.csproj
 ```
 
+## 输出目录配置示例
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net10.0-windows</TargetFramework>
+        <RootNamespace>wpf_hello</RootNamespace>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        <!-- bin 输出目录 -->
+        <OutputPath>build\$(Platform)\bin\</OutputPath>
+        <!-- obj 中间输出目录 -->
+        <IntermediateOutputPath>build\$(Platform)\obj\</IntermediateOutputPath>
+    </PropertyGroup>
+
+    <!-- 构建后自动删除项目根目录下 VS 创建的空 obj 文件夹 -->
+    <Target Name="RemoveEmptyObj" AfterTargets="Build">
+        <RemoveDir Directories="$(ProjectDir)obj" />
+    </Target>
+
+    <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+        <PackageReference Include="NLog" Version="6.1.4" />
+        <PackageReference Include="NLog.Schema" Version="6.1.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="nlog.config">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+</Project>
+```
+
 ## xunit 项目
 
 ### 添加 xunit 项目
