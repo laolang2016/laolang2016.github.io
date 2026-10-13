@@ -19,7 +19,7 @@ tags:
 `jwt` 有两种实现
 
 1. `jws` : `jwt` 的签名实现, 仅防纂改, 不妨读取. 也就是简单编码而不是加密
-2. `jwe` : `jwt` 的加密实现, 同事保证机密性与完整性. 也就是内容无法直接解密
+2. `jwe` : `jwt` 的加密实现, 同时保证机密性与完整性. 也就是内容无法直接解密
 
 # 各类 jwt 库比较
 
@@ -48,3 +48,9 @@ Spring Boot 4 整合 JWT 完整教程: https://www.ddkk.com/springboot/4-action/
 Spring Boot 3.0 - JWT Authentication with Spring Security using MySQL Database: https://www.geeksforgeeks.org/springboot/spring-boot-3-0-jwt-authentication-with-spring-security-using-mysql-database/
 
 Spring Boot 与 JWT 的概述: https://www.cnblogs.com/java-note/p/18787761
+
+
+# spring 2.x + jwt 0.9.1
+
+
+
